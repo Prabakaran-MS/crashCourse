@@ -1,0 +1,83 @@
+## Ignore build results
+bin/
+obj/
+out/
+[Ll]og/
+*.log
+
+## Ignore user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider and VS Code settings
+.idea/
+.vscode/
+*.code-workspace
+
+## Build and debug files
+*.dbmdl
+*.pdb
+*.mdb
+*.opendb
+*.cache
+*.ilk
+
+## NuGet packages
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+*.psmdcp
+
+## Auto-generated files
+Generated_Code/
+GeneratedFiles/
+*.g.cs
+*.g.i.cs
+
+## Configuration and secrets
+appsettings.Development.json
+secrets.json
+.env
+*.env
+
+## Test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+## DotCover
+*.dotCover
+
+## Web output
+wwwroot/dist/
+node_modules/
+bower_components/
+
+## Blazor and WASM specific
+obj/Debug/net*/staticwebassets/
+wwwroot/css/
+wwwroot/js/
+
+## Logs
+*.log
+*.tlog
+
+## Others
+*.tmp
+*.bak
+*.old
+*.orig
+
+# Optional: OS junk
+.DS_Store
+Thumbs.db
+
+# Ignore publish output
+publish/
+
+# Ignore EF Core Migrations snapshots (optional if you use it)
+Migrations/*Snapshot.cs

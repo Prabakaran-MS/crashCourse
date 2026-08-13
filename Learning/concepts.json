@@ -1,0 +1,11 @@
+{
+  "concepts": [
+    {
+      "id": "Cloud-Computing",
+      "title": "Cloud Computing",
+      "icon": "☁️",
+      "description": "From fundamentals to advanced cloud architecture, tools and interview prep.",
+      "manifest": "Cloud-Computing/manifest.json"
+    }
+  ]
+}

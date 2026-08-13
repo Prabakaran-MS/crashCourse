@@ -1,0 +1,150 @@
+{
+  "title": "Cloud Computing",
+  "icon": "☁️",
+  "sections": [
+    {
+      "title": "00 · Start Here",
+      "lessons": [
+        { "label": "Read Me First", "path": "00-Start-Here/read-me-first.md" }
+      ]
+    },
+    {
+      "title": "01 · Introduction",
+      "lessons": [
+        { "label": "What is Cloud Computing?", "path": "01-Introduction/what-is-cloud-computing.md" },
+        { "label": "History & Evolution", "path": "01-Introduction/history-evolution.md" },
+        { "label": "Key Characteristics", "path": "01-Introduction/characteristics.md" },
+        { "label": "Benefits & Challenges", "path": "01-Introduction/benefits-challenges.md" }
+      ]
+    },
+    {
+      "title": "02 · Service Models",
+      "lessons": [
+        { "label": "IaaS", "path": "02-Service-Models/iaas.md" },
+        { "label": "PaaS", "path": "02-Service-Models/paas.md" },
+        { "label": "SaaS", "path": "02-Service-Models/saas.md" },
+        { "label": "FaaS / Serverless", "path": "02-Service-Models/faas-serverless.md" }
+      ]
+    },
+    {
+      "title": "03 · Deployment Models",
+      "lessons": [
+        { "label": "Public Cloud", "path": "03-Deployment-Models/public-cloud.md" },
+        { "label": "Private Cloud", "path": "03-Deployment-Models/private-cloud.md" },
+        { "label": "Hybrid Cloud", "path": "03-Deployment-Models/hybrid-cloud.md" },
+        { "label": "Multi-Cloud", "path": "03-Deployment-Models/multi-cloud.md" },
+        { "label": "Community Cloud", "path": "03-Deployment-Models/community-cloud.md" }
+      ]
+    },
+    {
+      "title": "04 · Core Technologies",
+      "lessons": [
+        { "label": "Virtualization", "path": "04-Core-Technologies/virtualization.md" },
+        { "label": "Containers", "path": "04-Core-Technologies/containers.md" },
+        { "label": "Networking", "path": "04-Core-Technologies/networking.md" },
+        { "label": "Storage", "path": "04-Core-Technologies/storage.md" }
+      ]
+    },
+    {
+      "title": "05 · Cloud Providers",
+      "lessons": [
+        { "label": "AWS", "path": "05-Cloud-Providers/aws.md" },
+        { "label": "Azure", "path": "05-Cloud-Providers/azure.md" },
+        { "label": "GCP", "path": "05-Cloud-Providers/gcp.md" },
+        { "label": "Comparison", "path": "05-Cloud-Providers/comparison.md" }
+      ]
+    },
+    {
+      "title": "06 · Tools & Practices",
+      "lessons": [
+        { "label": "DevOps & CI/CD", "path": "06-Tools-and-Practices/devops-cicd.md" },
+        { "label": "Infrastructure as Code", "path": "06-Tools-and-Practices/iac.md" },
+        { "label": "Kubernetes", "path": "06-Tools-and-Practices/kubernetes.md" },
+        { "label": "Monitoring", "path": "06-Tools-and-Practices/monitoring.md" }
+      ]
+    },
+    {
+      "title": "07 · Security",
+      "lessons": [
+        { "label": "Cloud Security", "path": "07-Security/cloud-security.md" },
+        { "label": "IAM", "path": "07-Security/iam.md" },
+        { "label": "Compliance", "path": "07-Security/compliance.md" }
+      ]
+    },
+    {
+      "title": "08 · Hands-on Projects",
+      "lessons": [
+        { "label": "Projects", "path": "08-Hands-on-Projects/projects.md" }
+      ]
+    },
+    {
+      "title": "09 · Resources",
+      "lessons": [
+        { "label": "Certifications", "path": "09-Resources/certifications.md" },
+        { "label": "Free & Paid Courses", "path": "09-Resources/free-paid-certifications-and-courses.md" },
+        { "label": "Glossary", "path": "09-Resources/glossary.md" }
+      ]
+    },
+    {
+      "title": "10 · Advanced Concepts",
+      "lessons": [
+        { "label": "Microservices", "path": "10-Advanced-Concepts/microservices-architecture.md" },
+        { "label": "Databases in Cloud", "path": "10-Advanced-Concepts/databases-in-cloud.md" },
+        { "label": "Messaging & Event-Driven", "path": "10-Advanced-Concepts/messaging-event-driven.md" },
+        { "label": "Disaster Recovery & HA", "path": "10-Advanced-Concepts/disaster-recovery-ha.md" },
+        { "label": "Cost Optimization / FinOps", "path": "10-Advanced-Concepts/cost-optimization-finops.md" },
+        { "label": "Edge Computing & CDN", "path": "10-Advanced-Concepts/edge-computing-cdn.md" },
+        { "label": "AI / ML & Big Data", "path": "10-Advanced-Concepts/ai-ml-bigdata.md" },
+        { "label": "Well-Architected Framework", "path": "10-Advanced-Concepts/well-architected-framework.md" }
+      ]
+    },
+    {
+      "title": "11 · Tool Deep-Dives",
+      "lessons": [
+        { "label": "Terraform", "path": "11-Tool-Deep-Dives/terraform-deep-dive.md" },
+        { "label": "Docker", "path": "11-Tool-Deep-Dives/docker-deep-dive.md" },
+        { "label": "Kubernetes", "path": "11-Tool-Deep-Dives/kubernetes-deep-dive.md" },
+        { "label": "Ansible", "path": "11-Tool-Deep-Dives/ansible-deep-dive.md" },
+        { "label": "CI/CD", "path": "11-Tool-Deep-Dives/cicd-deep-dive.md" },
+        { "label": "Monitoring", "path": "11-Tool-Deep-Dives/monitoring-deep-dive.md" },
+        { "label": "Cloud CLI", "path": "11-Tool-Deep-Dives/cloud-cli-deep-dive.md" }
+      ]
+    },
+    {
+      "title": "12 · Cheat Sheets",
+      "lessons": [
+        { "label": "Docker", "path": "12-Cheat-Sheets/docker-cheatsheet.md" },
+        { "label": "kubectl", "path": "12-Cheat-Sheets/kubectl-cheatsheet.md" },
+        { "label": "Terraform", "path": "12-Cheat-Sheets/terraform-cheatsheet.md" },
+        { "label": "Git", "path": "12-Cheat-Sheets/git-cheatsheet.md" },
+        { "label": "Linux & Bash", "path": "12-Cheat-Sheets/linux-bash-cheatsheet.md" },
+        { "label": "Vim & tmux", "path": "12-Cheat-Sheets/vim-tmux-cheatsheet.md" },
+        { "label": "AWS CLI", "path": "12-Cheat-Sheets/aws-cli-cheatsheet.md" },
+        { "label": "Azure & gcloud CLI", "path": "12-Cheat-Sheets/azure-gcloud-cli-cheatsheet.md" },
+        { "label": "Provider Services", "path": "12-Cheat-Sheets/provider-services-cheatsheet.md" },
+        { "label": "Networking, Ports & Regex", "path": "12-Cheat-Sheets/networking-ports-regex-cheatsheet.md" }
+      ]
+    },
+    {
+      "title": "13 · Nooks & Corners",
+      "lessons": [
+        { "label": "Compute", "path": "13-Nooks-and-Corners/compute-deep.md" },
+        { "label": "Storage", "path": "13-Nooks-and-Corners/storage-deep.md" },
+        { "label": "Networking", "path": "13-Nooks-and-Corners/networking-deep.md" },
+        { "label": "Security & IAM", "path": "13-Nooks-and-Corners/security-iam-deep.md" },
+        { "label": "Containers", "path": "13-Nooks-and-Corners/containers-deep.md" },
+        { "label": "Kubernetes", "path": "13-Nooks-and-Corners/kubernetes-deep.md" },
+        { "label": "Databases & Cost", "path": "13-Nooks-and-Corners/databases-cost-deep.md" },
+        { "label": "Troubleshooting Playbook", "path": "13-Nooks-and-Corners/troubleshooting-playbook.md" }
+      ]
+    },
+    {
+      "title": "14 · Final Test",
+      "lessons": [
+        { "label": "Interview Questions", "path": "14-Final-Test/interview-questions.md" },
+        { "label": "Scenario Questions", "path": "14-Final-Test/scenario-questions.md" },
+        { "label": "Quiz", "path": "14-Final-Test/quiz.md" }
+      ]
+    }
+  ]
+}

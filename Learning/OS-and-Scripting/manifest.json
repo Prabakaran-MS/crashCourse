@@ -1,0 +1,80 @@
+{
+  "title": "Operating Systems & Scripting",
+  "icon": "🖥️",
+  "sections": [
+    {
+      "title": "00 · Start Here",
+      "lessons": [
+        { "label": "Read Me First", "path": "00-Start-Here/read-me-first.md" }
+      ]
+    },
+    {
+      "title": "01 · OS Fundamentals",
+      "lessons": [
+        { "label": "What is an OS?", "path": "01-OS-Fundamentals/what-is-an-os.md" },
+        { "label": "Kernel vs User Space", "path": "01-OS-Fundamentals/kernel-vs-userspace.md" },
+        { "label": "Processes & Threads", "path": "01-OS-Fundamentals/processes-threads.md" },
+        { "label": "Memory & File Systems", "path": "01-OS-Fundamentals/memory-filesystem.md" }
+      ]
+    },
+    {
+      "title": "02 · Types of OS",
+      "lessons": [
+        { "label": "Windows", "path": "02-Types-of-OS/windows.md" },
+        { "label": "Linux Distros", "path": "02-Types-of-OS/linux-distros.md" },
+        { "label": "macOS", "path": "02-Types-of-OS/macos.md" },
+        { "label": "Unix", "path": "02-Types-of-OS/unix.md" },
+        { "label": "RTOS & Embedded", "path": "02-Types-of-OS/rtos-embedded.md" }
+      ]
+    },
+    {
+      "title": "03 · Shells & Scripting Types",
+      "lessons": [
+        { "label": "Bash", "path": "03-Shells-and-Scripting-Types/bash.md" },
+        { "label": "PowerShell", "path": "03-Shells-and-Scripting-Types/powershell.md" },
+        { "label": "Zsh & Fish", "path": "03-Shells-and-Scripting-Types/zsh-fish.md" },
+        { "label": "Batch / CMD", "path": "03-Shells-and-Scripting-Types/batch-cmd.md" },
+        { "label": "Python Scripting", "path": "03-Shells-and-Scripting-Types/python-scripting.md" }
+      ]
+    },
+    {
+      "title": "04 · OS-Specific Commands",
+      "lessons": [
+        { "label": "Linux Commands", "path": "04-OS-Specific-Commands/linux-commands.md" },
+        { "label": "Windows Commands", "path": "04-OS-Specific-Commands/windows-commands.md" },
+        { "label": "macOS Commands", "path": "04-OS-Specific-Commands/macos-commands.md" }
+      ]
+    },
+    {
+      "title": "05 · Scripting: Basic → Advanced",
+      "lessons": [
+        { "label": "Variables & I/O", "path": "05-Scripting-Basic-to-Advanced/variables-io.md" },
+        { "label": "Conditionals & Loops", "path": "05-Scripting-Basic-to-Advanced/conditionals-loops.md" },
+        { "label": "Functions & Arguments", "path": "05-Scripting-Basic-to-Advanced/functions-args.md" },
+        { "label": "Regex & Text Processing", "path": "05-Scripting-Basic-to-Advanced/regex-text-processing.md" },
+        { "label": "Automation (cron / Task Scheduler)", "path": "05-Scripting-Basic-to-Advanced/automation-cron-tasks.md" }
+      ]
+    },
+    {
+      "title": "06 · Debugging Scripts",
+      "lessons": [
+        { "label": "Bash Debugging Tips", "path": "06-Debugging-Scripts/bash-debugging.md" },
+        { "label": "PowerShell Debugging Tips", "path": "06-Debugging-Scripts/powershell-debugging.md" },
+        { "label": "Common Pitfalls & Fixes", "path": "06-Debugging-Scripts/common-pitfalls.md" }
+      ]
+    },
+    {
+      "title": "07 · Cheat Sheets",
+      "lessons": [
+        { "label": "Bash Cheat Sheet", "path": "07-Cheat-Sheets/bash-cheatsheet.md" },
+        { "label": "PowerShell Cheat Sheet", "path": "07-Cheat-Sheets/powershell-cheatsheet.md" }
+      ]
+    },
+    {
+      "title": "08 · Final Test",
+      "lessons": [
+        { "label": "Interview Questions", "path": "08-Final-Test/interview-questions.md" }
+      ]
+    }
+  ]
+}

@@ -6,6 +6,13 @@
       "icon": "☁️",
       "description": "From fundamentals to advanced cloud architecture, tools and interview prep.",
       "manifest": "Cloud-Computing/manifest.json"
+    },
+    {
+      "id": "OS-and-Scripting",
+      "title": "Operating Systems & Scripting",
+      "icon": "🖥️",
+      "description": "Types of OS, shells & script types, OS-specific commands from basic to advanced, plus debugging tips.",
+      "manifest": "OS-and-Scripting/manifest.json"
     }
   ]
 }

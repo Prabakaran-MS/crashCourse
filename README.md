@@ -1,6 +1,6 @@
-# 🚀 crashCourse
+# 📚 Learning Hub
 
-> A **3-Month Crash Course to Master C# and .NET Technologies** — covering C# Core, ASP.NET Core, EF Core, Blazor, MAUI, SignalR, Unity, gRPC, Azure SDK, and more, with **50+ real-world test apps** and industry-standard tools like TDD, Docker, CI/CD, Microservices, and Design Patterns.
+> A growing, multi-track **learning platform** with in-depth, hands-on courses across many technologies — served through a lightweight, dynamic web viewer. New tracks and concepts are added over time. The first track is a complete **Cloud Computing** course, with more (C#/.NET, DevOps, and beyond) on the way.
 
 [![C#](https://img.shields.io/badge/C%23-512BD4?style=for-the-badge&logo=csharp&logoColor=white)](https://learn.microsoft.com/dotnet/csharp/)
 [![.NET](https://img.shields.io/badge/.NET_8.0-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
@@ -28,9 +28,9 @@
 
 ## 📖 About
 
-This repository is a hands-on, project-driven curriculum designed to take you from **C# fundamentals** to **production-grade .NET applications** in roughly three months. Each topic pairs concise theory with a real, runnable test app so you learn by building.
+This repository is a hands-on, curated **learning hub**. Each track is a self-contained course written in Markdown and rendered by a small, dependency-light web app (the **Learning Page**) that supports multiple concepts, search, diagrams, and syntax highlighting.
 
-Whether you're preparing for interviews, transitioning into .NET, or leveling up your skills, this crash course gives you a structured path with industry-standard practices baked in.
+The content is fully data-driven: adding a new track needs only a new folder plus a JSON entry — no code changes. Whether you're preparing for interviews, switching stacks, or leveling up, each track gives you a structured, industry-focused path.
 
 ---
 
@@ -61,9 +61,31 @@ Month 3 ──▶ MAUI, Unity, Azure, Microservices, Docker, CI/CD & Design Patt
 
 ## 📚 Included Learning Tracks
 
-- **[☁️ Cloud Computing Learning](Cloud-Computing-Learning/README.md)** — A complete, in-depth course on cloud computing concepts, service models, providers, tools, cheat sheets, deep-dive references, and a final interview-prep test.
+- **[☁️ Cloud Computing](Learning/Cloud-Computing/README.md)** — A complete, in-depth course on cloud computing concepts, service models, providers, tools, cheat sheets, deep-dive references, and a final interview-prep test.
 
-*(More .NET tracks and 50+ test apps are being added incrementally.)*
+*(More tracks — C#/.NET, DevOps, and other concepts — are being added incrementally.)*
+
+---
+
+## 🌐 Browse Online
+
+The Learning Hub is hosted with **GitHub Pages**:
+
+**https://prabakaran-ms.github.io/learning-hub/**
+
+---
+
+## ▶️ Run Locally
+
+The viewer uses `fetch`, so it must be served over HTTP (not opened as a file).
+
+**Visual Studio (Open Folder):** pick the **"Learning Page (web server)"** startup item and press **F5** — it starts a local server and opens your browser.
+
+**Terminal (any OS with PowerShell):**
+```powershell
+pwsh -ExecutionPolicy Bypass -File serve.ps1
+# then open http://localhost:8000/Learning-Page/
+```
 
 ---
 
@@ -105,28 +127,36 @@ Month 3 ──▶ MAUI, Unity, Azure, Microservices, Docker, CI/CD & Design Patt
 ## 🚦 Getting Started
 
 ### Prerequisites
-- [.NET SDK 8.0+](https://dotnet.microsoft.com/download)
-- [Visual Studio 2022/2026](https://visualstudio.microsoft.com/) or [VS Code](https://code.visualstudio.com/)
+- A modern web browser
 - [Git](https://git-scm.com/)
+- PowerShell (built into Windows; [PowerShell 7+](https://learn.microsoft.com/powershell/) on macOS/Linux) to run the local server
 
 ### Clone the repository
 ```bash
-git clone https://github.com/Prabakaran-MS/crashCourse.git
-cd crashCourse
+git clone https://github.com/Prabakaran-MS/learning-hub.git
+cd learning-hub
 ```
 
-### Run a sample project
-```bash
-dotnet run --project <path-to-project>
-```
+### Add a new track
+1. Create `Learning/<Your-Track>/` with your `.md` lessons.
+2. Add a `manifest.json` describing its `sections` and `lessons`.
+3. Add an entry to `Learning/concepts.json`.
+
+No code changes required — the viewer picks it up automatically.
 
 ---
 
 ## 📂 Repository Structure
 
 ```
-crashCourse/
-├── Cloud-Computing-Learning/   # Cloud computing course (Markdown-based)
+learning-hub/
+├── Learning/                   # Course content (Markdown)
+│   ├── concepts.json           # Registry of available tracks
+│   └── Cloud-Computing/        # A track (lessons + manifest.json)
+├── Learning-Page/              # Dynamic web viewer (HTML/CSS/JS)
+├── index.html                  # Root redirect to the viewer
+├── serve.ps1                   # Local static web server
+├── launch.vs.json              # Visual Studio startup item
 └── README.md                   # You are here
 ```
 
@@ -144,4 +174,4 @@ This project is licensed under the **MIT License** — see the `LICENSE` file fo
 
 ---
 
-⭐ If you find this crash course helpful, consider giving the repo a star!
+⭐ If you find this Learning Hub helpful, consider giving the repo a star!

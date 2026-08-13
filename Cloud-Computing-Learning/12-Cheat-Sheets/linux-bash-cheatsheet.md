@@ -4,6 +4,14 @@
 
 90% of cloud servers run Linux. These commands are essential for every cloud engineer.
 
+### 🎓 Professional (IT-Standard) Context
+
+| Task | Layman View | Professional (IT-Standard) Use + Example |
+|------|-------------|------------------------------------------|
+| Navigate/inspect | Look around the server | Navigation and inspection explore a running host.<br>They reveal processes, disk, and memory use.<br>They support operations triage.<br>They help diagnose problems fast.<br>They are core troubleshooting skills.<br>*Example: `ps`, `top`, and `df -h`.* |
+| Permissions | Control access | Permissions control who can access files.<br>They follow the Portable Operating System Interface (POSIX) model.<br>They combine access modes and ownership.<br>They protect sensitive files.<br>They enforce least privilege.<br>*Example: `chmod 600 key.pem`.* |
+| Scripting | Automate chores | Scripting automates repetitive tasks.<br>It combines commands into shell scripts.<br>It runs inside pipelines reliably.<br>It reduces manual effort and errors.<br>It makes operations repeatable.<br>*Example: bash deploy scripts.* |
+
 ---
 
 ## 📁 Files & Navigation

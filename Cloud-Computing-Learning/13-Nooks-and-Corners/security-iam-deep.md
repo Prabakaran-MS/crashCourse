@@ -4,6 +4,14 @@
 
 The subtle security details that cause breaches and interview stumbles.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Gotcha | Layman View | Professional (IT-Standard) View + Example |
+|--------|-------------|-------------------------------------------|
+| Over-permissive policies | Too much access | Over-permissive policies grant more access than needed.<br>Wildcard `*` grants violate least privilege.<br>They widen the blast radius of a breach.<br>Audits flag them as risks.<br>Scope permissions tightly instead.<br>*Example: an `Action: "*"` audit finding.* |
+| Policy evaluation | Deny wins | Policy evaluation decides the final access outcome.<br>An explicit deny always overrides an allow.<br>Multiple policy layers combine.<br>Understanding order prevents surprises.<br>Deny is the safety default.<br>*Example: a Service Control Policy (SCP) deny blocking an Identity and Access Management (IAM) allow.* |
+| Key/secret leaks | Exposed credentials | Leaked keys and secrets expose systems.<br>Credentials in code are a common risk.<br>Regular rotation limits exposure.<br>Secret managers store them safely.<br>Automation reduces human error.<br>*Example: HashiCorp Vault or AWS Secrets Manager rotation.* |
+
 ---
 
 ## 🔑 IAM Policy Evaluation Logic (Critical!)

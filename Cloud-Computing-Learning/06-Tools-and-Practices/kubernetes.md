@@ -6,6 +6,30 @@
 
 > 🚢 If [Docker](../04-Core-Technologies/containers.md) builds the ships (containers), Kubernetes is the harbor master orchestrating the whole fleet.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Concept | Layman View | Professional (IT-Standard) View + Example |
+|---------|-------------|-------------------------------------------|
+| Pod | Smallest running unit | A Pod is the smallest deployable unit in Kubernetes.<br>It holds one or more tightly coupled containers.<br>Containers in a Pod share network and storage.<br>Pods are ephemeral and can be replaced.<br>They are scheduled onto nodes.<br>*Example: an application container plus a sidecar in one Pod.* |
+| Deployment | Manage app copies | A Deployment manages replicas of a Pod declaratively.<br>It handles rolling updates and rollbacks.<br>It self-heals by recreating failed Pods.<br>Desired replica count is maintained automatically.<br>It is the standard way to run stateless apps.<br>*Example: applying a Deployment with `kubectl apply -f deployment.yaml`.* |
+| Service | Stable address | A Service gives Pods a stable network identity.<br>It provides a fixed virtual Internet Protocol (IP) and Domain Name System (DNS) name.<br>It load-balances traffic across matching Pods.<br>Pods can change while the Service stays constant.<br>It decouples clients from Pod lifecycles.<br>*Example: a ClusterIP Service fronting three replicas.* |
+| Autoscaling | Grow with traffic | The Horizontal Pod Autoscaler (HPA) adjusts Pod count automatically.<br>It scales based on Central Processing Unit (CPU) or custom metrics.<br>It adds Pods under load and removes them when idle.<br>This maintains performance and saves cost.<br>Thresholds are configurable.<br>*Example: an HPA scaling Pods from two to ten at 70% CPU usage.* |
+
+---
+
+## 🗺️ Visual Overview
+
+```mermaid
+flowchart TB
+    CP["Control Plane (the brain)"] --> N1["Worker Node 1"]
+    CP --> N2["Worker Node 2"]
+    N1 --> P1["Pod"]
+    N1 --> P2["Pod"]
+    N2 --> P3["Pod"]
+```
+
+**Explanation:** Kubernetes automatically runs and manages containers across many machines. A control plane (the brain) decides where containers run, while worker nodes host the actual application Pods — restarting and scaling them as needed.
+
 ---
 
 ## 🤔 Why Orchestration?

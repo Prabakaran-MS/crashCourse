@@ -4,6 +4,14 @@
 
 Essential reference tables every cloud engineer needs at their fingertips.
 
+### 🎓 Professional (IT-Standard) Context
+
+| Topic | Layman View | Professional (IT-Standard) Use + Example |
+|-------|-------------|------------------------------------------|
+| Ports | App doorways | Ports are numbered doorways for network services.<br>Well-known ports are assigned by the Internet Assigned Numbers Authority (IANA).<br>Each service listens on a standard port.<br>They route traffic to the right app.<br>They are key to firewall rules.<br>*Example: 443 for Hypertext Transfer Protocol Secure (HTTPS), 22 for Secure Shell (SSH), 5432 for Postgres.* |
+| Private ranges | Internal addresses | Private ranges are internal-only IP addresses.<br>They are defined by Request for Comments (RFC) 1918.<br>They use Classless Inter-Domain Routing (CIDR) blocks.<br>They are not routable on the public internet.<br>They isolate internal networks.<br>*Example: 10.0.0.0/8 for a Virtual Private Cloud (VPC).* |
+| Regex/YAML | Pattern & config | Regular Expressions (Regex) match text patterns.<br>YAML Ain't Markup Language (YAML) structures configuration.<br>Regex validates input formats.<br>YAML defines Infrastructure as Code (IaC) and manifests.<br>Both are everyday operations tools.<br>*Example: YAML for Kubernetes and Continuous Integration (CI) configs.* |
+
 ---
 
 ## 🔢 Common Ports (Memorize These!)

@@ -4,6 +4,28 @@
 
 Cloud storage lets you store and retrieve data over the internet. There are **three main types**, each for different use cases.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Concept | Layman View | Professional (IT-Standard) View + Example |
+|---------|-------------|-------------------------------------------|
+| Object storage | Store files in buckets | Object storage keeps data as objects with metadata in buckets.<br>It is accessed over Hypertext Transfer Protocol (HTTP) using an Application Programming Interface (API).<br>It scales almost infinitely.<br>It offers very high durability (often eleven nines).<br>It suits backups, media, and static assets.<br>*Example: Amazon Simple Storage Service (S3) or Azure Blob Storage.* |
+| Block storage | A virtual hard drive | Block storage provides low-latency volumes attached to a server.<br>It behaves like a physical hard disk.<br>It is ideal for databases and operating systems.<br>Volumes can be resized and snapshotted.<br>Each volume attaches to one instance at a time.<br>*Example: Amazon Elastic Block Store (EBS) mounted to an Elastic Compute Cloud (EC2) instance.* |
+| File storage | A shared network folder | File storage offers a shared file system over the network.<br>It uses protocols like Network File System (NFS) or Server Message Block (SMB).<br>Many servers can mount it at once.<br>It suits shared application data.<br>It is fully managed by the provider.<br>*Example: Amazon Elastic File System (EFS) or Azure Files.* |
+| Tiering & lifecycle | Cheaper storage for old data | Lifecycle policies move data between storage tiers automatically.<br>Data flows from hot to cold to archive over time.<br>This optimizes cost for infrequently used data.<br>Rules trigger based on age or access.<br>It reduces storage bills significantly.<br>*Example: a Simple Storage Service (S3) lifecycle rule moving data to Glacier after 90 days.* |
+
+---
+
+## 🗺️ Visual Overview
+
+```mermaid
+flowchart LR
+    Data["📁 Your Data"] --> Block["Block Storage\n(virtual hard disk)"]
+    Data --> File["File Storage\n(shared folder)"]
+    Data --> Object["Object Storage\n(buckets for files)"]
+```
+
+**Explanation:** Cloud storage comes in three flavors. Block storage acts like a hard disk for a server, file storage is a shared network folder, and object storage holds huge numbers of files (photos, backups) in buckets accessed over the web.
+
 ---
 
 ## 🗂️ Three Types of Storage

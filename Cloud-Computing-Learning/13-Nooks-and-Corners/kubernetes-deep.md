@@ -4,6 +4,14 @@
 
 Deep K8s mechanics that separate operators from experts. Heavy interview material.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Gotcha | Layman View | Professional (IT-Standard) View + Example |
+|--------|-------------|-------------------------------------------|
+| Requests/limits | Resource budgeting | Requests and limits budget resources per Pod.<br>Requests reserve guaranteed capacity.<br>Limits cap maximum usage.<br>They set the Quality of Service (QoS) class.<br>Exceeding memory triggers termination.<br>*Example: an Out Of Memory Kill (OOMKill) when the memory limit is exceeded.* |
+| Probes | Health checks | Probes let Kubernetes check container health.<br>Liveness probes restart stuck containers.<br>Readiness probes gate incoming traffic.<br>Startup probes handle slow starts.<br>They keep apps reliable.<br>*Example: a readiness gate before routing traffic.* |
+| Scheduling | Where Pods land | Scheduling decides which node runs a Pod.<br>Taints and tolerations repel or allow Pods.<br>Affinity rules attract Pods to nodes.<br>They isolate specialized workloads.<br>They optimize placement.<br>*Example: a Graphics Processing Unit (GPU) node taint for machine-learning Pods.* |
+
 ---
 
 ## 🏛️ Control Plane Components (Know Each One)

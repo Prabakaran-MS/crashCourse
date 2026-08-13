@@ -4,6 +4,14 @@
 
 A quick **50-question** quiz to test your knowledge. Answers are at the bottom — no peeking! Score yourself.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Quiz Area | Layman View | Professional (IT-Standard) Focus + Example |
+|-----------|-------------|--------------------------------------------|
+| Core concepts | The essentials | Core concepts cover the essential cloud definitions.<br>They follow the National Institute of Standards and Technology (NIST) models.<br>They include the essential characteristics.<br>They form the shared vocabulary.<br>They are frequently tested.<br>*Example: naming the five essential characteristics.* |
+| Services | Know the tools | Services questions test knowledge of provider offerings.<br>You map equivalent services across clouds.<br>Each provider has its own naming.<br>Understanding equivalents aids design.<br>It shows breadth of knowledge.<br>*Example: Elastic Compute Cloud (EC2) ≈ Azure Virtual Machine (VM) ≈ Compute Engine.* |
+| Best practices | Do it right | Best-practice questions test sound design habits.<br>They draw on the Well-Architected pillars.<br>They weigh security and reliability.<br>They balance competing trade-offs.<br>They reflect real-world judgment.<br>*Example: balancing security and reliability trade-offs.* |
+
 ---
 
 ## 📝 Multiple Choice

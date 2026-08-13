@@ -4,6 +4,14 @@
 
 You'll edit config files on remote servers where only Vim exists. tmux keeps sessions alive. Both are must-knows.
 
+### 🎓 Professional (IT-Standard) Context
+
+| Tool | Layman View | Professional (IT-Standard) Use + Example |
+|------|-------------|------------------------------------------|
+| Vim | Edit files anywhere | Vim is a standard terminal text editor.<br>It works on remote and headless hosts.<br>It needs no graphical interface.<br>It edits config files in place.<br>It is available on almost every server.<br>*Example: editing `/etc/nginx/nginx.conf` over Secure Shell (SSH).* |
+| tmux | Keep work alive | The Terminal Multiplexer (tmux) keeps sessions alive.<br>Work survives network disconnects.<br>Sessions can be detached and reattached.<br>Long tasks keep running in the background.<br>It protects against dropped connections.<br>*Example: running long deploys in a detached session.* |
+| Panes/windows | Split the screen | Panes and windows split the terminal screen.<br>They allow true multitasking.<br>Multiple views run side by side.<br>They help during incident response.<br>They keep context in one place.<br>*Example: logs and a shell side by side.* |
+
 ---
 
 ## 📝 Vim — Modes

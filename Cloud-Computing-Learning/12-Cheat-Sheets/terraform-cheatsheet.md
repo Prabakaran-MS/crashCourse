@@ -4,6 +4,14 @@
 
 Every command, flag, and HCL trick.
 
+### 🎓 Professional (IT-Standard) Context
+
+| Task | Layman View | Professional (IT-Standard) Use + Example |
+|------|-------------|------------------------------------------|
+| Plan | Preview changes | Plan previews infrastructure changes before applying.<br>It diffs desired state against actual state.<br>It enables safe review in Continuous Integration (CI).<br>It prevents surprise modifications.<br>It can be saved to a file.<br>*Example: `terraform plan -out=tfplan`.* |
+| Apply | Build infra | Apply executes the approved changes.<br>It provisions the real resources.<br>It performs controlled, ordered provisioning.<br>It updates the state record.<br>It builds infrastructure repeatably.<br>*Example: `terraform apply tfplan`.* |
+| State | Track resources | State tracks the resources Terraform manages.<br>It is stored remotely for teams.<br>State locking prevents concurrent conflicts.<br>It maps config to real resources.<br>It enables safe collaboration.<br>*Example: `terraform state list`.* |
+
 ---
 
 ## 🔄 Core Workflow Commands

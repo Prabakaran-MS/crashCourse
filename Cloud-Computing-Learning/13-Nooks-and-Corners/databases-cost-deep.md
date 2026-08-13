@@ -4,6 +4,14 @@
 
 Database performance traps and the hidden cloud costs that shock teams.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Gotcha | Layman View | Professional (IT-Standard) View + Example |
+|--------|-------------|-------------------------------------------|
+| Missing indexes | Slow queries | Missing indexes cause slow database queries.<br>The engine scans entire tables without them.<br>Indexes speed up lookups dramatically.<br>They must match query patterns.<br>They improve query plans.<br>*Example: adding an index to fix a full table scan.* |
+| N+1 queries | Too many round-trips | The N+1 problem makes too many database round-trips.<br>One query per row multiplies calls.<br>It slows applications badly at scale.<br>Batching or eager loading fixes it.<br>It reduces database load.<br>*Example: using a JOIN instead of per-row queries.* |
+| Idle resources | Paying for nothing | Idle resources cost money while unused.<br>Orphaned disks and volumes linger.<br>Detecting them prevents waste.<br>Stopping or deleting them saves cost.<br>It is a core cost-optimization habit.<br>*Example: deleting orphaned Elastic Block Store (EBS) volumes and snapshots.* |
+
 ---
 
 # Part 1 — Database Deep Corners

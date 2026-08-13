@@ -4,6 +4,15 @@
 
 Deep, practical guide to operating **Kubernetes**. For concepts, see [Kubernetes & Orchestration](../06-Tools-and-Practices/kubernetes.md).
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Concept | Layman View | Professional (IT-Standard) View + Example |
+|---------|-------------|-------------------------------------------|
+| Control plane | The brain | The control plane manages the whole cluster.<br>It includes the Application Programming Interface (API) server and scheduler.<br>It stores state in etcd.<br>Controllers keep actual state matching desired state.<br>It makes all cluster decisions.<br>*Example: `kube-apiserver` handling requests.* |
+| Workloads | Running apps | Workloads are the applications running in the cluster.<br>Deployments run stateless apps.<br>StatefulSets run stateful apps.<br>DaemonSets run one Pod per node.<br>They define how apps run and scale.<br>*Example: a StatefulSet for a database.* |
+| Config & secrets | Settings storage | Config and secrets externalize app settings.<br>ConfigMaps hold non-sensitive configuration.<br>Secrets hold sensitive values.<br>They are injected into Pods.<br>They keep config out of images.<br>*Example: environment variables from a ConfigMap.* |
+| Ingress | Front door | Ingress is the front door into the cluster.<br>It routes external Hypertext Transfer Protocol (HTTP) traffic.<br>It works at Layer 7 (application layer).<br>It can terminate Transport Layer Security (TLS).<br>It maps hosts and paths to services.<br>*Example: NGINX Ingress with TLS termination.* |
+
 ---
 
 ## 🧰 kubectl — Your Main Tool

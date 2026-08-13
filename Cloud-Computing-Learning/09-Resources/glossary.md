@@ -4,6 +4,26 @@
 
 Quick reference for common terms. Bookmark this page!
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Term | Layman View | Professional (IT-Standard) View + Example |
+|------|-------------|-------------------------------------------|
+| SLA | A uptime promise | A Service Level Agreement (SLA) is a contractual availability commitment.<br>It defines guaranteed uptime targets.<br>It often includes penalties for breaches.<br>It sets expectations between provider and customer.<br>Higher targets mean less allowed downtime.<br>*Example: a 99.99% SLA allows about 52 minutes of downtime per year.* |
+| Region / AZ | Where servers live | A region is a geographic cloud location.<br>Each region contains multiple Availability Zones (AZs).<br>Availability Zones are physically isolated data centers.<br>Spreading across AZs improves resilience.<br>Region choice affects latency and compliance.<br>*Example: the us-east-1 region containing six Availability Zones (AZs).* |
+| Latency | Delay/lag | Latency is the delay before a response returns.<br>It is measured in milliseconds (ms).<br>It reflects the round-trip response time.<br>Lower latency means faster user experience.<br>It is reduced with edge and regional placement.<br>*Example: targeting under 100 milliseconds (ms) for web Application Programming Interfaces (APIs).* |
+| Throughput | How much it handles | Throughput measures how much work a system handles per unit time.<br>It is expressed as Requests Per Second (RPS) or Input/Output Operations Per Second (IOPS).<br>Higher throughput means more capacity.<br>It is a key scalability metric.<br>It is tuned via scaling and caching.<br>*Example: a system handling 10,000 requests per second (RPS).* |
+
+## 🗺️ Visual Overview
+
+```mermaid
+flowchart LR
+    Term["📖 Unknown Term"] --> Look["Look it up here"]
+    Look --> Plain["Plain-English meaning"]
+    Look --> Pro["Professional definition + example"]
+```
+
+**Explanation:** This glossary is your quick-reference dictionary for cloud jargon. Whenever you hit an unfamiliar term, look it up to get both a plain-English meaning and a professional definition with a real example.
+
 ---
 
 | Term | Definition |

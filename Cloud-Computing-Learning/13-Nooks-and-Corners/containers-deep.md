@@ -4,6 +4,14 @@
 
 Deep Docker/container internals and the traps that catch people in production.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Gotcha | Layman View | Professional (IT-Standard) View + Example |
+|--------|-------------|-------------------------------------------|
+| Image bloat | Boxes too big | Image bloat makes containers slow to pull and deploy.<br>Large images waste storage and bandwidth.<br>Multi-stage builds drop build-time files.<br>Slim base images shrink the footprint.<br>Smaller images start faster.<br>*Example: a distroless or alpine base image.* |
+| Root by default | Unsafe permissions | Containers run as root unless told otherwise.<br>Root access widens the attack surface.<br>Running as a non-root user is safer.<br>It limits damage from a breach.<br>It follows security best practice.<br>*Example: a `USER app` line in the Dockerfile.* |
+| Ephemeral storage | Data disappears | Container storage is ephemeral by default.<br>Data is lost when the container stops.<br>Volumes persist data outside the container.<br>They survive restarts and removal.<br>They enable stateful workloads.<br>*Example: a named volume for database data.* |
+
 ---
 
 ## 🧱 Image Layers & Caching (The #1 Thing to Understand)

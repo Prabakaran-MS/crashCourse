@@ -4,6 +4,30 @@
 
 **AWS** is the **market leader** in cloud computing (launched 2006), offering 200+ services across compute, storage, databases, AI/ML, and more.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Service Area | Layman View | Professional (IT-Standard) View + Example |
+|--------------|-------------|-------------------------------------------|
+| Compute | Rent servers | Amazon Web Services (AWS) offers several compute models.<br>Elastic Compute Cloud (EC2) provides Virtual Machines (VMs).<br>Lambda provides serverless functions.<br>Elastic Container Service (ECS) and Elastic Kubernetes Service (EKS) run containers.<br>Auto Scaling adjusts capacity to demand.<br>*Example: Auto Scaling EC2 instances behind an Application Load Balancer (ALB).* |
+| Storage | Store files/data | AWS provides multiple storage types.<br>Simple Storage Service (S3) is object storage.<br>Elastic Block Store (EBS) is block storage for instances.<br>Elastic File System (EFS) is shared file storage.<br>Lifecycle rules optimize cost over time.<br>*Example: hosting static website assets in an S3 bucket.* |
+| Database | Managed databases | AWS offers managed relational and NoSQL databases.<br>Relational Database Service (RDS) and Aurora handle Structured Query Language (SQL).<br>DynamoDB is a managed NoSQL database.<br>Backups, patching, and replication are automated.<br>Multi-Availability Zone (AZ) options add resilience.<br>*Example: an Aurora Multi-AZ deployment for High Availability (HA).* |
+| Identity & governance | Control access | AWS secures access with Identity and Access Management (IAM).<br>IAM defines users, roles, and least-privilege policies.<br>Organizations manages multiple accounts centrally.<br>CloudTrail records API activity for auditing.<br>These support compliance and governance.<br>*Example: assigning least-privilege IAM roles per service.* |
+
+---
+
+## 🗺️ Visual Overview
+
+```mermaid
+flowchart TB
+    AWS["☁️ Amazon Web Services"]
+    AWS --> Compute["Compute: EC2, Lambda"]
+    AWS --> Storage["Storage: S3, EBS"]
+    AWS --> DB["Databases: RDS, DynamoDB"]
+    AWS --> Net["Networking: VPC, Route 53"]
+```
+
+**Explanation:** Amazon Web Services (AWS) is the largest cloud provider, offering hundreds of services grouped into families like compute, storage, databases, and networking. You mix and match these building blocks to run almost any application.
+
 ---
 
 ## 🧱 Core Services by Category

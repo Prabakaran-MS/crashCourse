@@ -6,6 +6,15 @@
 
 ➡️ Concept intro: [Containers & Docker](../04-Core-Technologies/containers.md)
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Concept | Layman View | Professional (IT-Standard) View + Example |
+|---------|-------------|-------------------------------------------|
+| Dockerfile | Build recipe | A Dockerfile is the recipe to build an image.<br>It lists declarative build instructions.<br>Each instruction adds to the image.<br>It makes builds repeatable.<br>It is version-controlled with code.<br>*Example: `FROM node:20` plus `COPY` plus `CMD`.* |
+| Layers & cache | Reuse build steps | Layers and cache speed up image builds.<br>Each instruction creates an immutable layer.<br>Unchanged layers are reused from cache.<br>Good ordering maximizes cache hits.<br>It shortens rebuild times.<br>*Example: ordering `COPY package.json` first.* |
+| Volumes | Persistent storage | Volumes persist data beyond a container's life.<br>They store data outside the container layer.<br>They survive container restarts and removal.<br>They enable stateful workloads.<br>They separate data from code.<br>*Example: `-v data:/var/lib/db`.* |
+| Compose | Multi-container apps | Docker Compose runs multi-container applications.<br>It defines services in one declarative file.<br>It starts a full local stack at once.<br>It wires networking between services.<br>It simplifies local development.<br>*Example: `docker compose up` for an app plus database.* |
+
 ---
 
 ## 🏗️ Docker Architecture

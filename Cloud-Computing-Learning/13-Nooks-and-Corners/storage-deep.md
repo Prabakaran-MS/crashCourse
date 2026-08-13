@@ -4,6 +4,14 @@
 
 Every hidden detail of cloud storage that causes surprises (and bills).
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Gotcha | Layman View | Professional (IT-Standard) View + Example |
+|--------|-------------|-------------------------------------------|
+| Egress fees | Downloading costs money | Egress fees charge for data leaving the cloud.<br>Downloads and cross-region transfers cost money.<br>They cause surprise bills.<br>Architecture affects transfer volume.<br>Plan data flows to reduce them.<br>*Example: high cross-region egress charges.* |
+| Consistency | When data appears | Consistency defines when written data becomes visible.<br>Strong consistency shows writes immediately.<br>Eventual consistency may lag briefly.<br>The model affects application logic.<br>Choose based on correctness needs.<br>*Example: Simple Storage Service (S3) strong read-after-write consistency.* |
+| Lifecycle | Old data lingers | Lifecycle policies manage aging data automatically.<br>They move data to cheaper tiers over time.<br>They can expire and delete old objects.<br>They cut storage costs.<br>They reduce manual cleanup.<br>*Example: moving data to Glacier after 90 days.* |
+
 ---
 
 ## 🪣 Object Storage (S3) Deep Dive

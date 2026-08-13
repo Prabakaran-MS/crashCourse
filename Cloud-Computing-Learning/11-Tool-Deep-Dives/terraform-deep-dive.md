@@ -6,6 +6,15 @@
 
 ➡️ Concept intro: [Infrastructure as Code](../06-Tools-and-Practices/iac.md)
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Concept | Layman View | Professional (IT-Standard) View + Example |
+|---------|-------------|-------------------------------------------|
+| Providers | Plugins per cloud | Providers are plugins for each platform.<br>They map HashiCorp Configuration Language (HCL) to cloud Application Programming Interfaces (APIs).<br>Each cloud has its own provider.<br>They translate config into real resources.<br>They are declared in the configuration.<br>*Example: a `provider "aws"` block.* |
+| Plan/apply | Preview then build | Plan and apply drive Terraform changes.<br>Plan previews changes before making them.<br>It diffs desired state against actual state.<br>Apply then executes the approved changes.<br>It prevents surprise modifications.<br>*Example: running `terraform plan` before `apply`.* |
+| Remote state | Shared memory of infra | Remote state stores Terraform's record of infrastructure.<br>It is shared safely across a team.<br>State locking prevents concurrent conflicts.<br>It tracks what has been created.<br>It enables collaboration.<br>*Example: a Simple Storage Service (S3) backend with a DynamoDB lock.* |
+| Modules | Reusable blueprints | Modules package reusable infrastructure.<br>They are parameterized and versioned.<br>They avoid repeating configuration.<br>They enforce consistent patterns.<br>They can be shared via a registry.<br>*Example: a registry network module.* |
+
 ---
 
 ## 🔧 Installation

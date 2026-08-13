@@ -4,6 +4,29 @@
 
 **High Availability (HA)** keeps systems running with minimal downtime. **Disaster Recovery (DR)** restores systems after a major failure (region outage, data loss).
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Concept | Layman View | Professional (IT-Standard) View + Example |
+|---------|-------------|-------------------------------------------|
+| RTO | How fast you recover | The Recovery Time Objective (RTO) is the maximum acceptable downtime.<br>It defines how quickly systems must be restored.<br>It drives disaster-recovery design choices.<br>Lower RTO usually costs more.<br>It is agreed with the business.<br>*Example: an RTO of one hour after a major failure.* |
+| RPO | How much data you can lose | The Recovery Point Objective (RPO) is the maximum acceptable data loss.<br>It defines how far back recovery can go.<br>It is set by backup and replication frequency.<br>Lower RPO needs more frequent backups.<br>It balances cost and risk.<br>*Example: an RPO of five minutes using continuous backup.* |
+| HA design | Avoid single failures | High Availability (HA) design removes single points of failure.<br>It uses redundancy across Availability Zones (AZs).<br>Load balancing and health checks reroute traffic.<br>Failures are handled automatically.<br>It keeps services running.<br>*Example: an active-active deployment across multiple AZs.* |
+| DR strategy | Plan for disaster | A Disaster Recovery (DR) strategy defines how to recover from major outages.<br>Options range from backup-and-restore to multi-site.<br>Intermediate patterns are pilot light and warm standby.<br>Cost rises with faster recovery.<br>The choice matches RTO and RPO.<br>*Example: a cross-region warm standby environment.* |
+
+---
+
+## 🗺️ Visual Overview
+
+```mermaid
+flowchart LR
+    Region1["☁️ Primary Region"] -->|"replicate"| Region2["☁️ Backup Region"]
+    Fail["💥 Failure"] --> Region1
+    Region1 -.->|"failover"| Region2
+    Region2 --> Users["👤 Users stay served"]
+```
+
+**Explanation:** High Availability (HA) and Disaster Recovery (DR) keep services running through failures. Data is replicated to a backup region, and if the primary region fails, traffic fails over so users barely notice — guided by targets for recovery time (RTO) and data loss (RPO).
+
 ---
 
 ## 📏 Key Metrics

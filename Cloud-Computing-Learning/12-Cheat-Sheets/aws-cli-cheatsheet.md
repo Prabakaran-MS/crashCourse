@@ -4,6 +4,14 @@
 
 Control AWS from the terminal. Includes filtering tricks with `--query` and `--filters`.
 
+### 🎓 Professional (IT-Standard) Context
+
+| Task | Layman View | Professional (IT-Standard) Use + Example |
+|------|-------------|------------------------------------------|
+| Auth | Log in | Authentication establishes secure access to the cloud.<br>It uses role-based or Single Sign-On (SSO) login.<br>It avoids storing long-lived keys.<br>It scopes permissions per session.<br>It is the first step in any workflow.<br>*Example: running `aws configure sso`.* |
+| Query | Filter results | Querying filters and shapes command output.<br>It uses the JSON Metadata Expression Path (JMESPath) syntax.<br>It extracts only the fields you need.<br>It enables clean automation.<br>It reduces manual parsing.<br>*Example: `aws ec2 describe-instances --query`.* |
+| Automate | Script the cloud | Automation scripts repetitive cloud operations.<br>It runs batch actions in pipelines.<br>It fits Continuous Integration (CI) workflows.<br>It reduces manual, error-prone steps.<br>It makes deployments repeatable.<br>*Example: `aws s3 sync ./build s3://bucket`.* |
+
 ---
 
 ## 🔧 Setup & Auth

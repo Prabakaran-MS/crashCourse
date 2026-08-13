@@ -4,6 +4,32 @@
 
 Cloud providers publish **Well-Architected Frameworks** — best-practice pillars for building reliable, secure, efficient systems. AWS pioneered it; Azure & GCP have equivalents.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Pillar | Layman View | Professional (IT-Standard) View + Example |
+|--------|-------------|-------------------------------------------|
+| Operational Excellence | Run things smoothly | Operational excellence focuses on running and improving workloads.<br>It emphasizes automation and monitoring.<br>It uses runbooks and repeatable processes.<br>It learns from failures and reviews.<br>It keeps operations efficient.<br>*Example: Infrastructure as Code (IaC) plus runbooks and observability.* |
+| Security | Keep it safe | The security pillar protects data and systems.<br>It applies least-privilege access.<br>It encrypts data and audits activity.<br>It uses Identity and Access Management (IAM) controls.<br>It enforces defense in depth.<br>*Example: IAM plus Key Management Service (KMS) plus CloudTrail.* |
+| Reliability | Stay up | The reliability pillar keeps workloads available.<br>It designs for failure and recovery.<br>It spreads resources across Availability Zones (AZs).<br>It automates healing and scaling.<br>It meets availability targets.<br>*Example: a Multi-Availability Zone (AZ) deployment with auto-healing.* |
+| Performance & Cost | Fast and efficient | Performance efficiency and cost optimization balance speed and spend.<br>They select the right resource types.<br>They scale to match demand.<br>They remove waste continuously.<br>They align cost with value.<br>*Example: rightsizing instances and using Savings Plans.* |
+
+---
+
+## 🗺️ Visual Overview
+
+```mermaid
+mindmap
+  root((Well-Architected))
+    Operational Excellence
+    Security
+    Reliability
+    Performance Efficiency
+    Cost Optimization
+    Sustainability
+```
+
+**Explanation:** The Well-Architected Framework is a checklist of pillars for building good cloud systems. Balancing all of them — running well, staying secure and reliable, performing efficiently, and controlling cost — leads to a healthy, production-ready workload.
+
 ---
 
 ## 🏛️ The Six Pillars (AWS)

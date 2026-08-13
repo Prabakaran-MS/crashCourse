@@ -4,6 +4,14 @@
 
 A field guide to the errors you'll actually hit, with fast diagnosis steps. Great for on-call and interviews ("How would you debug X?").
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Symptom | Layman View | Professional (IT-Standard) Approach + Example |
+|---------|-------------|-----------------------------------------------|
+| 5xx errors | App is failing | Server-side (5xx) errors mean the application is failing.<br>They signal backend or dependency issues.<br>Check logs, metrics, and traces top-down.<br>Correlate signals to find the cause.<br>Fix the failing component.<br>*Example: correlating Application Load Balancer (ALB) 5xx errors with Pod restarts.* |
+| Access denied | Permission problem | Access-denied errors indicate a permission problem.<br>They come from restrictive policies.<br>Trace Identity and Access Management (IAM) policy evaluation.<br>Audit logs reveal the blocked action.<br>Adjust permissions minimally.<br>*Example: decoding an `AccessDenied` error via CloudTrail.* |
+| High latency | It's slow | High latency means responses are slow.<br>The cause may be network, app, or database.<br>Isolate each layer systematically.<br>Distributed traces pinpoint the slow part.<br>Fix the identified bottleneck.<br>*Example: tracing spans to find the slow service.* |
+
 ---
 
 ## ☸️ Kubernetes Troubleshooting

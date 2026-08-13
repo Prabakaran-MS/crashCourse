@@ -4,6 +4,14 @@
 
 Deep edge-case reference for cloud compute. The things that trip people up in production and interviews.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Gotcha | Layman View | Professional (IT-Standard) View + Example |
+|--------|-------------|-------------------------------------------|
+| Instance types | Sizes matter | Instance types define the resource profile of a server.<br>They balance Central Processing Unit (CPU), memory, and network.<br>Families are tuned for different workloads.<br>Choosing wrong wastes money or performance.<br>Match the family to the workload.<br>*Example: a compute-optimized C-family instance for CPU-bound apps.* |
+| Spot interruptions | Cheap but risky | Spot instances are cheap but can be reclaimed.<br>The provider gives a two-minute termination notice.<br>Workloads must save progress gracefully.<br>They suit fault-tolerant jobs.<br>Handling interruptions avoids data loss.<br>*Example: checkpointing Spot batch jobs before termination.* |
+| Autoscaling lag | Scaling isn't instant | Autoscaling reacts with some delay.<br>New instances need warm-up time.<br>Cooldown periods prevent thrashing.<br>Sudden spikes may briefly overload.<br>Tuning reduces the lag impact.<br>*Example: pre-warming an Auto Scaling Group (ASG) before a launch.* |
+
 ---
 
 ## 🖥️ EC2 / VM Instance Deep Dive

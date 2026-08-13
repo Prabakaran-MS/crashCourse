@@ -4,6 +4,30 @@
 
 **GCP** is Google's cloud (launched 2008), known for **data analytics, machine learning, Kubernetes**, and networking (built on Google's global backbone).
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Service Area | Layman View | Professional (IT-Standard) View + Example |
+|--------------|-------------|-------------------------------------------|
+| Compute | Rent servers | Google Cloud Platform (GCP) offers several compute models.<br>Compute Engine provides Virtual Machines (VMs).<br>Cloud Run runs containers serverlessly.<br>Google Kubernetes Engine (GKE) manages Kubernetes.<br>Autopilot mode manages nodes for you.<br>*Example: a GKE Autopilot managed Kubernetes cluster.* |
+| Data & analytics | Crunch big data | GCP is known for large-scale data analytics.<br>BigQuery is a serverless data warehouse.<br>Dataflow processes streaming and batch data.<br>These handle petabyte-scale workloads.<br>They integrate with machine learning tools.<br>*Example: running petabyte-scale queries in BigQuery.* |
+| ML/AI | Smart models | GCP provides strong Machine Learning (ML) and Artificial Intelligence (AI) services.<br>Vertex AI covers training and serving models.<br>TensorFlow tooling is deeply supported.<br>Managed infrastructure simplifies ML workflows.<br>Graphics Processing Units (GPUs) accelerate training.<br>*Example: training and serving models on Vertex AI.* |
+| Networking | Fast global network | GCP runs on Google's global fiber backbone.<br>A global Virtual Private Cloud (VPC) spans regions.<br>Cloud Load Balancing distributes traffic worldwide.<br>Anycast routing sends users to the nearest edge.<br>This delivers low latency globally.<br>*Example: an anycast global Hypertext Transfer Protocol Secure (HTTPS) load balancer.* |
+
+---
+
+## 🗺️ Visual Overview
+
+```mermaid
+flowchart TB
+    GCP["☁️ Google Cloud Platform"]
+    GCP --> Compute["Compute: Compute Engine, Cloud Run"]
+    GCP --> Storage["Storage: Cloud Storage"]
+    GCP --> Data["Data & AI: BigQuery, Vertex AI"]
+    GCP --> K8s["Kubernetes: GKE"]
+```
+
+**Explanation:** Google Cloud Platform (GCP) is known for strengths in data analytics, machine learning, and Kubernetes (which Google created). It offers the usual compute and storage families plus standout tools like BigQuery for analytics.
+
 ---
 
 ## 🧱 Core Services by Category

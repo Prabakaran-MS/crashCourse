@@ -4,6 +4,28 @@
 
 **FinOps** (Financial Operations) is the practice of managing and optimizing cloud spending. Cloud bills can explode without discipline.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Concept | Layman View | Professional (IT-Standard) View + Example |
+|---------|-------------|-------------------------------------------|
+| Rightsizing | Don't over-buy | Rightsizing matches resource size to actual usage.<br>Oversized resources waste money.<br>Utilization metrics guide the correct size.<br>It applies to compute, storage, and databases.<br>It is a core Financial Operations (FinOps) practice.<br>*Example: downsizing an idle m5.xlarge instance to a smaller type.* |
+| Commitments | Prepay to save | Commitments trade flexibility for lower prices.<br>You commit to usage over one or three years.<br>Options include Reserved Instances and Savings Plans.<br>Google calls these Committed Use Discounts (CUDs).<br>They suit steady, predictable workloads.<br>*Example: a one-year Savings Plan for a steady baseline load.* |
+| Tagging & allocation | Know who spends | Tagging labels resources for cost tracking.<br>Cost allocation tags enable chargeback and showback.<br>They attribute spend to teams or projects.<br>They improve accountability and visibility.<br>They are essential for governance.<br>*Example: tags like `env=prod` and `team=payments`.* |
+| Spot/preemptible | Cheap spare capacity | Spot and preemptible instances use spare capacity cheaply.<br>They offer deep discounts over on-demand pricing.<br>They can be reclaimed with little notice.<br>They suit fault-tolerant, interruptible work.<br>Workloads must handle interruptions.<br>*Example: using Spot Instances for batch processing jobs.* |
+
+---
+
+## 🗺️ Visual Overview
+
+```mermaid
+flowchart LR
+    See["👁️ See\n(tag & track spend)"] --> Save["💰 Save\n(rightsize, commit)"]
+    Save --> Auto["🔁 Automate\n(continuously optimize)"]
+    Auto --> See
+```
+
+**Explanation:** Financial Operations (FinOps) is a continuous loop for controlling cloud cost. First you gain visibility by tagging and tracking spend, then you save by rightsizing and committing to discounts, then you automate the optimization — and repeat.
+
 ---
 
 ## 💸 Why Costs Spiral

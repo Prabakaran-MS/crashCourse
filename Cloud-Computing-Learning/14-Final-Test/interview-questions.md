@@ -6,6 +6,14 @@ Welcome to the **final lesson**! This is a big bank of **real, industry-asked in
 
 > 📝 **How to use:** Cover the answers, try to answer aloud, then check yourself. Aim for clear, concise explanations.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Question Area | Layman View | Professional (IT-Standard) Focus + Example |
+|---------------|-------------|--------------------------------------------|
+| Fundamentals | Know the basics | Fundamentals cover core cloud definitions and terms.<br>Interviewers expect precise, correct definitions.<br>You must distinguish the service models.<br>Clear boundaries show real understanding.<br>It builds a strong foundation.<br>*Example: Infrastructure as a Service (IaaS) versus Platform as a Service (PaaS) versus Software as a Service (SaaS) boundaries.* |
+| Architecture | Design systems | Architecture questions test system design skills.<br>They explore trade-offs for scale and cost.<br>High Availability (HA) is a key concern.<br>Designs must meet Service Level Agreements (SLAs).<br>You justify each decision.<br>*Example: a multi-Availability Zone (AZ) design under an SLA.* |
+| Security | Keep it safe | Security questions probe how you protect systems.<br>Least privilege is a core principle.<br>The shared responsibility model matters.<br>Identity and Access Management (IAM) controls access.<br>Encryption protects data.<br>*Example: IAM plus encryption in your answers.* |
+
 ---
 
 ## 📚 Question Sets (by topic)

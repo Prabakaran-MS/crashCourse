@@ -134,15 +134,15 @@ Start Here ──▶ Beginner ──▶ Intermediate ──▶ Advanced ──�
 
 ## 🏭 Industry Tools Covered
 
-| Category | Tools |
-|----------|-------|
-| Providers | AWS, Azure, GCP, Oracle Cloud, IBM Cloud |
-| IaC | Terraform, Pulumi, AWS CloudFormation, ARM/Bicep |
-| Containers | Docker, Podman, containerd |
-| Orchestration | Kubernetes, OpenShift, ECS, EKS, AKS, GKE |
-| CI/CD | Jenkins, GitHub Actions, GitLab CI, ArgoCD, CircleCI |
-| Monitoring | Prometheus, Grafana, Datadog, CloudWatch, ELK Stack |
-| Config Mgmt | Ansible, Chef, Puppet |
-| Security | HashiCorp Vault, AWS IAM, Falco, Trivy |
+| Category | Full Form | In Simple Words | 🟢 Open Source (Free) | 💲 Paid / Proprietary |
+|----------|-----------|-----------------|------------------------|------------------------|
+| Providers | Cloud Providers | The companies that rent you the cloud — the "landlords" who own the giant data centers | — (most are paid services) | AWS (Amazon Web Services), Azure (Microsoft Azure), GCP (Google Cloud Platform), Oracle Cloud, IBM Cloud |
+| IaC | Infrastructure as Code | Set up your cloud by writing code instead of clicking buttons — a recipe that builds servers automatically | Terraform, Pulumi, ARM/Bicep (Azure Resource Manager) | AWS CloudFormation (Amazon Web Services CloudFormation), Terraform Cloud (paid tier) |
+| Containers | Containers | Pack an app with everything it needs into a neat box, so it runs the same anywhere | Docker Engine, Podman (Pod Manager), containerd | Docker Desktop (paid for large orgs) |
+| Orchestration | Container Orchestration | The "traffic controllers" that manage many containers at once — starting, stopping, and balancing them | Kubernetes (K8s), OpenShift (OKD community) | OpenShift (Red Hat), ECS (Elastic Container Service), EKS (Elastic Kubernetes Service), AKS (Azure Kubernetes Service), GKE (Google Kubernetes Engine) |
+| CI/CD | Continuous Integration / Continuous Delivery (Deployment) | Automatically test and ship your code so updates reach users quickly and safely | Jenkins, ArgoCD (Argo Continuous Delivery), GitLab CI (community edition) | GitHub Actions (paid tiers), GitLab CI (paid tiers), CircleCI (Circle Continuous Integration) |
+| Monitoring | Monitoring & Observability | The "health check + alarm system" that watches your apps and warns you when something breaks | Prometheus, Grafana, ELK Stack (Elasticsearch, Logstash, Kibana) | Datadog, CloudWatch (Amazon CloudWatch), Grafana Cloud (paid tier) |
+| Config Mgmt | Configuration Management | Set up and keep servers configured correctly, so every machine stays consistent | Ansible, Chef (Infra client), Puppet (open source) | Ansible Automation Platform, Chef Enterprise, Puppet Enterprise |
+| Security | Security | Lock the doors and guard your data — controlling access and hunting for threats | HashiCorp Vault (open source), Falco, Trivy | HashiCorp Vault Enterprise, AWS IAM (Amazon Web Services Identity & Access Management) |
 
 Happy learning! 🚀

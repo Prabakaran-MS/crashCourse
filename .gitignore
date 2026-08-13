@@ -11,6 +11,9 @@ out/
 *.userosscache
 *.sln.docstates
 
+## Visual Studio temporary/cache folder
+.vs/
+
 ## Rider and VS Code settings
 .idea/
 .vscode/

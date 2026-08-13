@@ -4,6 +4,15 @@
 
 **Ansible** (by Red Hat) is an **agentless** configuration management and automation tool. It configures servers, deploys apps, and orchestrates tasks over SSH using simple YAML.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Concept | Layman View | Professional (IT-Standard) View + Example |
+|---------|-------------|-------------------------------------------|
+| Inventory | List of machines | The inventory lists the machines Ansible manages.<br>It groups hosts statically or dynamically.<br>Dynamic inventories query the cloud for hosts.<br>It targets tasks at specific groups.<br>It keeps automation organized.<br>*Example: a dynamic Amazon Elastic Compute Cloud (EC2) inventory.* |
+| Playbook | The task script | A playbook is the automation script for Ansible.<br>It is written in YAML Ain't Markup Language (YAML).<br>It lists ordered, declarative tasks.<br>It describes the desired end state.<br>It runs against inventory hosts.<br>*Example: running `ansible-playbook site.yml`.* |
+| Modules | Prebuilt actions | Modules are prebuilt units of work.<br>Each performs one idempotent action.<br>They cover packages, files, and services.<br>They hide low-level command details.<br>They keep tasks reliable.<br>*Example: the `apt`, `copy`, and `service` modules.* |
+| Roles | Reusable bundles | Roles bundle related automation for reuse.<br>They structure tasks, variables, and files.<br>They are shareable across projects.<br>They can be pulled from a shared hub.<br>They keep playbooks clean.<br>*Example: a `webserver` role from Ansible Galaxy.* |
+
 ---
 
 ## 🌟 Why Ansible?

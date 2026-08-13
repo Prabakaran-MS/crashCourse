@@ -4,6 +4,34 @@
 
 Cloud security protects data, applications, and infrastructure in the cloud from threats.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Concept | Layman View | Professional (IT-Standard) View + Example |
+|---------|-------------|-------------------------------------------|
+| Shared responsibility | Who guards what | The shared responsibility model splits security duties.<br>The provider secures the cloud infrastructure itself.<br>You secure what you put in the cloud.<br>This includes data, access, and configuration.<br>Clear boundaries prevent gaps.<br>*Example: Amazon Web Services (AWS) secures hardware while you secure Identity and Access Management (IAM) and data.* |
+| Defense in depth | Many locked doors | Defense in depth uses multiple layered controls.<br>No single control is trusted alone.<br>Layers span network, host, application, and data.<br>If one fails, others still protect.<br>It reduces overall risk.<br>*Example: a Web Application Firewall (WAF), Security Groups (SGs), encryption, and Identity and Access Management (IAM) combined.* |
+| Encryption | Scramble the data | Encryption protects data from unauthorized access.<br>Data at rest is encrypted using a Key Management Service (KMS).<br>Data in transit uses Transport Layer Security (TLS) 1.2 or higher.<br>Keys are managed and rotated securely.<br>It is essential for compliance.<br>*Example: Simple Storage Service (S3) server-side encryption with KMS plus Hypertext Transfer Protocol Secure (HTTPS).* |
+| Zero Trust | Never trust by default | Zero Trust assumes no implicit trust anywhere.<br>Every request is verified regardless of origin.<br>Least privilege is enforced everywhere.<br>It follows National Institute of Standards and Technology (NIST) Special Publication (SP) 800-207.<br>Identity is the new perimeter.<br>*Example: verifying identity on every request, even inside the network.* |
+
+---
+
+## 🗺️ Visual Overview
+
+```mermaid
+flowchart TB
+    subgraph Provider["☁️ Provider secures..."]
+        P1["Physical data centers"]
+        P2["Hardware & hypervisor"]
+    end
+    subgraph You["🟢 You secure..."]
+        Y1["Your data & access"]
+        Y2["Apps & configuration"]
+    end
+    Provider --> You
+```
+
+**Explanation:** Cloud security follows a shared responsibility model. The provider secures the physical infrastructure “of the cloud,” while you secure what you put “in the cloud” — your data, access, and configuration. Most breaches come from the customer side.
+
 ---
 
 ## 🤝 The Shared Responsibility Model

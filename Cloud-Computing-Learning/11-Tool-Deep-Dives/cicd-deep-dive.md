@@ -4,6 +4,15 @@
 
 Practical guide to building pipelines with **GitHub Actions**, **Jenkins**, and **GitLab CI**. For concepts see [DevOps & CI/CD](../06-Tools-and-Practices/devops-cicd.md).
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Concept | Layman View | Professional (IT-Standard) View + Example |
+|---------|-------------|-------------------------------------------|
+| Trigger | When it runs | A trigger starts the pipeline automatically.<br>It responds to events like code pushes.<br>It removes manual pipeline starts.<br>It enables Continuous Integration (CI).<br>It keeps builds consistent.<br>*Example: an `on: push` trigger in GitHub Actions.* |
+| Stages/jobs | Steps of work | Stages and jobs organize the pipeline work.<br>They run build, test, and deploy steps.<br>Some jobs run in parallel for speed.<br>They enforce an ordered workflow.<br>They gate progress on success.<br>*Example: a test then build then deploy sequence.* |
+| Runners/agents | The workers | Runners and agents execute the pipeline jobs.<br>They can be provider-managed or self-hosted.<br>They provide the compute for each job.<br>Self-hosting allows custom environments.<br>They scale build capacity.<br>*Example: a self-hosted GitLab runner.* |
+| Secrets | Hidden credentials | Secrets store sensitive credentials securely.<br>They are encrypted at rest.<br>They are injected into jobs at runtime.<br>They avoid hard-coding passwords.<br>They protect the pipeline.<br>*Example: GitHub Actions repository secrets.* |
+
 ---
 
 ## 🐙 GitHub Actions

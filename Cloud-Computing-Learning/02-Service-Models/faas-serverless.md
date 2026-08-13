@@ -6,6 +6,30 @@
 
 > ⚡ "Serverless" doesn't mean no servers — it means *you* don't manage them.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Concept | Layman View | Professional (IT-Standard) View + Example |
+|---------|-------------|-------------------------------------------|
+| Functions (FaaS) | Run a snippet of code | Function as a Service (FaaS) runs small, stateless functions on demand.<br>You upload code and the provider runs it when triggered.<br>There are no servers for you to manage.<br>Billing is per invocation and per millisecond of runtime.<br>It scales automatically with demand.<br>*Example: an AWS Lambda function triggered by a Simple Storage Service (S3) upload.* |
+| Event triggers | Runs when something happens | Serverless functions are event-driven.<br>Triggers come from queues, Hypertext Transfer Protocol (HTTP) requests, storage, or schedules.<br>Each event invokes the function independently.<br>This enables loosely coupled architectures.<br>Integration with other services is native.<br>*Example: Amazon API Gateway invoking Lambda; EventBridge running a scheduled job.* |
+| Scaling | Handles any load | FaaS scales automatically and instantly.<br>It can scale to zero when idle, saving cost.<br>It bursts to many concurrent executions under load.<br>No capacity planning is required.<br>Concurrency limits can be configured.<br>*Example: Lambda scaling from zero to thousands of invocations during a spike.* |
+| Cold start | First run is slower | A cold start is the delay when a new execution environment initializes.<br>It happens when no warm instance is available.<br>It adds latency to the first request.<br>It matters most for latency-sensitive apps.<br>It can be reduced with provisioned concurrency.<br>*Example: enabling provisioned concurrency to keep functions warm.* |
+
+---
+
+## 🗺️ Visual Overview
+
+```mermaid
+flowchart LR
+    Event["🔔 Event\n(HTTP, upload, timer)"] --> Fn["⚡ Your Function"]
+    Fn --> Run["Runs on demand"]
+    Run --> Scale["Scales 0 → thousands"]
+    Run --> Pay["Pay per millisecond"]
+    Run --> Idle["Zero cost when idle"]
+```
+
+**Explanation:** Serverless / Function as a Service (FaaS) runs your code only when an event triggers it. The platform starts your function, scales it automatically, bills you per millisecond, and charges nothing while it sits idle.
+
 ---
 
 ## 🧩 Key Idea

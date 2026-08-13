@@ -4,6 +4,14 @@
 
 Version control is the backbone of DevOps. Master these.
 
+### 🎓 Professional (IT-Standard) Context
+
+| Task | Layman View | Professional (IT-Standard) Use + Example |
+|------|-------------|------------------------------------------|
+| Branch | Work in parallel | Branching lets teams work in parallel safely.<br>It isolates features from the main line.<br>Strategies include trunk-based and GitFlow.<br>It avoids breaking shared code.<br>It enables independent development.<br>*Example: `git checkout -b feature/x`.* |
+| Pull request | Ask to merge | A Pull Request (PR) proposes merging changes.<br>It enables peer code review.<br>Continuous Integration (CI) gates the merge with tests.<br>It improves code quality.<br>It records the change history.<br>*Example: a PR triggering tests before merge.* |
+| Tag/release | Mark a version | Tagging marks a specific release version.<br>It uses Semantic Versioning (SemVer).<br>It creates a stable reference point.<br>It supports rollbacks and audits.<br>It ties code to deployments.<br>*Example: `git tag v1.2.0`.* |
+
 ---
 
 ## 🏁 Setup & Config

@@ -4,6 +4,15 @@
 
 Command-line tools let you automate everything. Every serious cloud engineer lives in the CLI.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Concept | Layman View | Professional (IT-Standard) View + Example |
+|---------|-------------|-------------------------------------------|
+| CLI | Type commands to the cloud | A Command-Line Interface (CLI) controls the cloud from the terminal.<br>It gives scriptable access to cloud Application Programming Interfaces (APIs).<br>It automates repetitive tasks.<br>It works well in scripts and pipelines.<br>It is faster than clicking consoles.<br>*Example: `aws s3 ls`, `az vm list`, or `gcloud compute instances list`.* |
+| Profiles/auth | Log in securely | Profiles and authentication manage secure access.<br>Named profiles store separate credential sets.<br>Single Sign-On (SSO) enables centralized login.<br>They switch between accounts easily.<br>They keep access organized and safe.<br>*Example: running `aws configure sso`.* |
+| SDK | Cloud from your code | A Software Development Kit (SDK) wraps cloud APIs in code.<br>It provides language-native libraries.<br>It simplifies calling cloud services.<br>It handles authentication and retries.<br>It integrates cloud into applications.<br>*Example: the boto3 library (Python) for Amazon Web Services (AWS).* |
+| Scripting | Automate tasks | Scripting combines the CLI with shell logic.<br>It automates multi-step operations.<br>It loops over many resources.<br>It reduces manual, error-prone work.<br>It makes tasks repeatable.<br>*Example: a bash loop tagging many resources.* |
+
 ---
 
 ## ☁️ AWS CLI

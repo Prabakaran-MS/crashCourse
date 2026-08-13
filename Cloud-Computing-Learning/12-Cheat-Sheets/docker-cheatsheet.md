@@ -4,6 +4,14 @@
 
 Every command, flag, and shortcut you'll use daily. Bookmark this.
 
+### 🎓 Professional (IT-Standard) Context
+
+| Task | Layman View | Professional (IT-Standard) Use + Example |
+|------|-------------|------------------------------------------|
+| Build | Make an app box | Building creates a container image from a Dockerfile.<br>Pipelines build tagged images automatically.<br>Tags often use the commit hash for traceability.<br>Images are immutable once built.<br>They package the app and dependencies.<br>*Example: `docker build -t app:$SHA .` in a pipeline.* |
+| Run | Start the box | Running launches a container from an image.<br>It provides a reproducible runtime.<br>Resource limits cap memory and Central Processing Unit (CPU).<br>It isolates the app from the host.<br>It behaves the same everywhere.<br>*Example: `docker run --memory=512m`.* |
+| Ship | Store & share | Shipping stores and shares images via a registry.<br>Images follow the Open Container Initiative (OCI) standard.<br>They are pushed to a central registry.<br>Others can pull and run them.<br>It enables distribution across environments.<br>*Example: `docker push ecr/app:1.0`.* |
+
 ---
 
 ## 🔑 Image Commands

@@ -4,6 +4,14 @@
 
 Senior/architect interviews focus on **open-ended design scenarios**. Practice explaining your reasoning out loud. Each scenario includes **what interviewers look for** and a **sample approach**.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Scenario Type | Layman View | Professional (IT-Standard) Focus + Example |
+|---------------|-------------|--------------------------------------------|
+| Scaling | Handle more users | Scaling scenarios test handling growing demand.<br>Horizontal scaling adds more instances.<br>Caching reduces backend load.<br>Queues smooth out traffic spikes.<br>Together they absorb high traffic.<br>*Example: scaling a viral application design.* |
+| Reliability | Avoid downtime | Reliability scenarios test avoiding downtime.<br>Multi-region Disaster Recovery (DR) adds resilience.<br>The Recovery Time Objective (RTO) sets recovery speed.<br>The Recovery Point Objective (RPO) sets data-loss limits.<br>Designs meet these targets.<br>*Example: an active-active failover design.* |
+| Cost | Spend wisely | Cost scenarios test spending money wisely.<br>They apply Financial Operations (FinOps) trade-offs.<br>Spot capacity cuts compute costs.<br>Rightsizing removes waste.<br>You justify cost decisions.<br>*Example: Spot instances plus rightsizing in a design answer.* |
+
 ---
 
 ## Scenario 1 — Design Instagram-like Photo Sharing

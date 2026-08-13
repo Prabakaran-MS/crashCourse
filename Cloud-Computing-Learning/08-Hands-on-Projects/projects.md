@@ -4,6 +4,27 @@
 
 Theory is nothing without practice. Build these projects to cement your learning. Most can be done in the **free tier** of AWS/Azure/GCP.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Project Type | Layman View | Professional (IT-Standard) Skill + Example |
+|--------------|-------------|--------------------------------------------|
+| Static website hosting | Put a site online | This project teaches static content delivery.<br>You host files in object storage.<br>A Content Delivery Network (CDN) caches them near users.<br>A Domain Name System (DNS) service routes the domain.<br>It demonstrates low-cost, scalable hosting.<br>*Example: Simple Storage Service (S3) plus CloudFront plus Route 53.* |
+| Serverless API | A backend without servers | This project builds an Application Programming Interface (API) without managing servers.<br>Functions handle requests on demand.<br>An API gateway exposes the endpoints.<br>A NoSQL database stores the data.<br>It teaches event-driven design.<br>*Example: AWS Lambda plus API Gateway plus DynamoDB.* |
+| Containerized app | Package & run an app | This project packages an application into a container.<br>The image is built and pushed to a registry.<br>An orchestrator runs and scales it.<br>A Continuous Integration/Continuous Delivery (CI/CD) pipeline automates deployment.<br>It teaches modern deployment practices.<br>*Example: deploying to Elastic Kubernetes Service (EKS) via GitHub Actions.* |
+| IaC deployment | Build infra with code | This project provisions infrastructure using code.<br>Resources are defined in version-controlled files.<br>Deployments become repeatable and auditable.<br>It reduces manual configuration errors.<br>It teaches Infrastructure as Code (IaC).<br>*Example: Terraform provisioning a full Virtual Private Cloud (VPC) and application tier.* |
+
+---
+
+## 🗺️ Visual Overview
+
+```mermaid
+flowchart LR
+    Start["🟢 Beginner\nstatic site"] --> Mid["🟡 Intermediate\nserverless API"]
+    Mid --> Adv["🔴 Advanced\ncontainers + IaC"]
+```
+
+**Explanation:** These hands-on projects build your skills step by step. Start simple with a static website, progress to serverless APIs, and finish with full containerized apps deployed via Infrastructure as Code — each project adds real, portfolio-worthy experience.
+
 ---
 
 ## 🟢 Beginner Projects

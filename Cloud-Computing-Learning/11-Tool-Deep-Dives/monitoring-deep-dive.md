@@ -4,6 +4,15 @@
 
 The industry-standard open-source **monitoring stack**. Prometheus collects metrics; Grafana visualizes them. Concepts: [Monitoring & Observability](../06-Tools-and-Practices/monitoring.md).
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Concept | Layman View | Professional (IT-Standard) View + Example |
+|---------|-------------|-------------------------------------------|
+| Scraping | Pull the numbers | Scraping collects metrics from targets.<br>It uses a pull model over Hypertext Transfer Protocol (HTTP).<br>Targets expose a metrics endpoint.<br>The collector gathers data on a schedule.<br>It builds time-series data.<br>*Example: Prometheus scraping `/metrics`.* |
+| PromQL | Ask the data questions | The Prometheus Query Language (PromQL) queries metrics.<br>It works on time-series data.<br>It supports rates, aggregations, and filters.<br>It powers dashboards and alerts.<br>It answers performance questions.<br>*Example: `rate(http_requests_total[5m])`.* |
+| Dashboards | Visual charts | Dashboards visualize metrics as charts.<br>Grafana panels read from data sources.<br>They show trends and health at a glance.<br>They combine many metrics together.<br>They aid troubleshooting.<br>*Example: a latency dashboard.* |
+| Alerting | Get notified | Alerting notifies teams when things go wrong.<br>Alertmanager routes and groups alerts.<br>It reduces noise via deduplication.<br>It pages the right people.<br>It enables fast response.<br>*Example: paging on a high error rate.* |
+
 ---
 
 ## 📊 How Prometheus Works

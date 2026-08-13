@@ -4,6 +4,14 @@
 
 Every major service across AWS, Azure, GCP in one place. Perfect for interviews and exams.
 
+### 🎓 Professional (IT-Standard) Context
+
+| Category | Layman View | Professional (IT-Standard) Use + Example |
+|----------|-------------|------------------------------------------|
+| Compute | Rent servers | Compute services rent virtual servers on demand.<br>Each cloud has its own offering.<br>Options include Elastic Compute Cloud (EC2), Azure Virtual Machines (VMs), and Compute Engine.<br>They scale with your workload.<br>You pick based on ecosystem fit.<br>*Example: choosing the service matching your ecosystem.* |
+| Storage | Store data | Storage services keep data durably.<br>Object storage suits files and backups.<br>Options include Simple Storage Service (S3), Azure Blob, and Cloud Storage.<br>They scale to huge sizes cheaply.<br>They offer high durability.<br>*Example: object storage for backups.* |
+| Managed DB | Databases as a service | Managed databases run databases for you.<br>The provider handles patching and backups.<br>Options include Relational Database Service (RDS), Azure SQL, and Cloud SQL.<br>They reduce operational burden.<br>They provide High Availability (HA).<br>*Example: a managed Postgres database.* |
+
 ---
 
 ## 💻 Compute

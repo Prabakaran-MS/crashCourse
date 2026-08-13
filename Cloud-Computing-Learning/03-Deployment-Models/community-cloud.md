@@ -4,6 +4,28 @@
 
 A **community cloud** is shared by **several organizations with common concerns** (e.g., same industry, compliance requirements, or mission). It's a middle ground between private and public.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Concept | Layman View | Professional (IT-Standard) View + Example |
+|---------|-------------|-------------------------------------------|
+| Shared purpose | A cloud for one industry | Community cloud serves several organizations with shared concerns.<br>Members typically share an industry or mission.<br>Governance and compliance rules are common to all.<br>It sits between private and public cloud.<br>It balances isolation with shared cost.<br>*Example: a government community cloud such as AWS GovCloud.* |
+| Cost sharing | Split the bill | Costs are pooled across member organizations.<br>This lowers the expense for each participant.<br>Shared infrastructure improves utilization.<br>Members jointly fund the platform.<br>It is efficient for aligned groups.<br>*Example: a healthcare consortium sharing a Health Insurance Portability and Accountability Act (HIPAA)-compliant platform.* |
+| Compliance | Built to the same rules | The platform meets a common regulatory baseline.<br>All members inherit the same controls.<br>Standards include HIPAA and the Federal Risk and Authorization Management Program (FedRAMP).<br>This simplifies audits for members.<br>Compliance is designed in from the start.<br>*Example: AWS GovCloud meeting FedRAMP High requirements.* |
+
+---
+
+## 🗺️ Visual Overview
+
+```mermaid
+flowchart TB
+    Cloud["🤝 Community Cloud (shared by a group)"]
+    Cloud --> O1["Hospital A"]
+    Cloud --> O2["Hospital B"]
+    Cloud --> O3["Hospital C"]
+```
+
+**Explanation:** A community cloud is shared by several organizations with common needs — for example, hospitals that must meet the same regulations. They split the cost and enforce shared rules, like neighbors sharing a private community pool.
+
 ---
 
 ## 💡 How It Works

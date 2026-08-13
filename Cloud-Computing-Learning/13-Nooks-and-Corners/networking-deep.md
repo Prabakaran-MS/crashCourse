@@ -4,6 +4,14 @@
 
 The deepest, trickiest area of cloud. Master these and you're ahead of most engineers.
 
+### 🎓 Professional (IT-Standard) Reference
+
+| Gotcha | Layman View | Professional (IT-Standard) View + Example |
+|--------|-------------|-------------------------------------------|
+| CIDR overlap | Address clashes | Overlapping address ranges break network peering.<br>Classless Inter-Domain Routing (CIDR) blocks must not overlap.<br>Private ranges follow Request for Comments (RFC) 1918.<br>Overlaps cause routing conflicts.<br>Plan ranges carefully upfront.<br>*Example: 10.0.0.0/16 versus 10.1.0.0/16.* |
+| SG vs NACL | Two firewall types | Security Groups (SGs) and Network Access Control Lists (NACLs) are two firewall layers.<br>Security Groups are stateful.<br>Network Access Control Lists are stateless.<br>They evaluate rules differently.<br>Both must permit the traffic.<br>*Example: a NACL needing explicit return-traffic rules.* |
+| DNS/TTL | Slow to update | Domain Name System (DNS) changes propagate slowly.<br>The Time To Live (TTL) controls cache duration.<br>Long TTLs delay updates.<br>This can slow failover.<br>Lower TTLs speed changes.<br>*Example: a long TTL delaying failover.* |
+
 ---
 
 ## 🏗️ VPC Deep Dive

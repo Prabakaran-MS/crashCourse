@@ -13,6 +13,13 @@
       "icon": "🖥️",
       "description": "Types of OS, shells & script types, OS-specific commands from basic to advanced, plus debugging tips.",
       "manifest": "OS-and-Scripting/manifest.json"
+    },
+    {
+      "id": "Source-Control",
+      "title": "Source Control & Version Management",
+      "icon": "🔀",
+      "description": "Version control foundations, Git fundamentals, GitHub platform, workflows, automation, and best practices.",
+      "manifest": "Source-Control/manifest.json"
     }
   ]
 }

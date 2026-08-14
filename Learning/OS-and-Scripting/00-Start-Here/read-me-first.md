@@ -14,7 +14,7 @@ That's it. Everything else is a detail on top of those two sentences.
 
 ```mermaid
 flowchart LR
-	Apps["Your Apps & Scripts"] -->|"ask for resources"| OS["Operating System (the manager)"]
+	Apps["Your Apps and Scripts"] -->|"ask for resources"| OS["Operating System (the manager)"]
 	OS --> CPU["CPU time"]
 	OS --> RAM["Memory"]
 	OS --> Disk["Files on disk"]
@@ -80,6 +80,22 @@ A **script** is just a text file full of commands that the computer runs top-to-
 3. Pick up **[shells & scripting](../03-Shells-and-Scripting-Types/bash.md)**, then practice **[commands](../04-OS-Specific-Commands/linux-commands.md)**.
 4. Level up through **[basic → advanced scripting](../05-Scripting-Basic-to-Advanced/variables-io.md)**.
 5. Master **[debugging](../06-Debugging-Scripts/bash-debugging.md)** so your scripts survive the real world.
+
+---
+
+## 🧗 What You Gain: 50+ Years of Experience, Condensed
+
+The same two ideas — *the OS is a manager* and *a script is a recipe* — stay true forever, but **what you notice** about them changes as you gain experience. Every lesson in this track carries this same lens:
+
+| Stage | How you see "the OS & scripting" | A typical thought at this stage |
+|-------|----------------------------------|--------------------------------|
+| 🌱 **Beginner** | A black box you type commands into | "How do I make this one command work?" |
+| 🧭 **Learner** | A manager of CPU, memory, files, and users | "Why did my script fail when the file was missing?" |
+| 🛠️ **Practitioner** | A platform you automate safely every day | "How do I make this script idempotent and re-runnable?" |
+| 🚀 **Advanced** | A system with limits, signals, and edge cases | "How does this behave under load, on failure, or on a slow disk?" |
+| 🏛️ **Veteran** | A set of trade-offs to design around | "How will this fail across thousands of machines, and how do I make failure safe?" |
+
+> 🎯 **Don't rush the ladder.** You climb it by shipping real scripts and breaking real things. Each lesson's **Deep Dive** section is where the higher rungs live — come back to them as you grow.
 
 ---
 

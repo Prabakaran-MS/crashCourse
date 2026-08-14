@@ -105,4 +105,58 @@ Users get content from the NEAREST node → fast!
 
 ---
 
+## 🖼️ Edge & CDN Tools
+
+![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)
+![CloudFront](https://img.shields.io/badge/CloudFront-8C4FFF?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Fastly](https://img.shields.io/badge/Fastly-FF282D?style=for-the-badge&logo=fastly&logoColor=white)
+![Akamai](https://img.shields.io/badge/Akamai-0099CC?style=for-the-badge&logo=akamai&logoColor=white)
+
+---
+
+## 🏗️ Architecture: Cache Hit vs Miss at the Edge
+
+```mermaid
+flowchart LR
+    User["👤 User (Tokyo)"] --> Edge["📍 Tokyo Edge (PoP)"]
+    Edge -->|cache HIT ~5ms| User
+    Edge -->|cache MISS| Origin["🏢 Origin (Virginia)"]
+    Origin -->|fill cache ~200ms| Edge
+```
+
+**Explanation:** On a cache hit, the nearby edge serves content in a few milliseconds. On a miss, it fetches once from the distant origin, caches it, and every later user in that region gets the fast path.
+
+---
+
+## 🖥️ What It Looks Like — CDN Analytics (Mockup)
+
+```text
+┌───────────────────────────────────────────────┐
+│  🌐 Cloudflare › Analytics (24h)                     │
+├──────────────────────────────────────────────┤
+│  Requests   1.2B     Cache hit-rate  94.3%  🟢       │
+│  Bandwidth saved (origin offload)  38 TB             │
+│  p50 latency  9ms    Threats blocked  4.1M          │
+└──────────────────────────────────────────────┘
+```
+
+---
+
+## 🌐 Real-World Usage Example
+
+**Disney+** and **Netflix** push video to thousands of edge caches (Netflix runs its own Open Connect appliances inside ISPs) so a show streams from a server miles away, not across an ocean. **Cloudflare Workers** run code at 300+ locations — companies do A/B testing, auth, and personalization at the edge, shaving hundreds of milliseconds off every request.
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **Cache-Control & TTLs** decide what edges cache and for how long — misconfigured headers = stale or uncached content.
+- **Cache invalidation/purge:** pushing a new deploy means invalidating edge caches.
+- **Edge functions have limits:** small CPU/memory budgets, short execution — not for heavy compute.
+- **CDN ≠ edge compute:** CDN caches content; edge compute *runs code* near users.
+- **Origin shield** adds a mid-tier cache to further reduce origin hits.
+- **Latency is physics:** even at light speed, distance adds delay — edge is the only fix.
+
+---
+
 **Navigation:** [← Cost Optimization](cost-optimization-finops.md) | [Next → AI/ML & Big Data in Cloud](ai-ml-bigdata.md) | ⬅ [Back to Index](../README.md)

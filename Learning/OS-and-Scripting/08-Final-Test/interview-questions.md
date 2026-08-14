@@ -53,6 +53,58 @@ Write small programs that do one thing well and combine them with pipes — "eve
 
 ---
 
+## 🧗 What You Gain: 50+ Years of Experience, Condensed
+
+Pass this test and you prove you carry judgment that normally takes a career to earn. The tiers below map the mastery you accumulate across the whole track — clearing the top rung means you answer like someone with 50+ years in the field:
+
+| Stage | What the questions reveal | What you can do |
+|-------|---------------------------|-----------------|
+| 🌱 **Beginner** | You know the core vocabulary. | Explain what an OS, process, and shell are. |
+| 🧭 **Learner** | You connect the concepts. | Reason about kernel vs user space and streams. |
+| 🛠️ **Practitioner** | You apply ideas under real constraints. | Write safe, idempotent automation. |
+| 🚀 **Advanced** | You trace behavior end to end. | Diagnose performance and concurrency issues. |
+| 🏛️ **Veteran** | You design for scale and failure. | Architect reliable systems across many machines. |
+
+---
+
+## 🧗 Experience-Tiered Interview Questions
+
+Interviewers calibrate depth to your level. Here's how the *same topics* get harder as you grow — try to answer each tier before reading on.
+
+### 🌱 Beginner
+- What is an operating system, and what does it manage?
+- What is the difference between a process and a program?
+- What does a shell do, and name one you've used.
+- How do you make a Bash script executable and run it?
+
+### 🧭 Learner
+- Explain kernel space vs user space and why the split exists.
+- What is a system call? Give an example.
+- What's the difference between `>` and `>>`, and between stdout and stderr?
+- Why should you quote variables in Bash (`"$var"`)?
+
+### 🛠️ Practitioner
+- What does `set -euo pipefail` do, and what are its gotchas?
+- How do you make a script idempotent? Why does it matter for automation?
+- Explain the difference between hard and soft links.
+- In PowerShell, why is passing objects better than parsing text?
+
+### 🚀 Advanced
+- Walk through what happens (syscalls, scheduling, memory) when a process reads a file.
+- What causes context-switch overhead, and how would you detect it?
+- Describe catastrophic regex backtracking and how to avoid it.
+- How do you prevent two scheduled jobs from overlapping?
+
+### 🏛️ Veteran / Architect
+- Design a reliable scheduled-job system: handle missed runs, retries, alerting, and timezones.
+- When would you choose processes vs threads vs async vs a message queue?
+- How do containers achieve isolation using only Linux kernel features?
+- How would you roll out a script safely across thousands of machines and detect failures?
+
+> 💡 If a tier feels hard, that's your next study target — climb one rung at a time.
+
+---
+
 ## ✅ You Finished the Track!
 
 Revisit the [Bash Cheat Sheet](../07-Cheat-Sheets/bash-cheatsheet.md) and [PowerShell Cheat Sheet](../07-Cheat-Sheets/powershell-cheatsheet.md) anytime, and keep practicing in a real terminal.

@@ -103,4 +103,45 @@ If Region A fails, Route 53 redirects traffic to Region B.
 
 ---
 
+## 🖼️ DR & HA Tools
+
+![Route 53](https://img.shields.io/badge/Route_53-8C4FFF?style=for-the-badge&logo=amazonroute53&logoColor=white)
+![Azure Site Recovery](https://img.shields.io/badge/Azure_Site_Recovery-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-844FBA?style=for-the-badge&logo=terraform&logoColor=white)
+![Velero](https://img.shields.io/badge/Velero-00ADD8?style=for-the-badge&logo=go&logoColor=white)
+
+---
+
+## 🖥️ What It Looks Like — Failover Event (Mockup)
+
+```text
+┌───────────────────────────────────────────────┐
+│  🚨 Route 53 › Health Check: us-east-1 FAILED       │
+├──────────────────────────────────────────────┤
+│  14:02:10  Primary (us-east-1) unhealthy ✗           │
+│  14:02:12  DNS failover → us-west-2 (standby)        │
+│  14:02:40  Traffic serving from us-west-2 ✅         │
+│  RTO actual: 30s   RPO actual: 12s   Users: served  │
+└──────────────────────────────────────────────┘
+```
+
+---
+
+## 🌐 Real-World Usage Example
+
+**Netflix** built **Chaos Monkey** (its Simian Army) to randomly kill production instances — forcing engineers to design for failure so real outages barely register. When an entire AWS region degrades, Netflix evacuates traffic to other regions in minutes. **Banks** run active/active across regions for near-zero RTO because downtime = lost transactions and regulatory penalties.
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **Untested DR = no DR:** run game days / DR drills regularly; backups you never restore may be corrupt.
+- **RTO vs RPO drive cost:** near-zero targets require expensive active/active; match them to business impact.
+- **Multi-AZ ≠ Multi-Region:** AZ protects a datacenter failure; region protects a whole-region outage.
+- **Backups need to be immutable/off-site** to survive ransomware and accidental deletion.
+- **Failback matters too:** plan how to return to primary once it recovers.
+- **Data replication lag = your real RPO:** async replication can lose in-flight writes.
+
+---
+
 **Navigation:** [← Messaging](messaging-event-driven.md) | [Next → Cost Optimization (FinOps)](cost-optimization-finops.md) | ⬅ [Back to Index](../README.md)

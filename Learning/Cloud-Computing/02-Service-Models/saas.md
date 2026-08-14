@@ -23,9 +23,9 @@
 flowchart LR
     User["👤 You"] -->|"Browser / App"| App["☁️ Ready-to-Use Software"]
     App --> V1["Provider runs the app"]
-    App --> V2["Provider runs servers & OS"]
-    App --> V3["Provider handles updates & backups"]
-    User --> D["You manage only your data & settings"]
+    App --> V2["Provider runs servers and OS"]
+    App --> V3["Provider handles updates and backups"]
+    User --> D["You manage only your data and settings"]
 ```
 
 **Explanation:** With Software as a Service (SaaS) the provider runs the entire stack and you simply use the finished app through a browser. It is like staying in a hotel — everything is handled for you, and you only look after your own belongings (your data and settings).
@@ -63,6 +63,76 @@ A company needs email for 500 employees:
 - Instead of running mail servers, they subscribe to **Google Workspace**.
 - Google handles servers, security, updates, spam filtering, storage.
 - Employees just log in via browser.
+
+---
+
+## 🖼️ SaaS Products You Use Every Day
+
+![Google Workspace](https://img.shields.io/badge/Google_Workspace-4285F4?style=for-the-badge&logo=google&logoColor=white)
+![Microsoft 365](https://img.shields.io/badge/Microsoft_365-D83B01?style=for-the-badge&logo=microsoftoffice&logoColor=white)
+![Salesforce](https://img.shields.io/badge/Salesforce-00A1E0?style=for-the-badge&logo=salesforce&logoColor=white)
+![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)
+![Zoom](https://img.shields.io/badge/Zoom-0B5CFF?style=for-the-badge&logo=zoom&logoColor=white)
+![Dropbox](https://img.shields.io/badge/Dropbox-0061FF?style=for-the-badge&logo=dropbox&logoColor=white)
+
+---
+
+## 🏗️ Architecture: Multi-Tenant SaaS
+
+```mermaid
+flowchart TB
+    T1["🏢 Customer A"] -->|HTTPS + SSO| App["☁️ SaaS Application (Shared)"]
+    T2["🏢 Customer B"] -->|HTTPS + SSO| App
+    T3["🏢 Customer C"] -->|HTTPS + SSO| App
+    App --> Auth["🔑 Identity / SSO (SAML/OIDC)"]
+    App --> Logic["⚙️ Application Logic (Multi-Tenant)"]
+    Logic --> DB["🗄️ Shared DB<br/>(Tenant-Isolated Rows)"]
+    Logic --> Files["💾 Object Storage"]
+    Vendor["🏭 Vendor Ops: updates · backups · security · SLA"] -.runs everything.-> App
+```
+
+**Explanation:** One application instance serves *all* customers, keeping each tenant's data logically isolated. Users log in via **SSO**, and the vendor runs every layer — updates roll out to everyone at once. You manage only your data and settings.
+
+---
+
+## 🖥️ What It Looks Like — SaaS Admin Console (Mockup)
+
+```text
+┌──────────────────────────────────────────────────────────┐
+│  ⚙️  Workspace Admin › Users            🔍   admin@acme ▾ │
+├──────────────────────────────────────────────────────────┤
+│  Active users: 487 / 500 seats     [ + Add user ]        │
+│  ─────────────────────────────────────────────────────   │
+│  ☑ SSO (SAML) enabled          Provider: Okta           │
+│  ☑ MFA required                                          │
+│  ☑ Auto-updates                Version: (managed)        │
+│  Storage: 3.2 TB / 5 TB   ▇▇▇▇▇▇▁▁▁▁                     │
+│                                                          │
+│  Plan: Business  ·  $12/user/mo  ·  Renews annually      │
+└──────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+### 🏢 Tenancy Models
+- **Single-tenant:** dedicated instance per customer (more isolation, higher cost).
+- **Multi-tenant:** shared app, isolated data (cheaper, standard for SaaS).
+- **Isolation strategies:** shared DB with tenant IDs → separate schemas → separate databases (increasing isolation & cost).
+
+### 🔑 Identity & Access (Enterprise SaaS Essentials)
+- **SSO** (SAML/OIDC), **SCIM** for auto user provisioning/deprovisioning, **MFA**, and **RBAC** are must-haves for business adoption.
+
+### 🗄️ Who Owns the Data?
+- **You own your data; the vendor holds it.** Always check **data export**, **retention**, and **residency** terms — and beware exit/lock-in when a vendor makes export hard.
+
+### 📊 SaaS Business Metrics (good to know)
+- **MRR/ARR** (recurring revenue), **churn**, **per-seat vs usage-based** pricing — these shape how the product evolves.
+
+### ⚠️ Common Gotchas
+- **Shadow IT:** employees signing up for unsanctioned SaaS → security/compliance risk.
+- **Integration limits:** you're bound to the vendor's APIs and update cadence.
 
 ---
 

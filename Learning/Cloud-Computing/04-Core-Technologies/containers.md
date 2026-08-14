@@ -105,4 +105,66 @@ docker push my-app              # push to registry
 
 ---
 
+## 🖼️ Container Ecosystem
+
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Podman](https://img.shields.io/badge/Podman-892CA0?style=for-the-badge&logo=podman&logoColor=white)
+![containerd](https://img.shields.io/badge/containerd-575757?style=for-the-badge&logo=containerd&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![Trivy](https://img.shields.io/badge/Trivy_Scan-1904DA?style=for-the-badge&logo=aqua&logoColor=white)
+
+---
+
+## 🏗️ Architecture: Build → Ship → Run
+
+```mermaid
+flowchart LR
+    Dev["👩‍💻 Dockerfile"] -->|docker build| Img["📦 Image (layers)"]
+    Img -->|docker push| Reg["🏪 Registry (Docker Hub/ECR)"]
+    Reg -->|docker pull| Host1["🖥️ Dev Laptop"]
+    Reg -->|docker pull| Host2["☁️ Cloud Server"]
+    Host1 --> Run1["▶️ Container"]
+    Host2 --> Run2["▶️ Container (identical!)"]
+```
+
+**Explanation:** You build an image once, push it to a registry, and pull it anywhere. The same image runs identically on a laptop and in the cloud — killing "works on my machine" bugs.
+
+---
+
+## 🖥️ What It Looks Like — Docker Run (Mockup)
+
+```text
+$ docker run -p 3000:3000 my-app:1.0
+Unable to find image 'my-app:1.0' locally
+1.0: Pulling from library/my-app
+7d3e...: Pull complete  ▇▇▇▇▇▇▇ 100%
+Status: Downloaded newer image
+> Server listening on http://0.0.0.0:3000  ✅ (started in 0.4s)
+
+$ docker ps
+CONTAINER ID   IMAGE        STATUS         PORTS
+a1b2c3d4e5f6   my-app:1.0   Up 3 seconds   0.0.0.0:3000->3000
+```
+
+---
+
+## 🌐 Real-World Usage Example
+
+**Spotify** packages hundreds of microservices as Docker containers so any team can deploy independently. A new feature is built into an image, tested, and shipped to production in minutes — the same container image that ran on a developer's laptop runs across thousands of servers, powering music for 600M+ users.
+
+**Other real examples:** PayPal containerized apps to cut infra costs ~50%; Uber runs its dispatch stack in containers; almost every CI/CD pipeline builds containers.
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **Namespaces + cgroups** are the Linux kernel features that *make* containers (isolation + resource limits) — Docker is just a friendly wrapper.
+- **Layer caching:** order Dockerfile steps from least- to most-frequently-changing to speed rebuilds.
+- **Multi-stage builds** shrink images (build in a big image, copy only the artifact into a tiny one).
+- **Image bloat & security:** use minimal bases (`alpine`, `distroless`), scan with Trivy, and never bake secrets into images.
+- **Containers are ephemeral & stateless:** persist data in volumes or external stores, not inside the container.
+- **OCI standard:** images/runtimes are standardized — that's why Podman/containerd interoperate with Docker.
+
+---
+
 **Navigation:** [← Virtualization](virtualization.md) | [Next → Cloud Networking](networking.md) | ⬅ [Back to Index](../README.md)

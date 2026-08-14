@@ -204,4 +204,10 @@ kubectl rollout status deploy/web -w
 
 ---
 
+## 🌐 Real-World War Story
+
+An app intermittently returned 502s — the root cause was a **missing readiness probe**, so K8s routed traffic to pods before they finished starting. Another outage came from a pod stuck `Pending` because **resource requests** exceeded any node's capacity (unschedulable). And a `CrashLoopBackOff` masked a config typo in a ConfigMap. Lesson: probes, requests/limits, and `kubectl describe`/`events` are your first three debugging stops.
+
+---
+
 **Navigation:** [← Containers Deep Dive](containers-deep.md) | [Next → Databases & Cost Deep Dive](databases-cost-deep.md) | ⬅ [Back to Index](../README.md)

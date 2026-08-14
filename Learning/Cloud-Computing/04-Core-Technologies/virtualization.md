@@ -20,9 +20,9 @@
 ```mermaid
 flowchart TB
     HW["Physical Server"] --> Hyper["Hypervisor"]
-    Hyper --> VM1["VM 1\n(own OS)"]
-    Hyper --> VM2["VM 2\n(own OS)"]
-    Hyper --> VM3["VM 3\n(own OS)"]
+    Hyper --> VM1["VM 1<br/>(own OS)"]
+    Hyper --> VM2["VM 2<br/>(own OS)"]
+    Hyper --> VM3["VM 3<br/>(own OS)"]
 ```
 
 **Explanation:** Virtualization uses a layer called a hypervisor to split one physical server into several independent virtual machines, each with its own operating system. This is the foundation of the cloud — it lets providers run many customers safely on one machine.

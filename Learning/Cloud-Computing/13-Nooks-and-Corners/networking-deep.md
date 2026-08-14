@@ -153,4 +153,10 @@ A subnet is **public** ONLY if its **route table has a route to an Internet Gate
 
 ---
 
+## 🌐 Real-World War Story
+
+A team peered two VPCs that both used `10.0.0.0/16` — the peering "succeeded" but traffic silently black-holed because of **CIDR overlap**. The fix required re-IPing an entire environment. Lesson: **plan non-overlapping CIDR ranges org-wide before you build anything.** Another classic: a service worked with a Security Group but broke behind a NACL because the NACL (stateless) blocked the ephemeral **return ports (1024–65535)**.
+
+---
+
 **Navigation:** [← Storage Deep Dive](storage-deep.md) | [Next → Security & IAM Deep Dive](security-iam-deep.md) | ⬅ [Back to Index](../README.md)

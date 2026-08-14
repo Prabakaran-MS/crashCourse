@@ -144,4 +144,10 @@ curl -v https://host
 
 ---
 
+## 🌐 Real-World War Story
+
+During a major incident, an on-call engineer wasted 40 minutes restarting services when the real cause was a **DNS TTL** still pointing at a dead endpoint. A structured playbook — check recent changes first, then work the layers (DNS → LB → network → app → DB) — would have found it in 5. Lesson: **most incidents follow a recent deploy or config change.** Start there, stay methodical, and let metrics/logs/traces guide you instead of guessing.
+
+---
+
 **Navigation:** [← Databases & Cost Deep Dive](databases-cost-deep.md) | [Next → Final Test: Interview Questions](../14-Final-Test/interview-questions.md) | ⬅ [Back to Index](../README.md)

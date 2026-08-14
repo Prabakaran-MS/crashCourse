@@ -118,4 +118,47 @@ console.log(data.Buckets);
 
 ---
 
+## 🖼️ Cloud CLI & SDK Tools
+
+![AWS CLI](https://img.shields.io/badge/AWS_CLI-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Azure CLI](https://img.shields.io/badge/Azure_CLI-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![gcloud](https://img.shields.io/badge/gcloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
+![boto3](https://img.shields.io/badge/boto3-3776AB?style=for-the-badge&logo=python&logoColor=white)
+
+---
+
+## 🖥️ What It Looks Like — aws CLI with JMESPath (Mockup)
+
+```text
+$ aws ec2 describe-instances \
+    --query 'Reservations[].Instances[].[InstanceId,State.Name,InstanceType]' \
+    --output table
+-------------------------------------------------
+|              DescribeInstances                |
++---------------------+----------+--------------+
+|  i-0abc123def456    |  running |  t3.micro    |
+|  i-0999888777666    |  stopped |  m5.large    |
++---------------------+----------+--------------+
+```
+
+---
+
+## 🌐 Real-World Usage Example
+
+**DevOps and SRE teams** live in the CLI: scripting bulk tag updates, spinning up test environments, and wiring commands into CI/CD pipelines. A single bash loop with `aws` can tag 500 resources or rotate keys across accounts — work that would take hours of clicking. **Data engineers** use boto3/SDKs to build cloud automation directly into their apps.
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **Named profiles + SSO:** `--profile` switches accounts safely; prefer `aws configure sso` over long-lived keys.
+- **`--query` (JMESPath)** filters JSON output server-side style — far cleaner than piping to grep.
+- **`--dry-run`** validates permissions/actions without making changes.
+- **CLI = the API:** anything the console does, the CLI/SDK can automate and put in version control.
+- **Pagination:** large lists are paginated — use `--max-items`/`--no-paginate` deliberately.
+- **Credentials precedence:** env vars > profile > instance role — know the order to debug auth issues.
+- **SDK retries/backoff** handle throttling automatically — don't hand-roll retry loops.
+
+---
+
 **Navigation:** [← Prometheus & Grafana](monitoring-deep-dive.md) | [Next → Docker Cheat Sheet](../12-Cheat-Sheets/docker-cheatsheet.md) | ⬅ [Back to Index](../README.md)

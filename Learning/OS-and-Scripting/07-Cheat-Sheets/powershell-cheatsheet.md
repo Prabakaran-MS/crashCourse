@@ -71,6 +71,54 @@ flowchart LR
 
 ---
 
+## 🚀 Advanced & Expert Quick Reference
+
+```powershell
+# Make errors catchable and inspect the pipeline object
+$ErrorActionPreference = 'Stop'
+try { Get-Item .\missing } catch { Write-Warning $_.Exception.Message }
+
+# Discover any object's real members
+Get-Process | Get-Member
+Get-Process | Select-Object -First 1 | Format-List *
+
+# Advanced function skeleton (behaves like a cmdlet)
+function Get-Thing {
+	[CmdletBinding()]
+	param(
+		[Parameter(Mandatory, ValueFromPipeline)] [string]$Name,
+		[ValidateSet('A','B')] [string]$Kind = 'A'
+	)
+	process { [pscustomobject]@{ Name = $Name; Kind = $Kind } }
+}
+
+# Fast, structured filtering
+Get-ChildItem -Recurse -File | Where-Object Length -gt 1MB |
+	Sort-Object Length -Descending | Select-Object FullName, Length
+
+# Run across many machines
+Invoke-Command -ComputerName (Get-Content hosts.txt) { $env:COMPUTERNAME }
+```
+
+- **Strict mode:** `Set-StrictMode -Version Latest` to catch typos and unset variables.
+- **Test it:** wrap logic in functions and cover them with `Pester`.
+
+---
+
+## 🧗 What You Gain: 50+ Years of Experience, Condensed
+
+Memorize this sheet and you carry reflexes that normally take a career to build. Each stage below is a level of PowerShell mastery you unlock — by the end you think in objects and pipelines the way someone with 50+ years of automation experience would:
+
+| Stage | How you use this sheet | What you can do |
+|-------|------------------------|-----------------|
+| 🌱 **Beginner** | Copy cmdlets one at a time. | Run variables, cmdlets, and loops with confidence. |
+| 🧭 **Learner** | See the Verb-Noun and object patterns. | Filter and shape data with `Where-Object`/`Select-Object`. |
+| 🛠️ **Practitioner** | Reach for the right cmdlet instantly. | Handle errors with `try/catch` and strict mode by habit. |
+| 🚀 **Advanced** | Compose the object pipeline fluently. | Build reusable, testable modules and functions. |
+| 🏛️ **Veteran** | See automation as idempotent, safe systems. | Design remoting and DSC workflows teams rely on. |
+
+---
+
 ## ✅ Key Takeaways
 
 - Variables can be typed (`[int]`); collections use `@()` and `@{}`.

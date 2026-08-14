@@ -137,4 +137,45 @@ Alertmanager routes these to Slack, PagerDuty, email.
 
 ---
 
+## 🖼️ Monitoring Stack
+
+![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white)
+![Alertmanager](https://img.shields.io/badge/Alertmanager-E6522C?style=for-the-badge&logo=prometheus&logoColor=white)
+![OpenTelemetry](https://img.shields.io/badge/OpenTelemetry-000000?style=for-the-badge&logo=opentelemetry&logoColor=white)
+
+---
+
+## 🖥️ What It Looks Like — Grafana Dashboard (Mockup)
+
+```text
+┌───────────────────────────────────────────────┐
+│  📊 Grafana › Service Health (last 1h)               │
+├──────────────────────────────────────────────┤
+│  Req/s  ▁▂▅▇▇▆▅▃  1,240   p99 latency  ▇▇▅▃  180ms  │
+│  Error rate  0.12% 🟢     CPU  ▇▇▇▁  64%             │
+│  🔔 Alert: HighLatency  (firing 4m)  🟡             │
+└──────────────────────────────────────────────┘
+```
+
+---
+
+## 🌐 Real-World Usage Example
+
+**SoundCloud** created Prometheus, now the CNCF standard used by thousands of companies. **DigitalOcean, GitLab, and Uber** run Prometheus+Grafana to watch millions of metrics. When latency crosses an SLO, Alertmanager pages the on-call engineer via PagerDuty — catching incidents before customers file tickets.
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **Pull vs push:** Prometheus scrapes `/metrics`; use Pushgateway only for short-lived batch jobs.
+- **Cardinality kills:** high-cardinality labels (user IDs, request IDs) explode memory — keep labels bounded.
+- **`rate()` needs counters:** use `rate()`/`increase()` on ever-growing counters, not gauges.
+- **SLIs→SLOs→alerts:** alert on symptoms users feel (latency/errors), not every CPU blip.
+- **Alert fatigue is real:** too many noisy alerts get ignored — page only on actionable, user-impacting issues.
+- **Prometheus isn't long-term storage:** pair with Thanos/Mimir/Cortex for durable, scalable history.
+- **OpenTelemetry** unifies metrics, logs, and traces under one vendor-neutral standard.
+
+---
+
 **Navigation:** [← CI/CD](cicd-deep-dive.md) | [Next → Cloud CLI & SDK Deep Dive](cloud-cli-deep-dive.md) | ⬅ [Back to Index](../README.md)

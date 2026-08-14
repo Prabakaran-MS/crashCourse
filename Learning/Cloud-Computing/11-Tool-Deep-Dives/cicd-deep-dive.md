@@ -147,4 +147,46 @@ Developer pushes YAML to Git
 
 ---
 
+## 🖼️ CI/CD Ecosystem
+
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white)
+![GitLab CI](https://img.shields.io/badge/GitLab_CI-FC6D26?style=for-the-badge&logo=gitlab&logoColor=white)
+![Argo CD](https://img.shields.io/badge/Argo_CD-EF7B4D?style=for-the-badge&logo=argo&logoColor=white)
+
+---
+
+## 🖥️ What It Looks Like — Pipeline Run (Mockup)
+
+```text
+┌───────────────────────────────────────────────┐
+│  🐙 Actions › CI/CD  #482  (main @ a1b2c3d)         │
+├──────────────────────────────────────────────┤
+│  ✅ test              1m 12s                          │
+│  ✅ build-and-push    2m 04s                          │
+│  🔵 deploy (production) running... 0m 22s            │
+│  Total: 3m 38s   Trigger: push by @dev               │
+└──────────────────────────────────────────────┘
+```
+
+---
+
+## 🌐 Real-World Usage Example
+
+**Amazon** deploys to production every ~11.7 seconds on average via automated pipelines. **Etsy** pioneered continuous deployment, going from twice-weekly releases to 50+ deploys/day. Every push runs tests, builds an image, and — if green — rolls out with canary/blue-green so a bad release auto-rolls back before most users notice.
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **CI ≠ CD:** CI = merge + test often; Continuous Delivery = always deployable; Continuous Deployment = auto to prod.
+- **Fail fast:** run cheap/fast jobs (lint, unit tests) first to give quick feedback.
+- **Immutable artifacts:** build once, promote the *same* image through dev→staging→prod.
+- **Secrets in the vault, not YAML:** use encrypted secrets/OIDC, never hardcode credentials.
+- **Deployment strategies:** blue-green (instant switch) and canary (gradual %) enable safe rollbacks.
+- **GitOps (Argo CD/Flux):** Git is the source of truth; the cluster syncs to match it.
+- **DORA metrics:** deploy frequency, lead time, change-fail rate, MTTR measure delivery health.
+
+---
+
 **Navigation:** [← Ansible](ansible-deep-dive.md) | [Next → Prometheus & Grafana Deep Dive](monitoring-deep-dive.md) | ⬅ [Back to Index](../README.md)

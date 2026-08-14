@@ -120,4 +120,10 @@ Deep edge-case reference for cloud compute. The things that trip people up in pr
 
 ---
 
+## 🌐 Real-World War Story
+
+A startup's bill spiked overnight: an auto-scaling group launched **on-demand** instead of **Spot** because the Spot pool was exhausted, and there was no max-price cap. Meanwhile, a "tiny" `t3.micro` throttled under load because it ran out of **CPU credits** (burstable instances). Lesson: understand instance families — burstable (T), general (M), compute (C), memory (R) — and set Spot fallbacks + credit alarms.
+
+---
+
 **Navigation:** [Next → Storage Deep Dive](storage-deep.md) | ⬅ [Back to Index](../README.md)

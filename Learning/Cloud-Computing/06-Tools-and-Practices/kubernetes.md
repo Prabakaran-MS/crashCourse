@@ -127,4 +127,73 @@ kubectl logs <pod-name>            # view logs
 
 ---
 
+## 🖼️ Kubernetes Ecosystem Tools
+
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![Helm](https://img.shields.io/badge/Helm-0F1689?style=for-the-badge&logo=helm&logoColor=white)
+![Istio](https://img.shields.io/badge/Istio-466BB0?style=for-the-badge&logo=istio&logoColor=white)
+![Argo CD](https://img.shields.io/badge/Argo_CD-EF7B4D?style=for-the-badge&logo=argo&logoColor=white)
+![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white)
+
+---
+
+## 🏗️ Architecture: Inside a Kubernetes Cluster
+
+```mermaid
+flowchart TB
+    subgraph CP["🧠 Control Plane"]
+        API["API Server"] --> ETCD[("etcd")]
+        Sched["Scheduler"] --> API
+        CM["Controller Mgr"] --> API
+    end
+    User["👩‍💻 kubectl apply"] --> API
+    subgraph Node1["🖥️ Worker Node 1"]
+        K1["kubelet"] --> P1["Pod"] & P2["Pod"]
+    end
+    subgraph Node2["🖥️ Worker Node 2"]
+        K2["kubelet"] --> P3["Pod"]
+    end
+    API --> K1 & K2
+    Ingress["🌐 Ingress"] --> Svc["Service (LB)"] --> P1 & P2 & P3
+```
+
+**Explanation:** The control plane (API server, scheduler, etcd, controllers) is the brain. You send desired state via `kubectl`; kubelets on worker nodes run Pods; a Service load-balances across them and Ingress exposes them externally. K8s constantly reconciles reality to your desired state.
+
+---
+
+## 🖥️ What It Looks Like — kubectl (Mockup)
+
+```text
+$ kubectl get pods -o wide
+NAME              READY   STATUS    RESTARTS   NODE
+web-app-7d9-abc   1/1     Running   0          node-1
+web-app-7d9-def   1/1     Running   0          node-1
+web-app-7d9-ghi   1/1     Running   0          node-2
+
+$ kubectl scale deploy web-app --replicas=5
+deployment.apps/web-app scaled
+$ # 2 new pods scheduling...  self-healing + autoscaling ✅
+```
+
+---
+
+## 🌐 Real-World Usage Example
+
+**Tinder** migrated to Kubernetes to run ~1,000 services across 15,000+ pods, letting it scale to millions of swipes per second while cutting cloud costs and speeding deploys. Self-healing means crashed pods restart automatically and rolling updates ship features with zero downtime — impossible to manage by hand at that scale.
+
+**Other real examples:** Spotify, Airbnb, The New York Times, Pinterest, and OpenAI all run production on Kubernetes.
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **Declarative & self-healing:** you declare *desired* state; K8s continuously reconciles — kill a pod, it comes back.
+- **Requests vs limits:** requests reserve resources for scheduling; limits cap usage — misconfigure and pods get OOM-killed or throttled.
+- **Liveness vs readiness probes:** liveness restarts hung pods; readiness gates traffic until ready.
+- **StatefulSets vs Deployments:** stateful apps (databases) need stable identity/storage.
+- **Ingress vs Service:** Service = internal L4 endpoint; Ingress = external L7 HTTP routing.
+- **Managed K8s (EKS/AKS/GKE)** offloads the control plane — you rarely run it yourself in production.
+
+---
+
 **Navigation:** [← Infrastructure as Code](iac.md) | [Next → Monitoring](monitoring.md) | ⬅ [Back to Index](../README.md)

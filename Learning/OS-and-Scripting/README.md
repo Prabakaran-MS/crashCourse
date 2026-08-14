@@ -20,6 +20,24 @@ Start Here ──▶ Fundamentals ──▶ Types of OS ──▶ Shells & Scrip
 
 ---
 
+## 🧗 The Experience Lens (How to Read These Lessons)
+
+Every lesson is written to grow **with you**. The same topic looks different on your first day than it does after years in the trenches, so each page includes a **"What You Gain: 50+ Years of Experience, Condensed"** table and a **"Deep Dive — Advanced & Expert Insights"** section.
+
+We describe growth by **stage of mastery**, not by a number of years:
+
+| Stage | Icon | Who this is | What they focus on |
+|-------|------|-------------|--------------------|
+| **Beginner** | 🌱 | Just starting (day one) | "What is this and how do I make it work once?" |
+| **Learner** | 🧭 | A few projects in | "Why does it work? What are the common patterns?" |
+| **Practitioner** | 🛠️ | Comfortable, ships daily | "How do I do this reliably and safely at work?" |
+| **Advanced** | 🚀 | Deep, trusted specialist | "How do I make it fast, robust, and observable?" |
+| **Veteran** | 🏛️ | Mentor / architect | "How does this fail at scale, and how do I design around it?" |
+
+> 💡 Read top-to-bottom on your first pass. On later visits, jump straight to the **Deep Dive** and the **Veteran** row — that's where the hard-won lessons live.
+
+---
+
 ## 📚 Table of Contents
 
 ### 0. 🌱 Start Here (Plain-English Primer)

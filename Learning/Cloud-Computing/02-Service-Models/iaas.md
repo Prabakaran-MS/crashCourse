@@ -92,6 +92,86 @@ aws ec2 run-instances \
 
 ---
 
+## 🖼️ IaaS Tools & Platforms
+
+![AWS EC2](https://img.shields.io/badge/AWS_EC2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white)
+![Azure VM](https://img.shields.io/badge/Azure_VMs-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![Compute Engine](https://img.shields.io/badge/GCP_Compute_Engine-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
+![DigitalOcean](https://img.shields.io/badge/DigitalOcean_Droplets-0080FF?style=for-the-badge&logo=digitalocean&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-844FBA?style=for-the-badge&logo=terraform&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+
+---
+
+## 🏗️ Architecture: A Typical IaaS Deployment
+
+```mermaid
+flowchart TB
+    User["👤 Users"] -->|HTTPS| IGW["🌐 Internet Gateway"]
+    IGW --> ALB["⚖️ Load Balancer"]
+    subgraph VPC["🔒 Virtual Private Cloud (VPC)"]
+        subgraph Public["Public Subnet"]
+            ALB
+        end
+        subgraph Private["Private Subnet"]
+            EC2a["🖥️ EC2 (App Server)"]
+            EC2b["🖥️ EC2 (App Server)"]
+        end
+        EC2a --> EBS1["💽 EBS Volume"]
+        EC2b --> EBS2["💽 EBS Volume"]
+        EC2a --> DB["🗄️ Database on EC2"]
+    end
+    ALB --> EC2a & EC2b
+    SG["🛡️ Security Group (Firewall)"] -.controls.-> EC2a & EC2b
+```
+
+**Explanation:** In IaaS you assemble the building blocks yourself: a **VPC** for networking, **subnets** (public/private), a **load balancer**, **EC2** servers, **EBS** disks, and **Security Groups** as firewalls. The provider only guarantees the raw infrastructure — the design is yours.
+
+---
+
+## 🖥️ What It Looks Like — SSH into Your VM (Mockup)
+
+```text
+$ ssh -i my-key.pem ubuntu@54.221.12.34
+Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 6.2.0-aws x86_64)
+
+  System load: 0.08   Processes: 112
+  Memory used: 21%    IP address: 10.0.1.15
+
+ubuntu@ip-10-0-1-15:~$ sudo apt update && sudo apt install -y openjdk-17-jre
+ubuntu@ip-10-0-1-15:~$ java -jar myapp.jar
+Started MyApp on port 8080  ✅
+```
+
+*You get a bare Linux box — everything above the OS (patching, Java, the app) is your responsibility.*
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+### 💽 Storage Types in IaaS
+| Type | Analogy | Example | Use For |
+|------|---------|---------|---------|
+| **Block** | A raw hard disk | EBS, Azure Managed Disk | Boot volumes, databases |
+| **Object** | A key-value bucket | S3, Azure Blob | Files, backups, media |
+| **File** | A shared network drive | EFS, Azure Files | Shared app data |
+
+### 🖥️ Instance Families
+- **General purpose** (t/m): balanced. **Compute optimized** (c): CPU-heavy. **Memory optimized** (r/x): databases/caches. **GPU** (p/g): ML/graphics.
+
+### 💰 Purchasing Options (big cost lever)
+- **On-Demand:** flexible, most expensive. **Reserved / Savings Plans:** 1–3 yr commit, up to ~72% off. **Spot:** spare capacity, up to ~90% off but can be reclaimed — great for fault-tolerant batch jobs.
+
+### 🛡️ Security Groups vs NACLs
+- **Security Group** = stateful firewall at the instance level.
+- **Network ACL** = stateless firewall at the subnet level.
+
+### ⚠️ Common Gotchas
+- **Public IPs & open ports:** never expose SSH (22) to `0.0.0.0/0` in prod.
+- **Right-sizing:** most IaaS bills are inflated by oversized/idle instances.
+
+---
+
 ## ✅ When to Use IaaS
 
 - You need **full control** over the OS and environment.

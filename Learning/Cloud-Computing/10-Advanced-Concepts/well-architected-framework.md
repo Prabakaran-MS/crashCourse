@@ -100,4 +100,21 @@ mindmap
 
 ---
 
+## 🌐 Real-World Usage Example
+
+Before major launches (e.g., a new banking app on AWS), architects run a formal **Well-Architected Review** using the AWS Well-Architected Tool — answering dozens of questions per pillar and getting a prioritized list of risks. **Startups** applying for AWS/Azure credits are often required to pass a Well-Architected Review. It's also a hiring signal: interviewers ask candidates to reason through the pillars for a design.
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **The pillars trade off:** more reliability/performance often costs more — the framework is about *conscious* trade-offs.
+- **Sustainability (6th pillar)** is newer — pick efficient regions/hardware and delete waste to cut carbon.
+- **It's provider-agnostic thinking:** Azure (Well-Architected Framework) and GCP (Architecture Framework) mirror the same ideas.
+- **Reviews are continuous:** re-run as the workload evolves, not just once at launch.
+- **"Operational excellence" = automation:** manual ops don't scale — IaC + runbooks + observability.
+- **Design for failure** is the reliability core — assume components will die and auto-heal.
+
+---
+
 **Navigation:** [← AI/ML & Big Data](ai-ml-bigdata.md) | [Next → Terraform Deep Dive](../11-Tool-Deep-Dives/terraform-deep-dive.md) | ⬅ [Back to Index](../README.md)

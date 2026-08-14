@@ -71,6 +71,72 @@ flowchart TB
 
 ---
 
+## 🖼️ Public Cloud Providers
+
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Azure](https://img.shields.io/badge/Microsoft_Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![GCP](https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
+![Oracle](https://img.shields.io/badge/Oracle_Cloud-F80000?style=for-the-badge&logo=oracle&logoColor=white)
+![Alibaba Cloud](https://img.shields.io/badge/Alibaba_Cloud-FF6A00?style=for-the-badge&logo=alibabacloud&logoColor=white)
+
+---
+
+## 🏗️ Architecture: Multi-Tenant Public Cloud
+
+```mermaid
+flowchart TB
+    subgraph Provider["☁️ Public Cloud Provider (Global)"]
+        subgraph R1["🗺️ Region us-east-1"]
+            AZ1["🏢 AZ-a"]
+            AZ2["🏢 AZ-b"]
+        end
+        subgraph R2["🗺️ Region eu-west-1"]
+            AZ3["🏢 AZ-a"]
+        end
+    end
+    CoA["🏢 Company A (isolated account/VPC)"] --> R1
+    CoB["🏢 Company B (isolated account/VPC)"] --> R1
+    CoC["🏢 Company C (isolated account/VPC)"] --> R2
+```
+
+**Explanation:** Thousands of customers share the same global hardware pool, but each is fenced off by its own account, IAM policies, and VPC. You pick a Region close to your users and spread across AZs for resilience.
+
+---
+
+## 🖥️ What It Looks Like — Picking a Region (Mockup)
+
+```text
+┌────────────────────────────────────────────────────────┐
+│  ☁️  Console        Region: [ US East (N. Virginia) ▾ ] │
+├────────────────────────────────────────────────────────┤
+│   ○ US East (N. Virginia)   us-east-1   ⚡ lowest price │
+│   ○ US West (Oregon)        us-west-2                   │
+│   ● Europe (Ireland)        eu-west-1   ✓ GDPR region   │
+│   ○ Asia Pacific (Mumbai)   ap-south-1                  │
+│                                                        │
+│   Availability Zones in region: 3  ▇▇▇                 │
+└────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🌐 Real-World Usage Example
+
+**Airbnb** runs almost entirely on **AWS public cloud**. During peak booking seasons it elastically scales thousands of EC2 instances and stores billions of images in S3 — with zero data centers of its own. When traffic drops, capacity (and cost) shrinks automatically. This let a startup serve 150M+ users globally without ever buying a server.
+
+**Other real examples:** Netflix (AWS streaming), Spotify (Google Cloud), Slack (AWS), Pinterest (AWS).
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **Region selection drivers:** latency (near users), price (varies per region), compliance (data residency), and service availability (new services launch in some regions first).
+- **Data egress cost:** moving data *out* of the public cloud is the classic surprise bill.
+- **Well-Architected best practice:** always deploy across ≥2 AZs for production high availability.
+- **Landing zones:** enterprises use multi-account structures (AWS Organizations / Azure Management Groups) to isolate teams and enforce guardrails.
+
+---
+
 **Related:** [Private Cloud](private-cloud.md) · [Hybrid Cloud](hybrid-cloud.md)
 
 **Navigation:** [Next → Private Cloud](private-cloud.md) | ⬅ [Back to Index](../README.md)

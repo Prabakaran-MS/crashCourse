@@ -19,8 +19,8 @@ Theory is nothing without practice. Build these projects to cement your learning
 
 ```mermaid
 flowchart LR
-    Start["🟢 Beginner\nstatic site"] --> Mid["🟡 Intermediate\nserverless API"]
-    Mid --> Adv["🔴 Advanced\ncontainers + IaC"]
+    Start["🟢 Beginner<br/>static site"] --> Mid["🟡 Intermediate<br/>serverless API"]
+    Mid --> Adv["🔴 Advanced<br/>containers + IaC"]
 ```
 
 **Explanation:** These hands-on projects build your skills step by step. Start simple with a static website, progress to serverless APIs, and finish with full containerized apps deployed via Infrastructure as Code — each project adds real, portfolio-worthy experience.

@@ -81,6 +81,32 @@ Debugging PowerShell is like flying a plane with a **glass cockpit**: strict mod
 
 ---
 
+## 🧗 What You Gain: 50+ Years of Experience, Condensed
+
+Work through this lesson and you absorb judgment that normally takes a career to earn. Each stage below is not just a shift in viewpoint but a level of mastery you unlock. By the end you carry the instincts of someone with 50+ years in the field:
+
+| Stage | How you debug PowerShell | What you can do |
+|-------|--------------------------|-----------------|
+| 🌱 **Beginner** | Add `Write-Host`. | See values on screen. |
+| 🧭 **Learner** | Use proper streams. | `Write-Verbose`/`Write-Debug` with `-Verbose`/`-Debug`. |
+| 🛠️ **Practitioner** | Handle errors deliberately. | try/catch, `$ErrorActionPreference`, inspect `$Error`. |
+| 🚀 **Advanced** | Step through interactively. | Breakpoints (`Set-PSBreakpoint`), `Get-Member`, strict mode. |
+| 🏛️ **Veteran** | Test and prevent regressions. | `Pester` tests + CI; structured logging. |
+
+---
+
+## 🔬 Deep Dive — Advanced & Expert Insights
+
+- **Use the streams, not `Write-Host`:** `Write-Verbose`/`Write-Debug`/`Write-Warning` are toggleable and redirectable; `Write-Host` writes to the host and can't be captured or filtered.
+- **Terminating vs non-terminating errors:** try/catch only catches *terminating* errors. Set `-ErrorAction Stop` (or `$ErrorActionPreference='Stop'`) to make failures catchable; inspect `$_.Exception` and `$Error[0]`.
+- **Conditional breakpoints:** `Set-PSBreakpoint -Script x.ps1 -Line 20 -Action { if ($count -gt 100) { break } }` — and `Set-PSBreakpoint -Variable x -Mode Write` to catch *what changes a variable*.
+- **`Set-StrictMode -Version Latest`** surfaces typos and use of uninitialized variables — the PowerShell equivalent of `set -u`.
+- **`Get-Member` is a debugger too:** when a pipeline misbehaves, `... | Get-Member` reveals the real object type and properties, ending guesswork.
+
+> 🏛️ **Veteran habit:** wire `Pester` tests into CI and use structured logging — catching regressions automatically beats interactive debugging every time.
+
+---
+
 ## ✅ Key Takeaways
 
 - Use **Verbose/Debug streams** for diagnostics without clutter.

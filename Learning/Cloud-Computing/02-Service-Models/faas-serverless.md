@@ -21,7 +21,7 @@
 
 ```mermaid
 flowchart LR
-    Event["🔔 Event\n(HTTP, upload, timer)"] --> Fn["⚡ Your Function"]
+    Event["🔔 Event<br/>(HTTP, upload, timer)"] --> Fn["⚡ Your Function"]
     Fn --> Run["Runs on demand"]
     Run --> Scale["Scales 0 → thousands"]
     Run --> Pay["Pay per millisecond"]
@@ -76,6 +76,74 @@ def lambda_handler(event, context):
 ```
 
 Deploy it, attach an API Gateway trigger, and you have a scalable API with no servers to manage.
+
+---
+
+## 🖼️ Serverless Tools & Platforms
+
+![AWS Lambda](https://img.shields.io/badge/AWS_Lambda-FF9900?style=for-the-badge&logo=awslambda&logoColor=white)
+![Azure Functions](https://img.shields.io/badge/Azure_Functions-0062AD?style=for-the-badge&logo=azurefunctions&logoColor=white)
+![Cloud Functions](https://img.shields.io/badge/GCP_Cloud_Functions-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
+![Knative](https://img.shields.io/badge/Knative-0865AD?style=for-the-badge&logo=knative&logoColor=white)
+![Cloudflare Workers](https://img.shields.io/badge/Cloudflare_Workers-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)
+![Serverless Framework](https://img.shields.io/badge/Serverless-FD5750?style=for-the-badge&logo=serverless&logoColor=white)
+
+---
+
+## 🏗️ Architecture: An Event-Driven Serverless App
+
+```mermaid
+flowchart LR
+    U["👤 User"] -->|HTTP| GW["🚪 API Gateway"]
+    GW --> Fn1["⚡ Lambda: API Handler"]
+    Fn1 --> DDB["🗄️ DynamoDB"]
+    S3["💾 S3 Upload"] -->|event| Fn2["⚡ Lambda: Image Resizer"]
+    Fn2 --> S3out["💾 S3 (Thumbnails)"]
+    Timer["⏰ EventBridge (cron)"] -->|schedule| Fn3["⚡ Lambda: Nightly Job"]
+    Queue["📨 SQS Queue"] --> Fn4["⚡ Lambda: Worker"]
+```
+
+**Explanation:** Serverless apps are stitched together from **triggers** (HTTP, storage events, timers, queues) that each invoke a small **function**. There are no servers to size — each function scales independently from zero to thousands, and you pay only per invocation.
+
+---
+
+## 🖥️ What It Looks Like — Lambda Invocation Logs (Mockup)
+
+```text
+$ aws lambda invoke --function-name resize out.json
+START RequestId: 7f3c... Version: $LATEST
+  Resizing s3://uploads/photo.jpg → 200x200
+END   RequestId: 7f3c...
+REPORT Duration: 412.55 ms  Billed Duration: 413 ms
+       Memory Size: 256 MB  Max Memory Used: 118 MB
+       Init Duration: 289.4 ms  ← cold start
+```
+
+*Note the `Init Duration` — that's the **cold start** you pay for only on the first (or scaled-out) invocation.*
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+### ❄️ Cold Starts (the #1 gotcha)
+- Happens when a **new** execution environment must initialize (first call, scale-out, or after idle).
+- **Reduce with:** provisioned concurrency, smaller packages, lighter runtimes (Node/Python < Java/.NET), and avoiding heavy init code.
+
+### 🧊 Statelessness & State
+- Functions are **stateless** and **ephemeral** — never store data in local memory/disk between calls. Persist to **DynamoDB, S3, or a cache** instead.
+
+### ⏱️ Hard Limits to Design Around
+- **Execution timeout** (e.g. Lambda max 15 min), **payload size**, **/tmp storage**, and **concurrency limits**. Long jobs → use Step Functions / containers (Fargate).
+
+### 🔗 Serverless ≠ just FaaS
+- The broader **serverless** family includes managed **DynamoDB**, **S3**, **Aurora Serverless**, **API Gateway**, **EventBridge**, **Fargate** — all "no servers to manage."
+
+### 🎼 Orchestration
+- Chain functions with **AWS Step Functions** / **Azure Durable Functions** for workflows, retries, and long-running state machines.
+
+### ⚠️ Cost & Debugging Notes
+- Cheap when spiky/idle; can get **expensive at very high sustained volume** vs containers.
+- Distributed tracing (**X-Ray**, OpenTelemetry) is essential — debugging many tiny functions is harder than one app.
 
 ---
 

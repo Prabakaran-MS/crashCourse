@@ -22,8 +22,8 @@ flowchart TB
     Internet["🌐 Internet"] --> IGW["Internet Gateway"]
     IGW --> VPC["VPC (your private network)"]
     subgraph VPC
-        Pub["Public Subnet\n(web servers)"]
-        Priv["Private Subnet\n(databases)"]
+        Pub["Public Subnet<br/>(web servers)"]
+        Priv["Private Subnet<br/>(databases)"]
     end
     Pub --> Priv
 ```
@@ -86,6 +86,80 @@ Internet → CDN → Load Balancer → [Public Subnet: Web Servers]
 									   │
 								 [Private Subnet: Database]
 ```
+
+---
+
+## 🖼️ Cloud Networking Services
+
+![AWS VPC](https://img.shields.io/badge/AWS_VPC-8C4FFF?style=for-the-badge&logo=amazonvpc&logoColor=white)
+![CloudFront](https://img.shields.io/badge/CloudFront_CDN-A166FF?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Route 53](https://img.shields.io/badge/Route_53_DNS-8C4FFF?style=for-the-badge&logo=amazonroute53&logoColor=white)
+![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)
+![Nginx](https://img.shields.io/badge/Nginx_LB-009639?style=for-the-badge&logo=nginx&logoColor=white)
+
+---
+
+## 🏗️ Architecture: A Production 3-Tier Network
+
+```mermaid
+flowchart TB
+    User["👥 Users"] --> DNS["🌐 Route 53 (DNS)"]
+    DNS --> CDN["⚡ CloudFront (CDN edge cache)"]
+    CDN --> ALB["⚖️ Application Load Balancer"]
+    subgraph VPC["🔒 VPC 10.0.0.0/16"]
+        subgraph PubSub["Public Subnet 10.0.1.0/24"]
+            ALB
+            NAT["🔀 NAT Gateway"]
+        end
+        subgraph PrivApp["Private Subnet 10.0.2.0/24"]
+            Web1["🖥️ Web/App"] & Web2["🖥️ Web/App"]
+        end
+        subgraph PrivDB["Private Subnet 10.0.3.0/24"]
+            DB[("🗄️ Database")]
+        end
+    end
+    ALB --> Web1 & Web2
+    Web1 --> DB
+    Web1 --> NAT
+```
+
+**Explanation:** Users hit DNS → CDN → load balancer → web tier (private subnet) → database (deepest private subnet). Only the load balancer is exposed; app and DB tiers stay private, reaching the internet only via a NAT gateway for updates.
+
+---
+
+## 🖥️ What It Looks Like — Security Group Rules (Mockup)
+
+```text
+┌───────────────────────────────────────────────┐
+│  Security Group: sg-web    (stateful firewall)     │
+├───────────────────────────────────────────────┤
+│  INBOUND                                          │
+│   Type   Port   Source          Action           │
+│   HTTPS  443    0.0.0.0/0        ✅ ALLOW         │
+│   HTTP    80    0.0.0.0/0        ✅ ALLOW         │
+│   SSH     22    10.0.0.0/16      ✅ ALLOW (VPC)   │
+│   SSH     22    0.0.0.0/0        ❌ (never!)      │
+└──────────────────────────────────────────────┘
+```
+
+---
+
+## 🌐 Real-World Usage Example
+
+**Netflix** runs one of the world's largest cloud networks: Route 53-style DNS routes each viewer to the nearest AWS region, its Open Connect CDN caches shows at ISPs worldwide, and load balancers spread billions of requests across auto-scaling groups. This networking design is why a 4K stream starts in under 2 seconds almost anywhere.
+
+**Other real examples:** Cloudflare fronts ~20% of the web with CDN + DDoS protection; banks use Direct Connect/ExpressRoute for private low-latency links to the cloud.
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **CIDR blocks & IP planning:** `/16` = 65k IPs, `/24` = 256 — plan ranges so VPCs can peer without overlap.
+- **NAT Gateway costs:** private subnets reach the internet via NAT, which charges hourly + per-GB (a common surprise bill).
+- **Security Group (stateful) vs NACL (stateless):** SG remembers return traffic; NACL needs explicit inbound *and* outbound rules.
+- **Private endpoints / PrivateLink:** reach S3/DBs without traversing the public internet.
+- **VPC peering vs Transit Gateway:** peering is 1:1; Transit Gateway is a hub for many VPCs.
+- **L4 vs L7 load balancing:** L4 (NLB) is fast/TCP; L7 (ALB) understands HTTP paths/hosts for smart routing.
 
 ---
 

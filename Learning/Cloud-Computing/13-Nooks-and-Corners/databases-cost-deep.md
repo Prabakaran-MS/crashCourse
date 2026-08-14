@@ -112,4 +112,10 @@ Database performance traps and the hidden cloud costs that shock teams.
 
 ---
 
+## 🌐 Real-World War Story
+
+A "cheap" DynamoDB table racked up a huge bill from a **hot partition** — all traffic hit one partition key, throttling reads while over-provisioning capacity. Elsewhere, an RDS instance ran out of **connections** during a traffic spike (no connection pooling), taking the app down. And a forgotten cross-region **read replica** quietly doubled the DB bill. Lesson: design partition keys for even distribution, pool connections, and audit replicas.
+
+---
+
 **Navigation:** [← Kubernetes Internals](kubernetes-deep.md) | [Next → Troubleshooting Playbook](troubleshooting-playbook.md) | ⬅ [Back to Index](../README.md)

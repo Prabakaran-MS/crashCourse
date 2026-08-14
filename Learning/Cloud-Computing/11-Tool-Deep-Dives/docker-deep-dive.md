@@ -151,4 +151,48 @@ docker run --network appnet --name db postgres
 
 ---
 
+## 🖼️ Docker Ecosystem
+
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Docker Hub](https://img.shields.io/badge/Docker_Hub-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Trivy](https://img.shields.io/badge/Trivy-1904DA?style=for-the-badge&logo=aqua&logoColor=white)
+![Compose](https://img.shields.io/badge/Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+
+---
+
+## 🖥️ What It Looks Like — docker build (Mockup)
+
+```text
+$ docker build -t myorg/app:1.0 .
+[+] Building 12.4s (11/11) FINISHED
+ => [1/6] FROM node:18-alpine              0.0s (cached)
+ => [2/6] WORKDIR /app                     0.1s
+ => [3/6] COPY package*.json ./            0.2s
+ => [4/6] RUN npm ci --only=production     8.9s
+ => [5/6] COPY . .                         0.3s
+ => exporting to image                     1.1s
+ => => naming to myorg/app:1.0
+Image size: 142MB   Layers: 6
+```
+
+---
+
+## 🌐 Real-World Usage Example
+
+**Spotify, PayPal, and virtually every modern company** ship apps as Docker images. A developer builds an image once; the exact same container runs on a laptop, CI runner, and production Kubernetes — killing "works on my machine" bugs. **Netflix** bakes images in CI and deploys thousands of identical containers globally.
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **Layer cache ordering:** copy `package.json` before source so dependency installs are cached.
+- **Multi-stage builds** drop build tools — final images can be 10x smaller (and safer).
+- **Distroless/alpine** images shrink attack surface; run as non-root user.
+- **`.dockerignore`** prevents shipping `node_modules`, `.git`, secrets into the image.
+- **Containers are ephemeral:** persist data in **volumes**, never the container layer.
+- **One process per container:** let the orchestrator handle multiple replicas.
+- **Never bake secrets** into images — they're readable in the layer history.
+
+---
+
 **Navigation:** [← Terraform](terraform-deep-dive.md) | [Next → Kubernetes Deep Dive](kubernetes-deep-dive.md) | ⬅ [Back to Index](../README.md)

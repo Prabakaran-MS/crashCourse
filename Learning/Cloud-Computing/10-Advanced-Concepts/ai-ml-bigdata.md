@@ -115,4 +115,48 @@ Data Sources (apps, IoT, logs)
 
 ---
 
+## 🖼️ AI/ML & Big Data Tools
+
+![SageMaker](https://img.shields.io/badge/AWS_SageMaker-DD344C?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Vertex AI](https://img.shields.io/badge/Vertex_AI-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
+![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=databricks&logoColor=white)
+![Spark](https://img.shields.io/badge/Apache_Spark-E25A1C?style=for-the-badge&logo=apachespark&logoColor=white)
+![Kafka](https://img.shields.io/badge/Apache_Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white)
+![Snowflake](https://img.shields.io/badge/Snowflake-29B5E8?style=for-the-badge&logo=snowflake&logoColor=white)
+
+---
+
+## 🖥️ What It Looks Like — SageMaker Training Job (Mockup)
+
+```text
+┌───────────────────────────────────────────────┐
+│  🤖 SageMaker › Training Job: fraud-model-v7          │
+├──────────────────────────────────────────────┤
+│  Instance: ml.p3.2xlarge (1x V100 GPU)              │
+│  Epoch 18/20   loss 0.041   val_acc 0.982          │
+│  Progress ▇▇▇▇▇▇▇▇▇▁ 90%   ETA 4m               │
+│  Status: InProgress   Spend: $6.12                  │
+└──────────────────────────────────────────────┘
+```
+
+---
+
+## 🌐 Real-World Usage Example
+
+**Spotify** uses Google BigQuery and Dataflow to process billions of streaming events daily, powering "Discover Weekly" recommendations for 600M+ users. **OpenAI** trains large language models on massive cloud GPU clusters (Azure). **Capital One** runs fraud detection on Spark/Databricks, scoring transactions in milliseconds — all using rented GPUs/TPUs instead of buying millions in hardware.
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **Data lake vs warehouse:** lake = raw any-format (cheap S3); warehouse = structured, query-optimized (BigQuery).
+- **Lakehouse (Databricks):** combines both — lake storage with warehouse-style ACID/queries.
+- **ETL vs ELT:** cloud shifted to ELT — load raw first, transform in the warehouse.
+- **Batch vs streaming:** Spark batch for reports; Kafka/Flink streaming for real-time.
+- **MLOps:** the discipline of versioning, deploying, and monitoring models (drift detection).
+- **GPU vs TPU vs Inferentia:** training needs GPUs/TPUs; cheap inference chips (Inferentia) cut serving costs.
+- **Egress costs:** moving big data *out* of the cloud is expensive — process it in place.
+
+---
+
 **Navigation:** [← Edge Computing & CDN](edge-computing-cdn.md) | [Next → Well-Architected Framework](well-architected-framework.md) | ⬅ [Back to Index](../README.md)

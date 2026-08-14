@@ -93,4 +93,66 @@ rate(container_cpu_usage_seconds_total[5m])
 
 ---
 
+## 🖼️ Observability Toolchain
+
+![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white)
+![Datadog](https://img.shields.io/badge/Datadog-632CA6?style=for-the-badge&logo=datadog&logoColor=white)
+![Elastic](https://img.shields.io/badge/ELK_Stack-005571?style=for-the-badge&logo=elastic&logoColor=white)
+![OpenTelemetry](https://img.shields.io/badge/OpenTelemetry-000000?style=for-the-badge&logo=opentelemetry&logoColor=white)
+![PagerDuty](https://img.shields.io/badge/PagerDuty-06AC38?style=for-the-badge&logo=pagerduty&logoColor=white)
+
+---
+
+## 🏗️ Architecture: An Observability Pipeline
+
+```mermaid
+flowchart LR
+    App["🖥️ Apps / Infra"] -->|metrics| Prom["📊 Prometheus"]
+    App -->|logs| Loki["📜 Loki / ELK"]
+    App -->|traces| Otel["🔍 OpenTelemetry → Jaeger"]
+    Prom --> Graf["📈 Grafana"]
+    Loki --> Graf
+    Otel --> Graf
+    Prom --> AM["🚨 Alertmanager"] --> Page["📱 PagerDuty (on-call)"]
+```
+
+**Explanation:** The three pillars — metrics, logs, traces — flow into a common visualization layer (Grafana) and an alerting path that pages the on-call engineer when an SLO breaks. This is how teams detect and diagnose issues before users notice.
+
+---
+
+## 🖥️ What It Looks Like — Grafana Dashboard (Mockup)
+
+```text
+┌───────────────────────────────────────────────┐
+│  📊 Service Health   last 1h   ● LIVE                │
+├───────────────────────────────────────────────┤
+│  Latency p95   142 ms  ▁▂▃▅▃▂▁▂▃  ✅ < 200ms SLO   │
+│  Req rate      8.4k/s  ▆▇█▇▆▅▆▇█                    │
+│  Error rate    0.12%   ▁▁▁▂▁▁▁▁▁  ✅               │
+│  CPU sat.      63%     ▇▇▇▇▇▁▁                    │
+│  🚨 1 alert:  “high-latency-checkout”  FIRING          │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+## 🌐 Real-World Usage Example
+
+**Uber** built one of the world's largest monitoring systems (M3, on top of Prometheus) ingesting billions of metrics per second across thousands of microservices. When a payment or dispatch service slows, dashboards and traces pinpoint the exact failing service in seconds, and on-call engineers are paged automatically — keeping rides flowing 24/7.
+
+**Other real examples:** Netflix's Atlas, Cloudflare's Grafana dashboards, and virtually every SaaS using Datadog for full-stack observability.
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **Monitoring vs Observability:** monitoring = known-unknowns (dashboards you built); observability = unknown-unknowns (ask new questions of rich telemetry).
+- **SLI / SLO / SLA / error budget:** SLI = measured signal, SLO = target, SLA = contract, error budget = allowed failure before you freeze releases.
+- **Cardinality explosion:** too many label combinations blow up metric cost — label carefully.
+- **Alert fatigue:** page only on symptoms users feel (golden signals), not every CPU blip.
+- **OpenTelemetry** is the vendor-neutral standard unifying metrics/logs/traces.
+
+---
+
 **Navigation:** [← Kubernetes](kubernetes.md) | [Next → Cloud Security](../07-Security/cloud-security.md) | ⬅ [Back to Index](../README.md)

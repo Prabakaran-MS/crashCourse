@@ -25,7 +25,7 @@ flowchart LR
     Cloud --> Compute["Servers / Compute"]
     Cloud --> Storage["Storage"]
     Cloud --> Network["Networking"]
-    Cloud --> Services["Databases & Services"]
+    Cloud --> Services["Databases and Services"]
     Compute --> Pay["Pay only for what you use"]
     Storage --> Pay
     Network --> Pay
@@ -73,6 +73,101 @@ Cloud computing is organized around two main axes:
 
 1. **Service Models** — *what* you rent → [IaaS](../02-Service-Models/iaas.md), [PaaS](../02-Service-Models/paas.md), [SaaS](../02-Service-Models/saas.md)
 2. **Deployment Models** — *where* it lives → [Public](../03-Deployment-Models/public-cloud.md), [Private](../03-Deployment-Models/private-cloud.md), [Hybrid](../03-Deployment-Models/hybrid-cloud.md)
+
+---
+
+## 🖼️ The Cloud Landscape (Providers & Tools)
+
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Azure](https://img.shields.io/badge/Microsoft_Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![GCP](https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
+![IBM Cloud](https://img.shields.io/badge/IBM_Cloud-1261FE?style=for-the-badge&logo=ibmcloud&logoColor=white)
+![Oracle Cloud](https://img.shields.io/badge/Oracle_Cloud-F80000?style=for-the-badge&logo=oracle&logoColor=white)
+![DigitalOcean](https://img.shields.io/badge/DigitalOcean-0080FF?style=for-the-badge&logo=digitalocean&logoColor=white)
+
+> 🏷️ *The badges above are the official brand marks of the major Cloud Service Providers (CSPs) — the "storefronts" where you rent computing over the internet.*
+
+---
+
+## 🏗️ Architecture: How a Cloud Request Flows
+
+```mermaid
+flowchart LR
+    Dev["👩‍💻 You / App"] -->|HTTPS / API| Edge["🌐 Provider Edge / DNS"]
+    Edge --> LB["⚖️ Load Balancer"]
+    LB --> Region["🗺️ Region (e.g. us-east-1)"]
+    subgraph Region
+        AZ1["🏢 Availability Zone A"]
+        AZ2["🏢 Availability Zone B"]
+    end
+    AZ1 --> Comp["🖥️ Compute (VM / Container / Function)"]
+    AZ2 --> Comp
+    Comp --> Store["💾 Storage"]
+    Comp --> DB["🗄️ Managed Database"]
+    Comp --> Meter["📊 Metering and Billing"]
+```
+
+**Explanation:** Your request enters through the provider's global edge, gets routed to a **Region** (a geographic cluster of data centers), and is served by redundant **Availability Zones (AZs)**. Behind the scenes a metering system records every second and gigabyte so you are billed only for what you used.
+
+---
+
+## 🖥️ What It Looks Like — Console "Screenshot" (Mockup)
+
+```text
+┌──────────────────────────────────────────────────────────────┐
+│  ☁️  AWS Management Console            🔍 Search   🔔  user ▾ │
+├──────────────────────────────────────────────────────────────┤
+│  EC2 › Instances › Launch an instance                        │
+│                                                              │
+│   Name        [ my-first-server                           ]  │
+│   AMI         [ Ubuntu Server 22.04 LTS            ▾ ]        │
+│   Instance    ( ) t3.micro  (•) t3.small  ( ) m5.large       │
+│   Key pair    [ my-key                             ▾ ]        │
+│   Network     [ vpc-0a1b2c  •  subnet-public       ▾ ]        │
+│                                                              │
+│   Est. cost:  ~$0.021 / hour   ( pay only while running )     │
+│                                                              │
+│                         [  Cancel  ]   [ ▶ Launch instance ] │
+└──────────────────────────────────────────────────────────────┘
+```
+
+*This is the self-service portal in action — you fill a short form and a server boots in ~60 seconds, no procurement, no wiring.*
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+### 🌍 Regions, Availability Zones & Edge Locations
+- **Region** = a physical geographic area (e.g. `us-east-1`, `westeurope`) containing multiple data centers.
+- **Availability Zone (AZ)** = one or more isolated data centers within a Region, with independent power/cooling/network. Spreading across AZs = high availability.
+- **Edge / PoP (Point of Presence)** = smaller sites near users for caching (CDN) and low latency.
+
+### 🤝 The Shared Responsibility Model
+| Layer | On-Prem | IaaS | PaaS | SaaS |
+|-------|:------:|:----:|:----:|:----:|
+| Data & Access | You | You | You | You |
+| Application | You | You | You | Provider |
+| OS / Runtime | You | You | Provider | Provider |
+| Hardware / Network | You | Provider | Provider | Provider |
+
+> **Rule of thumb:** *The provider secures the cloud; you secure what you put in the cloud.*
+
+### 📶 SLA & the "Nines" of Uptime
+| SLA | Allowed Downtime / Year | Typical Use |
+|-----|-------------------------|-------------|
+| 99% ("two nines") | ~3.65 days | Dev/test |
+| 99.9% ("three nines") | ~8.76 hours | Standard web apps |
+| 99.99% ("four nines") | ~52.6 minutes | Business-critical |
+| 99.999% ("five nines") | ~5.26 minutes | Banking, telecom |
+
+### 💸 CapEx → OpEx & Total Cost of Ownership (TCO)
+- **CapEx:** buy hardware upfront (depreciates, idle capacity wasted).
+- **OpEx:** pay monthly per usage (elastic, no waste).
+- **TCO** also includes people, power, cooling, licensing — cloud shifts most of these to the provider.
+
+### 🧠 Control Plane vs Data Plane
+- **Control plane** = the management APIs/console you use to *create* resources.
+- **Data plane** = the actual traffic your app serves *through* those resources.
 
 ---
 

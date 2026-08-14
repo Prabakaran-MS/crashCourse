@@ -145,4 +145,10 @@ Identity → sts:AssumeRole → Temporary credentials (expire in 1-12h)
 
 ---
 
+## 🌐 Real-World War Story
+
+An engineer attached a wildcard `"Action": "*"` policy "just to make it work" — months later a leaked key from that role let an attacker spin up crypto-mining instances across regions, costing tens of thousands before detection. The **confused deputy** and over-broad `PassRole` permissions are recurring culprits. Lesson: least privilege isn't bureaucracy — it's the difference between a contained incident and a company-wide breach.
+
+---
+
 **Navigation:** [← Networking Deep Dive](networking-deep.md) | [Next → Containers Deep Dive](containers-deep.md) | ⬅ [Back to Index](../README.md)

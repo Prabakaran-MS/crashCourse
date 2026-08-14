@@ -116,4 +116,10 @@ aws s3 presign s3://bucket/file --expires-in 3600
 
 ---
 
+## 🌐 Real-World War Story
+
+A company's S3 bill exploded from **thousands of tiny PUT requests** — they were storing millions of 2KB files and paying more for *requests* than storage. Another team lost data assuming S3 was instantly consistent across a delete+read (it wasn't, historically). And a `gp2` database volume hit an **IOPS ceiling** during peak, needing a switch to `gp3`/`io2`. Lesson: pick the right storage class/tier and watch request costs and IOPS limits, not just GB.
+
+---
+
 **Navigation:** [← Compute Deep Dive](compute-deep.md) | [Next → Networking Deep Dive](networking-deep.md) | ⬅ [Back to Index](../README.md)

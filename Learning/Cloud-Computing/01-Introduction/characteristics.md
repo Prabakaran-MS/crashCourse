@@ -81,4 +81,64 @@ Resource usage is monitored, controlled, and reported — you pay only for what 
 
 ---
 
+## 🏗️ Architecture: The Five Characteristics in One System
+
+```mermaid
+flowchart TB
+    U["👤 User"] -->|1. On-Demand Self-Service via API/Portal| API["🔧 Provisioning API"]
+    U -->|2. Broad Network Access HTTPS| LB["🌐 Load Balancer"]
+    API --> Pool["🏊 Resource Pool (Multi-Tenant Hardware)"]
+    LB --> Pool
+    Pool -->|3. Resource Pooling| H1["🖥️ Host 1"] & H2["🖥️ Host 2"]
+    H1 -->|4. Rapid Elasticity Auto Scaling| Scale["📈 Add/Remove Instances"]
+    Scale --> Meter["📊 5. Measured Service — Metering and Billing"]
+```
+
+**Explanation:** A single cloud request touches all five NIST traits: you self-serve over the network, land on shared pooled hardware, the system elastically scales instances, and a meter records usage for billing.
+
+---
+
+## 🖥️ "Measured Service" — What a Usage Bill Looks Like (Mockup)
+
+```text
+┌──────────────────────────────────────────────────────────┐
+│  📊  Billing › Cost Explorer            October 2025      │
+├──────────────────────────────────────────────────────────┤
+│  Service            Usage            Cost                 │
+│  ─────────────────  ───────────────  ─────────            │
+│  EC2 (compute)      412.5 hrs        $  8.66              │
+│  S3 (storage)       84.2 GB-month    $  1.94              │
+│  Lambda             2.1M requests    $  0.42              │
+│  Data transfer      63 GB out        $  5.67              │
+│  ─────────────────  ───────────────  ─────────            │
+│  TOTAL                               $ 16.69              │
+│  ▁▂▃▂▃▄▃▂  usage tracked per second / per GB              │
+└──────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+### ⚖️ Elasticity vs Scalability (not the same!)
+- **Scalability** = the *ability* to grow to handle more load (can be manual, long-term).
+- **Elasticity** = *automatic, fast* expansion **and** contraction to match real-time demand.
+- **Horizontal scaling (scale out)** = add more instances. **Vertical scaling (scale up)** = bigger instance.
+
+### 🏢 Multi-Tenancy & Isolation
+- Many customers ("tenants") share physical hardware but are **logically isolated** via virtualization, VPCs, and IAM.
+- **Noisy neighbor problem:** one tenant's heavy load can affect others — mitigated by resource limits and dedicated/instance options.
+
+### 🧾 Metering Granularity
+- Billing dimensions differ per service: **per-second** (compute), **per-GB-month** (storage), **per-request/per-ms** (serverless), **per-GB** (data transfer — often the surprise cost!).
+
+### 🔁 Self-Service = Automation-First
+- True self-service implies **APIs**, not humans — enabling Infrastructure as Code (IaC), CI/CD, and repeatable environments.
+
+---
+
+**Navigation:** [← History & Evolution](history-evolution.md) | [Next → Benefits & Challenges](benefits-challenges.md) | ⬅ [Back to Index](../README.md)
+
+---
+
 **Navigation:** [← History & Evolution](history-evolution.md) | [Next → Benefits & Challenges](benefits-challenges.md) | ⬅ [Back to Index](../README.md)

@@ -70,6 +70,54 @@ flowchart TB
 
 ---
 
+## 🖼️ Community Cloud Platforms
+
+![AWS GovCloud](https://img.shields.io/badge/AWS_GovCloud-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Azure Government](https://img.shields.io/badge/Azure_Government-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![Google Assured](https://img.shields.io/badge/Google_Assured_Workloads-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
+
+---
+
+## 🏗️ Architecture: Shared Compliance Baseline
+
+```mermaid
+flowchart TB
+    subgraph CC["🤝 Community Cloud (shared compliance baseline)"]
+        Controls["🛡️ HIPAA / FedRAMP / PCI controls (inherited by all)"]
+        Controls --> P1["🏥 Member Org A"]
+        Controls --> P2["🏥 Member Org B"]
+        Controls --> P3["🏥 Member Org C"]
+    end
+    Gov["⚖️ Shared Governance Board"] -.sets policy.-> Controls
+```
+
+**Explanation:** Members inherit one certified control baseline (e.g., HIPAA), so each org doesn't re-certify from scratch. A shared governance body sets rules; costs and audits are pooled across the community.
+
+---
+
+## 🌐 Real-World Usage Example
+
+The **U.S. Intelligence Community (IC)** uses **AWS GovCloud (C2S)** as a community cloud shared across 17 agencies (CIA, NSA, etc.) under one FedRAMP/IL-certified environment. Agencies collaborate on shared data while inheriting the same strict, government-grade security controls — something none could economically build alone.
+
+**Other real examples:** the UK NHS regional health clouds, university research consortiums (e.g., Internet2), and financial-sector shared compliance platforms.
+
+---
+
+## 🖥️ What It Looks Like — Compliance Dashboard (Mockup)
+
+```text
+┌────────────────────────────────────────────────────┐
+│  🛡️  Community Compliance Dashboard                 │
+├────────────────────────────────────────────────────┤
+│  Baseline: FedRAMP High     Status: ✓ Authorized   │
+│  Members: 17 agencies                               │
+│  Controls inherited: 421 / 421  ▇▇▇▇▇▇▇ 100%        │
+│  Last shared audit: 2025-09-12   Result: PASS       │
+└────────────────────────────────────────────────────┘
+```
+
+---
+
 ## 📊 Deployment Models Summary
 
 | Model | Users | Control | Cost | Best For |

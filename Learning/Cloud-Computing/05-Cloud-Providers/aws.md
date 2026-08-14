@@ -89,6 +89,74 @@ Route 53 (DNS) → CloudFront (CDN) → ALB (Load Balancer)
 
 ---
 
+## 🖼️ Popular AWS Services
+
+![EC2](https://img.shields.io/badge/EC2-FF9900?style=for-the-badge&logo=amazonec2&logoColor=white)
+![S3](https://img.shields.io/badge/S3-569A31?style=for-the-badge&logo=amazons3&logoColor=white)
+![Lambda](https://img.shields.io/badge/Lambda-FF9900?style=for-the-badge&logo=awslambda&logoColor=white)
+![RDS](https://img.shields.io/badge/RDS-527FFF?style=for-the-badge&logo=amazonrds&logoColor=white)
+![DynamoDB](https://img.shields.io/badge/DynamoDB-4053D6?style=for-the-badge&logo=amazondynamodb&logoColor=white)
+![EKS](https://img.shields.io/badge/EKS-FF9900?style=for-the-badge&logo=amazoneks&logoColor=white)
+
+---
+
+## 🏗️ Architecture: A Highly-Available Web App on AWS
+
+```mermaid
+flowchart TB
+    U["👥 Users"] --> R53["🌐 Route 53"] --> CF["⚡ CloudFront (CDN)"] --> ALB["⚖️ ALB"]
+    subgraph VPC["VPC (Multi-AZ)"]
+        subgraph AZa["AZ-a"]
+            E1["🖥️ EC2/ECS"]
+        end
+        subgraph AZb["AZ-b"]
+            E2["🖥️ EC2/ECS"]
+        end
+        ALB --> E1 & E2
+        E1 & E2 --> RDS[("🗄️ RDS Multi-AZ")]
+        E1 & E2 --> S3["🪣 S3 (assets)"]
+    end
+    IAM["🔑 IAM"] -.secures.-> VPC
+    CW["📊 CloudWatch"] -.monitors.-> VPC
+```
+
+**Explanation:** The classic AWS reference architecture: DNS → CDN → load balancer → auto-scaling compute across two AZs → Multi-AZ database, with S3 for assets, IAM for access, and CloudWatch for monitoring.
+
+---
+
+## 🖥️ What It Looks Like — AWS Console Home (Mockup)
+
+```text
+┌────────────────────────────────────────────┐
+│  aws 🔍 Search   N.Virginia ▾   ⚠ 3   🔔   acme-prod ▾ │
+├────────────────────────────────────────────┤
+│  Recently visited:  EC2 · S3 · Lambda · RDS · IAM     │
+│  Cost (MTD):  $ 1,284.55   ▇▇▇▇▇▁▁  vs budget       │
+│  EC2: 14 running   Lambda: 2.1M invokes   S3: 4.2 TB │
+│  Health: ● All systems operational                   │
+└────────────────────────────────────────────┘
+```
+
+---
+
+## 🌐 Real-World Usage Example
+
+**Netflix** is the definitive AWS case study: 100% of streaming runs on AWS across thousands of EC2 instances, S3 for its media catalog, DynamoDB for viewing state, and Kinesis for real-time telemetry. It auto-scales for evening peaks (a third of US internet traffic) and uses Chaos Monkey to test resilience across AZs — all with zero data centers of its own.
+
+**Other real examples:** Airbnb, Robinhood, Coinbase, NASA JPL (Mars rover imagery), and the CIA (GovCloud).
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **Region ≠ AZ:** always design across ≥2 AZs; use multiple Regions for DR/latency.
+- **IAM is foundational:** roles > long-lived keys; enforce least privilege and MFA.
+- **Well-Architected Framework:** AWS's 6 pillars (see [Well-Architected](../10-Advanced-Concepts/well-architected-framework.md)) guide every design.
+- **Free tier & cost traps:** NAT gateways, idle EBS, and data egress silently add up.
+- **Managed > self-managed:** prefer RDS/Aurora over DB-on-EC2 unless you truly need control.
+
+---
+
 ## 🎓 Certifications
 - Cloud Practitioner (beginner)
 - Solutions Architect Associate / Professional

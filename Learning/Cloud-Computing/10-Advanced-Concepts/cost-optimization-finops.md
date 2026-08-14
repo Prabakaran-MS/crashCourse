@@ -19,8 +19,8 @@
 
 ```mermaid
 flowchart LR
-    See["👁️ See\n(tag & track spend)"] --> Save["💰 Save\n(rightsize, commit)"]
-    Save --> Auto["🔁 Automate\n(continuously optimize)"]
+    See["👁️ See<br/>(tag and track spend)"] --> Save["💰 Save<br/>(rightsize, commit)"]
+    Save --> Auto["🔁 Automate<br/>(continuously optimize)"]
     Auto --> See
 ```
 
@@ -106,6 +106,49 @@ Then filter costs by tag to find who spends what.
 ```
 Inform (visibility) → Optimize (act) → Operate (govern) → repeat
 ```
+
+---
+
+## 🖼️ FinOps Tools
+
+![Cost Explorer](https://img.shields.io/badge/AWS_Cost_Explorer-DD344C?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Kubecost](https://img.shields.io/badge/Kubecost-00B4AB?style=for-the-badge&logo=kubernetes&logoColor=white)
+![Infracost](https://img.shields.io/badge/Infracost-EC5C40?style=for-the-badge&logo=terraform&logoColor=white)
+![CloudHealth](https://img.shields.io/badge/CloudHealth-607078?style=for-the-badge&logo=vmware&logoColor=white)
+
+---
+
+## 🖥️ What It Looks Like — Cost Explorer (Mockup)
+
+```text
+┌───────────────────────────────────────────────┐
+│  💰 Cost Explorer › This Month                      │
+├──────────────────────────────────────────────┤
+│  Forecast: $48,200  (▲ 12% vs last month) ⚠️          │
+│  EC2      ▇▇▇▇▇▇▇▇ $21,400   🔴 5 idle instances    │
+│  RDS      ▇▇▇▇▁     $9,800                          │
+│  S3       ▇▇▁        $4,100                          │
+│  Egress   ▇▇▁        $3,900   ⚠️ review transfers    │
+│  💡 Recommendations: rightsize (-$6.1k), RIs (-$8k)  │
+└──────────────────────────────────────────────┘
+```
+
+---
+
+## 🌐 Real-World Usage Example
+
+**Airbnb, Spotify, and Atlassian** run dedicated FinOps teams. A classic real win: companies routinely cut 30–50% of their bill by scheduling non-prod environments to shut down nights/weekends and buying Savings Plans for steady baselines. **Pinterest** publicly discussed saving tens of millions by rightsizing and moving batch jobs to Spot instances (up to 90% cheaper).
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **Egress is the silent killer:** data *leaving* the cloud/region is expensive — architect to minimize it.
+- **Unit economics:** track cost per customer/request, not just total — that's what scales.
+- **Showback vs chargeback:** showback informs teams; chargeback bills them — both need tagging.
+- **Commitment risk:** over-committing RIs/Savings Plans on shrinking usage wastes money — commit to baseline only.
+- **Shift-left cost (Infracost):** estimate cost in the pull request *before* deploying.
+- **Idle ≠ free:** provisioned-but-unused resources (disks, IPs, load balancers) still bill.
 
 ---
 

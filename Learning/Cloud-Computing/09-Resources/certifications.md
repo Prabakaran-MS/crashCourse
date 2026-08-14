@@ -22,9 +22,9 @@ Certifications validate your skills and boost your career. Here's a roadmap by p
 
 ```mermaid
 flowchart LR
-    F["Foundational\n(basics)"] --> A["Associate\n(hands-on)"]
-    A --> P["Professional/Expert\n(mastery)"]
-    A --> S["Specialty\n(niche)"]
+    F["Foundational<br/>(basics)"] --> A["Associate<br/>(hands-on)"]
+    A --> P["Professional/Expert<br/>(mastery)"]
+    A --> S["Specialty<br/>(niche)"]
 ```
 
 **Explanation:** Cloud certifications form a ladder. You start at the foundational level to prove the basics, move to associate for hands-on skills, then branch into professional/expert (deep mastery) or specialty (focused niche) credentials.

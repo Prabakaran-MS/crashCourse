@@ -155,4 +155,10 @@ docker create --name tmp myapp && docker cp tmp:/app/out . && docker rm tmp
 
 ---
 
+## 🌐 Real-World War Story
+
+A production container kept getting **OOMKilled** (exit code 137) at 3 AM — the memory *limit* was set too low for a traffic spike, so Kubernetes killed and restarted it in a crash loop. Separately, a 1.2GB image (full OS + build tools) slowed every deploy until a multi-stage build cut it to 80MB. Lesson: set realistic memory limits, watch exit codes (137=OOM, 143=SIGTERM), and keep images tiny.
+
+---
+
 **Navigation:** [← Security & IAM Deep Dive](security-iam-deep.md) | [Next → Kubernetes Internals Deep Dive](kubernetes-deep.md) | ⬅ [Back to Index](../README.md)

@@ -19,9 +19,9 @@ Cloud storage lets you store and retrieve data over the internet. There are **th
 
 ```mermaid
 flowchart LR
-    Data["📁 Your Data"] --> Block["Block Storage\n(virtual hard disk)"]
-    Data --> File["File Storage\n(shared folder)"]
-    Data --> Object["Object Storage\n(buckets for files)"]
+    Data["📁 Your Data"] --> Block["Block Storage<br/>(virtual hard disk)"]
+    Data --> File["File Storage<br/>(shared folder)"]
+    Data --> Object["Object Storage<br/>(buckets for files)"]
 ```
 
 **Explanation:** Cloud storage comes in three flavors. Block storage acts like a hard disk for a server, file storage is a shared network folder, and object storage holds huge numbers of files (photos, backups) in buckets accessed over the web.
@@ -91,6 +91,68 @@ Cloud providers offer tiers based on access frequency:
 aws s3 cp myfile.jpg s3://my-bucket/photos/
 aws s3 ls s3://my-bucket/photos/
 ```
+
+---
+
+## 🖼️ Cloud Storage Services
+
+![Amazon S3](https://img.shields.io/badge/Amazon_S3-569A31?style=for-the-badge&logo=amazons3&logoColor=white)
+![Azure Blob](https://img.shields.io/badge/Azure_Blob-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![GCS](https://img.shields.io/badge/Google_Cloud_Storage-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
+![EBS](https://img.shields.io/badge/Amazon_EBS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Glacier](https://img.shields.io/badge/S3_Glacier-2E27AD?style=for-the-badge&logo=amazonaws&logoColor=white)
+
+---
+
+## 🏗️ Architecture: Choosing the Right Storage
+
+```mermaid
+flowchart TD
+    Q{"What are you storing?"}
+    Q -->|"OS disk / database"| Block["💽 Block (EBS)<br/>low-latency, 1 server"]
+    Q -->|"Shared folder for many servers"| File["📂 File (EFS)<br/>NFS/SMB, multi-mount"]
+    Q -->|"Photos, video, backups, static site"| Obj["🪣 Object (S3)<br/>infinite scale, HTTP"]
+    Obj -->|"old/rarely accessed"| Arch["🧊 Archive (Glacier)<br/>cheapest, slow retrieval"]
+```
+
+**Explanation:** Match storage to workload: **block** for one server's disk/DB, **file** for shared folders, **object** for massive scalable file dumps — with lifecycle rules auto-moving cold data to cheap archive tiers.
+
+---
+
+## 🖥️ What It Looks Like — S3 Bucket & Lifecycle (Mockup)
+
+```text
+┌─────────────────────────────────────────────┐
+│  🪣 S3 › my-app-media                                │
+├─────────────────────────────────────────────┤
+│  📁 photos/    2.1 TB    Standard (Hot)             │
+│  📁 backups/   8.7 TB    Glacier (Archive)  💤       │
+│                                                     │
+│  Lifecycle rule: “archive-old”                       │
+│   IF object age > 90 days  →  move to Glacier       │
+│   Est. savings: ~82% on archived data               │
+│  Durability: 99.999999999% (11 nines)               │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+## 🌐 Real-World Usage Example
+
+**Dropbox** stores exabytes of user files primarily in object storage (it built "Magic Pocket," its own S3-like system, after starting on AWS S3). Every file you drop is chunked, deduplicated, and stored as objects with 11-nines durability — accessible instantly from any device. Cold/old file versions tier down to cheaper storage automatically.
+
+**Other real examples:** Airbnb stores listing photos in S3; Snapchat uses object storage for media; databases like RDS sit on block storage (EBS).
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **Durability vs Availability:** durability = won't lose data (11 nines); availability = can access it right now (e.g., 99.99%). Different guarantees!
+- **Storage classes drive cost:** S3 Standard → Standard-IA → Glacier → Deep Archive (retrieval gets cheaper but slower).
+- **Retrieval fees & latency:** archive tiers are cheap to store but charge (and delay minutes–hours) to read — don't archive hot data.
+- **Object versioning & immutability (Object Lock):** protect against accidental deletes and ransomware.
+- **Encryption:** at-rest (SSE-KMS) and in-transit (TLS) should be default.
+- **Block volumes attach to one instance;** for shared access use file storage (EFS) or object (S3).
 
 ---
 

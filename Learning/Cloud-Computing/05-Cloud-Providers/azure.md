@@ -77,6 +77,71 @@ Companies already using Microsoft products often choose Azure for smooth integra
 
 ---
 
+## 🖼️ Popular Azure Services
+
+![Azure VM](https://img.shields.io/badge/Virtual_Machines-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![Azure Functions](https://img.shields.io/badge/Functions-0062AD?style=for-the-badge&logo=azurefunctions&logoColor=white)
+![Azure SQL](https://img.shields.io/badge/Azure_SQL-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
+![Cosmos DB](https://img.shields.io/badge/Cosmos_DB-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![AKS](https://img.shields.io/badge/AKS-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![Entra ID](https://img.shields.io/badge/Entra_ID-0078D4?style=for-the-badge&logo=microsoftentra&logoColor=white)
+
+---
+
+## 🏗️ Architecture: Enterprise Hybrid on Azure
+
+```mermaid
+flowchart TB
+    subgraph OnPrem["🏢 On-Premises"]
+        WS["🖥️ Windows Server + AD"]
+    end
+    subgraph Azure["☁️ Azure"]
+        AGW["⚖️ App Gateway (WAF)"] --> AppSvc["🌐 App Service"]
+        AppSvc --> SQL[("🗄️ Azure SQL")]
+        Entra["🔑 Entra ID (SSO/MFA)"] -.auth.-> AppSvc
+    end
+    WS <-->|"🔒 ExpressRoute"| Azure
+    Arc["🧩 Azure Arc"] -.manages.-> WS & AppSvc
+```
+
+**Explanation:** Azure shines for enterprises: on-prem Windows/AD connects via private ExpressRoute, Entra ID provides SSO/MFA, and Azure Arc gives one control plane over both worlds — ideal for organizations already invested in Microsoft.
+
+---
+
+## 🖥️ What It Looks Like — Azure Portal (Mockup)
+
+```text
+┌────────────────────────────────────────────┐
+│  ≡ Microsoft Azure   🔍 Search   ⚙  🔔  contoso ▾    │
+├────────────────────────────────────────────┤
+│  Resource groups > rg-prod                          │
+│   🖥️ vm-web-01        Running    Standard_D2s_v5   │
+│   🌐 app-store        Running    App Service P1v3  │
+│   🗄️ sql-orders       Online     Azure SQL S3     │
+│  Cost analysis (MTD): € 942.10  ▇▇▇▇▁▁▁            │
+└────────────────────────────────────────────┘
+```
+
+---
+
+## 🌐 Real-World Usage Example
+
+**Walmart** runs much of its digital business on **Azure** (partly to avoid AWS, its retail rival). During peak events like Black Friday and Cyber Monday, Walmart uses Azure to auto-scale its e-commerce platform handling billions of transactions, while integrating with its existing Microsoft-based enterprise systems and using Azure Machine Learning for demand forecasting.
+
+**Other real examples:** UPS, HP, Coca-Cola, the U.S. Department of Defense (JEDI/JWCC), and most Fortune 500 Microsoft shops.
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **Resource hierarchy:** Management Group → Subscription → Resource Group → Resource (governance & billing boundaries).
+- **Entra ID ≠ on-prem AD:** it's cloud identity; sync via Entra Connect for hybrid.
+- **Azure Policy & Blueprints** enforce org-wide guardrails (naming, regions, encryption).
+- **Hybrid is Azure's superpower:** Arc, Stack, and ExpressRoute lead the market.
+- **Availability Zones vary by region** — confirm your region supports them for HA.
+
+---
+
 ## 🎓 Certifications
 - Azure Fundamentals (AZ-900)
 - Azure Administrator (AZ-104)

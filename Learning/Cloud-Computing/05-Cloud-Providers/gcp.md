@@ -22,7 +22,7 @@ flowchart TB
     GCP["☁️ Google Cloud Platform"]
     GCP --> Compute["Compute: Compute Engine, Cloud Run"]
     GCP --> Storage["Storage: Cloud Storage"]
-    GCP --> Data["Data & AI: BigQuery, Vertex AI"]
+    GCP --> Data["Data and AI: BigQuery, Vertex AI"]
     GCP --> K8s["Kubernetes: GKE"]
 ```
 
@@ -72,6 +72,67 @@ Data sources → Pub/Sub (streaming) → Dataflow (processing)
 ```
 
 Companies with heavy data/ML needs often choose GCP.
+
+---
+
+## 🖼️ Popular GCP Services
+
+![Compute Engine](https://img.shields.io/badge/Compute_Engine-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
+![BigQuery](https://img.shields.io/badge/BigQuery-669DF6?style=for-the-badge&logo=googlebigquery&logoColor=white)
+![GKE](https://img.shields.io/badge/GKE-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![Cloud Run](https://img.shields.io/badge/Cloud_Run-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
+![Vertex AI](https://img.shields.io/badge/Vertex_AI-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
+![Firestore](https://img.shields.io/badge/Firestore-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+
+---
+
+## 🏗️ Architecture: A Data & ML Pipeline on GCP
+
+```mermaid
+flowchart LR
+    Src["📥 Events/Logs"] --> PS["📨 Pub/Sub (stream)"]
+    PS --> DF["⚙️ Dataflow (ETL)"]
+    DF --> BQ["📊 BigQuery (warehouse)"]
+    BQ --> Look["📈 Looker (dashboards)"]
+    BQ --> VAI["🧠 Vertex AI (train/serve models)"]
+    VAI --> App["🌐 Cloud Run (serve predictions)"]
+```
+
+**Explanation:** GCP's flagship pattern: stream events through Pub/Sub, transform with Dataflow, land in BigQuery for serverless analytics, then feed Vertex AI for ML — all managed, scaling to petabytes without provisioning servers.
+
+---
+
+## 🖥️ What It Looks Like — BigQuery Query (Mockup)
+
+```text
+┌──────────────────────────────────────────────┐
+│  BigQuery › Query editor                            │
+├────────────────────────────────────────────┤
+│  SELECT country, COUNT(*) AS users                  │
+│  FROM `analytics.events` WHERE date > '2025-01-01'  │
+│  GROUP BY country ORDER BY users DESC;              │
+│  ───────────────────────────────────────────  │
+│  ✅ 4.2 TB processed in 3.1 s  ·  1,204 rows          │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+## 🌐 Real-World Usage Example
+
+**Spotify** migrated its entire data platform to **Google Cloud**, running BigQuery on petabytes of listening data to power personalized playlists like Discover Weekly, and using Pub/Sub + Dataflow to process billions of daily events. GCP's data/ML strengths directly power the recommendations 600M+ users rely on.
+
+**Other real examples:** PayPal, Twitter/X (analytics), Snapchat, and Home Depot all run major workloads on GCP; Google's own products (Search, YouTube) run on the same backbone.
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **Global VPC:** unlike AWS/Azure, a GCP VPC spans all regions natively.
+- **BigQuery is serverless:** you pay per query (bytes scanned) — use partitioning/clustering to cut cost.
+- **Sustained-use & committed-use discounts** apply automatically/with commitment.
+- **GKE Autopilot** removes node management entirely — Google runs the control *and* data plane.
+- **Projects** are GCP's core isolation/billing unit (like AWS accounts).
 
 ---
 

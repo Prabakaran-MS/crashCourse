@@ -162,4 +162,51 @@ Reuse the same module across dev/staging/prod.
 
 ---
 
+## 🖼️ Terraform Ecosystem
+
+![Terraform](https://img.shields.io/badge/Terraform-844FBA?style=for-the-badge&logo=terraform&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS_Provider-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Terraform Cloud](https://img.shields.io/badge/Terraform_Cloud-844FBA?style=for-the-badge&logo=terraform&logoColor=white)
+![Infracost](https://img.shields.io/badge/Infracost-EC5C40?style=for-the-badge&logo=terraform&logoColor=white)
+
+---
+
+## 🖥️ What It Looks Like — terraform plan (Mockup)
+
+```text
+$ terraform plan
+Terraform will perform the following actions:
+
+  # aws_instance.web will be created
+  + resource "aws_instance" "web" {
+      + ami           = "ami-0abc123"
+      + instance_type = "t3.micro"
+      + public_ip     = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+Changes to Outputs:
+  + public_ip = (known after apply)
+```
+
+---
+
+## 🌐 Real-World Usage Example
+
+**Uber, Slack, and Airbnb** manage tens of thousands of cloud resources entirely in Terraform. A team change flows through a pull request: `terraform plan` shows the diff, a peer reviews it, then CI runs `apply`. This makes infrastructure auditable, repeatable, and recoverable — an entire region can be rebuilt from code after a disaster.
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **State is the source of truth:** corrupt/lost state = Terraform loses track of resources. Use remote state + locking.
+- **Drift:** manual console changes diverge from code — `terraform plan` detects it; avoid "ClickOps."
+- **`plan` before `apply`, always** — review the diff, especially `destroy`/`replace` lines.
+- **Modules** enforce consistency across dev/staging/prod; pin versions.
+- **`terraform destroy` is irreversible** — guard prod with policies (Sentinel/OPA).
+- **Secrets never in state plaintext:** encrypt the backend; state can contain sensitive values.
+- **`count` vs `for_each`:** `for_each` avoids index-shift churn when list items change.
+
+---
+
 **Navigation:** [Next → Docker Deep Dive](docker-deep-dive.md) | ⬅ [Back to Index](../README.md)

@@ -23,9 +23,9 @@ A complete directory of where to learn each topic — **official certifications*
 ```mermaid
 flowchart TB
     Learn["🎓 How to Learn"]
-    Learn --> Free["🆓 Free\ndocs, labs, videos"]
-    Learn --> Paid["💲 Paid\nbootcamps, courses"]
-    Learn --> Cert["🏅 Certified\nofficial exams"]
+    Learn --> Free["🆓 Free<br/>docs, labs, videos"]
+    Learn --> Paid["💲 Paid<br/>bootcamps, courses"]
+    Learn --> Cert["🏅 Certified<br/>official exams"]
 ```
 
 **Explanation:** This directory sorts learning options into three buckets: free resources (docs, labs, videos), paid courses (structured bootcamps), and official certifications (exams that give recognized credentials). Pick the mix that fits your budget and goals.

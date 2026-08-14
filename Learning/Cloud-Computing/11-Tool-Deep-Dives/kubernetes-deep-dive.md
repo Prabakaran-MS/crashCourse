@@ -170,4 +170,49 @@ readinessProbe:
 
 ---
 
+## 🖼️ Kubernetes Ecosystem
+
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![Helm](https://img.shields.io/badge/Helm-0F1689?style=for-the-badge&logo=helm&logoColor=white)
+![Istio](https://img.shields.io/badge/Istio-466BB0?style=for-the-badge&logo=istio&logoColor=white)
+![Argo CD](https://img.shields.io/badge/Argo_CD-EF7B4D?style=for-the-badge&logo=argo&logoColor=white)
+
+---
+
+## 🖥️ What It Looks Like — kubectl get pods (Mockup)
+
+```text
+$ kubectl get pods -o wide
+NAME              READY   STATUS    RESTARTS   AGE   NODE
+web-7d9f-abc12    1/1     Running   0          2d    node-1
+web-7d9f-def34    1/1     Running   0          2d    node-2
+web-7d9f-ghi56    0/1     Pending   0          10s   <none>
+api-5c8b-jkl78    1/1     Running   3          5h    node-3
+
+$ kubectl top nodes
+NAME     CPU%   MEMORY%
+node-1   42%    61%
+node-2   38%    55%
+```
+
+---
+
+## 🌐 Real-World Usage Example
+
+**Spotify, Airbnb, and Pinterest** run their platforms on Kubernetes to schedule thousands of containers across huge fleets. When traffic spikes, the Horizontal Pod Autoscaler adds replicas; when a node dies, K8s reschedules its pods elsewhere automatically. **CERN** runs Kubernetes clusters processing petabytes of Large Hadron Collider data.
+
+---
+
+## 🔍 Deep Dive — Concepts Often Missed
+
+- **Requests vs limits:** requests guarantee scheduling capacity; limits cap usage (OOMKill if exceeded).
+- **Liveness vs readiness probes:** liveness restarts a hung pod; readiness gates traffic until ready.
+- **Pending pods usually mean** insufficient resources or unschedulable constraints — check `describe`.
+- **Services vs Ingress:** Service = internal L4 load balancing; Ingress = L7 HTTP routing + TLS.
+- **StatefulSets** give stable identity/storage for databases; Deployments are for stateless apps.
+- **Namespaces + RBAC** isolate teams and limit blast radius.
+- **Don't create bare Pods** — use Deployments so failures self-heal.
+
+---
+
 **Navigation:** [← Docker](docker-deep-dive.md) | [Next → Ansible Deep Dive](ansible-deep-dive.md) | ⬅ [Back to Index](../README.md)

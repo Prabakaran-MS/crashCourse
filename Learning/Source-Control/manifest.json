@@ -1,0 +1,85 @@
+{
+  "title": "Source Control & Version Management",
+  "icon": "🔀",
+  "sections": [
+    {
+      "title": "00 · Start Here",
+      "lessons": [
+        { "label": "Read Me First", "path": "00-Start-Here/read-me-first.md" }
+      ]
+    },
+    {
+      "title": "01 · Version Control Foundations",
+      "lessons": [
+        { "label": "Version Control Concepts", "path": "01-Version-Control-Foundations/version-control-concepts.md" }
+      ]
+    },
+    {
+      "title": "02 · Git Fundamentals",
+      "lessons": [
+        { "label": "Git Fundamentals", "path": "02-Git-Fundamentals/git-fundamentals.md" },
+        { "label": "Git Internals", "path": "02-Git-Fundamentals/git-internals.md" },
+        { "label": "Branching & Merging", "path": "02-Git-Fundamentals/branching-merging.md" },
+        { "label": "Rebasing", "path": "02-Git-Fundamentals/rebasing.md" },
+        { "label": "Tags & Releases", "path": "02-Git-Fundamentals/tags-releases.md" }
+      ]
+    },
+    {
+      "title": "03 · GitHub Platform",
+      "lessons": [
+        { "label": "GitHub", "path": "03-GitHub-Platform/github.md" },
+        { "label": "Pull Requests", "path": "03-GitHub-Platform/pull-requests.md" },
+        { "label": "Code Reviews", "path": "03-GitHub-Platform/code-reviews.md" },
+        { "label": "GitHub Issues", "path": "03-GitHub-Platform/github-issues.md" },
+        { "label": "Repository Management", "path": "03-GitHub-Platform/repository-management.md" },
+        { "label": "Branch Protection", "path": "03-GitHub-Platform/branch-protection.md" }
+      ]
+    },
+    {
+      "title": "04 · Automation & Releases",
+      "lessons": [
+        { "label": "GitHub Actions", "path": "04-Automation-and-Releases/github-actions.md" },
+        { "label": "Release Management", "path": "04-Automation-and-Releases/release-management.md" },
+        { "label": "Semantic Versioning", "path": "04-Automation-and-Releases/semantic-versioning.md" }
+      ]
+    },
+    {
+      "title": "05 · Git Workflows",
+      "lessons": [
+        { "label": "Git Workflows", "path": "05-Git-Workflows/git-workflows.md" },
+        { "label": "GitHub Flow", "path": "05-Git-Workflows/github-flow.md" },
+        { "label": "Git Flow", "path": "05-Git-Workflows/git-flow.md" },
+        { "label": "Trunk-Based Development", "path": "05-Git-Workflows/trunk-based-development.md" },
+        { "label": "Monorepo / Multirepo", "path": "05-Git-Workflows/monorepo-multirepo.md" }
+      ]
+    },
+    {
+      "title": "06 · Advanced Git",
+      "lessons": [
+        { "label": "Git Hooks", "path": "06-Advanced-Git/git-hooks.md" },
+        { "label": "Submodules", "path": "06-Advanced-Git/submodules.md" },
+        { "label": "Git LFS", "path": "06-Advanced-Git/git-lfs.md" },
+        { "label": "Repository Security", "path": "06-Advanced-Git/repository-security.md" }
+      ]
+    },
+    {
+      "title": "07 · Best Practices",
+      "lessons": [
+        { "label": "Industry Best Practices", "path": "07-Best-Practices/industry-best-practices.md" }
+      ]
+    },
+    {
+      "title": "08 · Cheat Sheets",
+      "lessons": [
+        { "label": "Git Cheat Sheet", "path": "08-Cheat-Sheets/git-cheatsheet.md" },
+        { "label": "GitHub Cheat Sheet", "path": "08-Cheat-Sheets/github-cheatsheet.md" }
+      ]
+    },
+    {
+      "title": "09 · Final Test",
+      "lessons": [
+        { "label": "Interview Questions", "path": "09-Final-Test/interview-questions.md" }
+      ]
+    }
+  ]
+}

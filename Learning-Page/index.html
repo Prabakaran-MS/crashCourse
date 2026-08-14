@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Learning Page</title>
-    <link rel="stylesheet" href="style.css" />
-    <!-- Markdown parser (v4 keeps the classic renderer.code signature) -->
-    <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
-    <!-- Syntax highlighting -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css" />
-    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
-    <!-- Mermaid diagrams -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Learning Page</title>
+	<link rel="stylesheet" href="style.css?v=20260814140737" />
+	<!-- Markdown parser (v4 keeps the classic renderer.code signature) -->
+	<script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+	<!-- Syntax highlighting -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css" />
+	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+	<!-- Mermaid diagrams -->
+	<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 </head>
 <body>
-    <header class="topbar">
-        <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">☰</button>
-        <h1 id="pageTitle">📚 Learning Page</h1>
-        <select id="conceptSelect" class="concept-select" aria-label="Choose a concept"></select>
-        <input id="search" class="search" type="search" placeholder="Filter lessons…" />
-    </header>
+	<header class="topbar">
+		<button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">☰</button>
+		<h1 id="pageTitle">📚 Learning Page</h1>
+		<select id="conceptSelect" class="concept-select" aria-label="Choose a concept"></select>
+		<input id="search" class="search" type="search" placeholder="Filter lessons…" />
+		<button id="themeToggle" class="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">🌙</button>
+	</header>
 
-    <div class="layout">
-        <nav id="sidebar" class="sidebar" aria-label="Lessons">
-            <!-- Navigation is built by app.js -->
-        </nav>
+	<div class="layout">
+		<nav id="sidebar" class="sidebar" aria-label="Lessons">
+			<!-- Navigation is built by app.js -->
+		</nav>
 
-        <main class="content">
-            <article id="lesson" class="markdown-body">
-                <p class="placeholder">Select a lesson from the left to begin. 👈</p>
-            </article>
-        </main>
-    </div>
+		<main class="content">
+			<article id="lesson" class="markdown-body">
+				<p class="placeholder">Select a lesson from the left to begin. 👈</p>
+			</article>
+		</main>
+	</div>
 
-    <script src="app.js"></script>
+	<script src="app.js?v=20260814140737"></script>
 </body>
 </html>

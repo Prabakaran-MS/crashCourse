@@ -21,6 +21,7 @@ const searchEl = document.getElementById("search");
 const menuToggle = document.getElementById("menuToggle");
 const conceptSelect = document.getElementById("conceptSelect");
 const titleEl = document.getElementById("pageTitle");
+const themeToggle = document.getElementById("themeToggle");
 
 let concepts = [];
 let currentConcept = null;
@@ -68,7 +69,7 @@ async function loadConcept(id) {
 	currentConcept = {
 		id: meta.id,
 		title: manifest.title || meta.title || meta.id,
-		icon: manifest.icon || meta.icon || "📚",
+		icon: manifest.icon || meta.icon || "ðŸ“š",
 		base: ROOT + meta.id + "/",
 		sections: manifest.sections || [],
 	};
@@ -85,7 +86,7 @@ function buildConceptSwitcher() {
 	concepts.forEach((c) => {
 		const opt = document.createElement("option");
 		opt.value = c.id;
-		opt.textContent = `${c.icon || "📚"} ${c.title || c.id}`;
+		opt.textContent = `${c.icon || "ðŸ“š"} ${c.title || c.id}`;
 		conceptSelect.appendChild(opt);
 	});
 	conceptSelect.style.display = concepts.length > 1 ? "" : "none";
@@ -251,8 +252,24 @@ async function handleRoute() {
 	}
 }
 
+function applyTheme(theme) {
+	document.documentElement.setAttribute("data-theme", theme);
+	if (themeToggle) {
+		themeToggle.textContent = theme === "dark" ? "\u2600\ufe0f" : "\ud83c\udf19";
+	}
+	try { localStorage.setItem("theme", theme); } catch (e) { /* ignore */ }
+}
+
+function initTheme() {
+	let saved = null;
+	try { saved = localStorage.getItem("theme"); } catch (e) { /* ignore */ }
+	const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+	applyTheme(saved || "light");
+}
+
 async function init() {
 	try {
+		initTheme();
 		await loadConcepts();
 		buildConceptSwitcher();
 
@@ -261,6 +278,12 @@ async function init() {
 		});
 		searchEl.addEventListener("input", (e) => filterLessons(e.target.value));
 		menuToggle.addEventListener("click", () => sidebarEl.classList.toggle("open"));
+		if (themeToggle) {
+			themeToggle.addEventListener("click", () => {
+				const current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+				applyTheme(current === "dark" ? "light" : "dark");
+			});
+		}
 		window.addEventListener("hashchange", handleRoute);
 
 		await handleRoute();

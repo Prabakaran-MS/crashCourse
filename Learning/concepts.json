@@ -20,6 +20,13 @@
       "icon": "🔀",
       "description": "Version control foundations, Git fundamentals, GitHub platform, workflows, automation, and best practices.",
       "manifest": "Source-Control/manifest.json"
+    },
+    {
+      "id": "Frontend-Development",
+      "title": "Frontend Development",
+      "icon": "🎨",
+      "description": "End-to-end frontend engineering: HTML, CSS & layout, JavaScript, TypeScript, React, Angular, Vue, the browser & Web APIs, accessibility, performance, security, tooling, PWA, web components, data/GraphQL, and testing/architecture — with syntax and examples.",
+      "manifest": "Frontend-Development/manifest.json"
     }
   ]
 }

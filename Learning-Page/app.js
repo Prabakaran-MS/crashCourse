@@ -48,6 +48,11 @@ function escapeHtml(str) {
 	return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
+// Strip decorative icons/emoji (any non-ASCII glyphs) from sidebar text.
+function stripIcons(text) {
+	return (text || "").replace(/[^\x00-\x7F]/g, "").replace(/\s+/g, " ").trim();
+}
+
 async function fetchJson(url) {
 	const res = await fetch(url);
 	if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
@@ -102,7 +107,7 @@ function buildSidebar() {
 
 		const title = document.createElement("button");
 		title.className = "section-title";
-		title.textContent = section.title;
+		title.textContent = stripIcons(section.title);
 
 		const ul = document.createElement("ul");
 		ul.className = "nav-links";
@@ -111,7 +116,7 @@ function buildSidebar() {
 			const li = document.createElement("li");
 			const a = document.createElement("a");
 			a.href = "#" + makeHash(currentConcept.id, lesson.path);
-			a.textContent = lesson.label;
+			a.textContent = stripIcons(lesson.label);
 			a.dataset.path = lesson.path;
 			a.dataset.search = (lesson.label + " " + section.title).toLowerCase();
 			li.appendChild(a);

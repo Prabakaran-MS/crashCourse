@@ -1,0 +1,183 @@
+{
+  "title": "Frontend Development",
+  "icon": "🎨",
+  "sections": [
+    {
+      "title": "00 · Start Here",
+      "lessons": [
+        { "label": "Read Me First", "path": "00-Start-Here/read-me-first.md" }
+      ]
+    },
+    {
+      "title": "01 · HTML & CSS — Building Blocks",
+      "lessons": [
+        { "label": "HTML — Structure of the Web", "path": "01-HTML-CSS/01-HTML/html.md" },
+        { "label": "HTML Forms & Input", "path": "01-HTML-CSS/01-HTML/html-forms-and-input.md" },
+        { "label": "CSS Core", "path": "01-HTML-CSS/02-CSS-Core/css-core.md" },
+        { "label": "CSS Layout — Flexbox, Grid & Responsive", "path": "01-HTML-CSS/03-CSS-Layout/css-layout.md" },
+        { "label": "Modern CSS & Styling Systems", "path": "01-HTML-CSS/04-Modern-CSS/modern-css.md" },
+        { "label": "Sass / SCSS — CSS Preprocessor", "path": "01-HTML-CSS/05-Sass-SCSS/sass-scss.md" },
+        { "label": "Tailwind CSS — Utility-First Styling", "path": "01-HTML-CSS/06-Tailwind-CSS/tailwind-css.md" },
+        { "label": "Bootstrap — Component Framework", "path": "01-HTML-CSS/07-Bootstrap/bootstrap.md" },
+        { "label": "CSS Frameworks & UI Libraries — Overview", "path": "01-HTML-CSS/08-CSS-Frameworks-Overview/css-frameworks-and-ui-libraries.md" }
+      ]
+    },
+    {
+      "title": "02 · UI/UX Design & Design Systems",
+      "lessons": [
+        { "label": "Color Theory for UI", "path": "02-UI-UX-Design/01-Design-Foundations/01-color-theory.md" },
+        { "label": "Typography for UI", "path": "02-UI-UX-Design/01-Design-Foundations/02-typography.md" },
+        { "label": "Spacing, Grids & Layout", "path": "02-UI-UX-Design/01-Design-Foundations/03-spacing-grids-layout.md" },
+        { "label": "Visual Hierarchy & Composition", "path": "02-UI-UX-Design/01-Design-Foundations/04-visual-hierarchy.md" },
+        { "label": "Gestalt Principles", "path": "02-UI-UX-Design/02-Design-Principles-and-Laws/01-gestalt-principles.md" },
+        { "label": "Laws of UX", "path": "02-UI-UX-Design/02-Design-Principles-and-Laws/02-laws-of-ux.md" },
+        { "label": "Nielsen's Usability Heuristics", "path": "02-UI-UX-Design/02-Design-Principles-and-Laws/03-usability-heuristics.md" },
+        { "label": "Accessibility-Driven Design", "path": "02-UI-UX-Design/02-Design-Principles-and-Laws/04-accessibility-driven-design.md" },
+        { "label": "Design Systems — Overview", "path": "02-UI-UX-Design/03-Design-Systems-and-Models/01-design-systems-overview.md" },
+        { "label": "Atomic Design", "path": "02-UI-UX-Design/03-Design-Systems-and-Models/02-atomic-design.md" },
+        { "label": "Design Tokens", "path": "02-UI-UX-Design/03-Design-Systems-and-Models/03-design-tokens.md" },
+        { "label": "Industry Design Models (Material, HIG, Fluent)", "path": "02-UI-UX-Design/03-Design-Systems-and-Models/04-industry-design-models.md" },
+        { "label": "The UX Design Process", "path": "02-UI-UX-Design/04-UX-Process-and-Research/01-ux-process.md" },
+        { "label": "User Research & Personas", "path": "02-UI-UX-Design/04-UX-Process-and-Research/02-user-research-and-personas.md" },
+        { "label": "Information Architecture & Navigation", "path": "02-UI-UX-Design/04-UX-Process-and-Research/03-information-architecture.md" },
+        { "label": "Wireframing & Prototyping", "path": "02-UI-UX-Design/04-UX-Process-and-Research/04-wireframing-and-prototyping.md" },
+        { "label": "Interaction Design & States", "path": "02-UI-UX-Design/05-Interaction-and-Handoff/01-interaction-design-and-states.md" },
+        { "label": "Motion & Micro-interactions", "path": "02-UI-UX-Design/05-Interaction-and-Handoff/02-motion-and-microinteractions.md" },
+        { "label": "Design-to-Code Handoff", "path": "02-UI-UX-Design/05-Interaction-and-Handoff/03-design-to-code-handoff.md" }
+      ]
+    },
+    {
+      "title": "03 · JavaScript — The Language",
+      "lessons": [
+        { "label": "Variables & Types", "path": "03-JavaScript/01-Fundamentals/variables-types.md" },
+        { "label": "Functions & Scope", "path": "03-JavaScript/02-Functions-and-Scope/functions-scope.md" },
+        { "label": "Async JavaScript — Promises & async/await", "path": "03-JavaScript/03-Async-JavaScript/promises-async-await.md" },
+        { "label": "The Ecosystem (JS, TS, React & Angular)", "path": "03-JavaScript/04-Ecosystem/javascript-typescript-react-angular.md" }
+      ]
+    },
+    {
+      "title": "04 · Browser & Web Platform",
+      "lessons": [
+        { "label": "Browser, DOM & Web APIs", "path": "04-Browser-Platform/01-Browser-DOM-Web-APIs/browser-dom-web-apis.md" },
+        { "label": "Web Components", "path": "04-Browser-Platform/02-Web-Components/web-components.md" },
+        { "label": "PWA & Offline", "path": "04-Browser-Platform/03-PWA-and-Offline/pwa-and-offline.md" }
+      ]
+    },
+    {
+      "title": "05 · TypeScript — Typed JavaScript",
+      "lessons": [
+        { "label": "TypeScript Basics", "path": "05-TypeScript/01-TypeScript-Basics/typescript-basics.md" },
+        { "label": "Interfaces & Type Aliases", "path": "05-TypeScript/02-Interfaces-and-Types/interfaces-and-types.md" },
+        { "label": "Functions & Generics", "path": "05-TypeScript/03-Functions-and-Generics/functions-and-generics.md" },
+        { "label": "Classes & OOP", "path": "05-TypeScript/04-Classes-and-OOP/classes-and-oop.md" },
+        { "label": "Advanced Types", "path": "05-TypeScript/05-Advanced-Types/advanced-types.md" },
+        { "label": "Config & Modules", "path": "05-TypeScript/06-Config-and-Modules/config-and-modules.md" }
+      ]
+    },
+    {
+      "title": "06 · React",
+      "lessons": [
+        { "label": "Introduction & Setup", "path": "06-React/01-React-Getting-Started/01-introduction-and-setup.md" },
+        { "label": "JSX", "path": "06-React/01-React-Getting-Started/02-jsx.md" },
+        { "label": "Components & Props", "path": "06-React/02-React-Components/03-components-and-props.md" },
+        { "label": "Component Composition Patterns", "path": "06-React/02-React-Components/19-component-patterns.md" },
+        { "label": "State & Events", "path": "06-React/03-React-State/04-state-and-events.md" },
+        { "label": "Conditional Rendering & Lists", "path": "06-React/03-React-State/05-conditional-rendering-and-lists.md" },
+        { "label": "Forms", "path": "06-React/03-React-State/06-forms.md" },
+        { "label": "Effects & Lifecycle", "path": "06-React/04-React-Effects/07-effects-and-lifecycle.md" },
+        { "label": "Hooks — Complete Reference", "path": "06-React/05-React-Hooks/08-hooks-complete-reference.md" },
+        { "label": "Custom Hooks", "path": "06-React/05-React-Hooks/21-custom-hooks.md" },
+        { "label": "Context API", "path": "06-React/06-React-Context-Perf/09-context-api.md" },
+        { "label": "Refs & the DOM", "path": "06-React/06-React-Context-Perf/10-refs-and-the-dom.md" },
+        { "label": "Performance Optimization", "path": "06-React/06-React-Context-Perf/11-performance-optimization.md" },
+        { "label": "Error Boundaries, Portals & Suspense", "path": "06-React/06-React-Context-Perf/12-error-boundaries-portals-suspense.md" },
+        { "label": "Routing (React Router)", "path": "06-React/07-React-Routing-State/13-routing-react-router.md" },
+        { "label": "State Management Libraries", "path": "06-React/07-React-Routing-State/14-state-management-libraries.md" },
+        { "label": "Data Fetching Libraries", "path": "06-React/07-React-Routing-State/15-data-fetching-libraries.md" },
+        { "label": "Styling Approaches", "path": "06-React/08-React-Styling-Forms/16-styling-approaches.md" },
+        { "label": "Form Libraries (RHF, Formik, Zod)", "path": "06-React/08-React-Styling-Forms/22-form-libraries.md" },
+        { "label": "TypeScript with React", "path": "06-React/09-React-TypeScript-Testing/20-typescript-with-react.md" },
+        { "label": "Testing", "path": "06-React/09-React-TypeScript-Testing/17-testing.md" },
+        { "label": "Concurrent React & React 19", "path": "06-React/10-React-Advanced/23-concurrent-and-react19.md" },
+        { "label": "Server Components, SSR & Next.js", "path": "06-React/10-React-Advanced/24-server-components-and-nextjs.md" },
+        { "label": "Ecosystem & Frameworks", "path": "06-React/10-React-Advanced/18-ecosystem-and-frameworks.md" }
+      ]
+    },
+    {
+      "title": "07 · Angular",
+      "lessons": [
+        { "label": "Introduction & Setup", "path": "07-Angular/01-Angular-Introduction/introduction-and-setup.md" },
+        { "label": "Components & Templates", "path": "07-Angular/02-Angular-Components/components-and-templates.md" },
+        { "label": "Data Binding", "path": "07-Angular/03-Angular-Data-Binding/data-binding.md" },
+        { "label": "Directives", "path": "07-Angular/04-Angular-Directives/directives.md" },
+        { "label": "Pipes", "path": "07-Angular/05-Angular-Pipes/pipes.md" },
+        { "label": "Services & Dependency Injection", "path": "07-Angular/06-Angular-Services-and-DI/services-and-dependency-injection.md" },
+        { "label": "Modules (NgModules & Standalone)", "path": "07-Angular/07-Angular-Modules/modules-and-standalone.md" },
+        { "label": "Lifecycle Hooks", "path": "07-Angular/08-Angular-Lifecycle/lifecycle-hooks.md" },
+        { "label": "Component Communication", "path": "07-Angular/09-Angular-Component-Communication/component-communication.md" },
+        { "label": "Routing & Navigation", "path": "07-Angular/10-Angular-Routing/routing-and-navigation.md" },
+        { "label": "Forms (Template-driven & Reactive)", "path": "07-Angular/11-Angular-Forms/forms.md" },
+        { "label": "HttpClient & RxJS", "path": "07-Angular/12-Angular-HttpClient-RxJS/httpclient-and-rxjs.md" },
+        { "label": "Change Detection & Signals", "path": "07-Angular/13-Angular-Change-Detection-Signals/change-detection-and-signals.md" },
+        { "label": "State Management (NgRx)", "path": "07-Angular/14-Angular-State-Management/state-management-ngrx.md" },
+        { "label": "Testing", "path": "07-Angular/15-Angular-Testing/testing.md" },
+        { "label": "Ecosystem & Libraries", "path": "07-Angular/16-Angular-Ecosystem/ecosystem-and-libraries.md" }
+      ]
+    },
+    {
+      "title": "08 · Vue",
+      "lessons": [
+        { "label": "Vue 3 — SFCs, Reactivity & Ecosystem", "path": "08-Vue/01-Vue/vue.md" }
+      ]
+    },
+    {
+      "title": "09 · Data & APIs",
+      "lessons": [
+        { "label": "Data & APIs (REST, GraphQL, Real-time)", "path": "09-Data-and-APIs/01-Data-and-APIs/data-and-apis.md" }
+      ]
+    },
+    {
+      "title": "10 · Quality & Performance",
+      "lessons": [
+        { "label": "Accessibility (a11y)", "path": "10-Quality-Performance/01-Accessibility/accessibility.md" },
+        { "label": "Web Performance", "path": "10-Quality-Performance/02-Web-Performance/web-performance.md" },
+        { "label": "Frontend Security", "path": "10-Quality-Performance/03-Frontend-Security/frontend-security.md" }
+      ]
+    },
+    {
+      "title": "11 · Tooling, Architecture & AI",
+      "lessons": [
+        { "label": "Tooling & Build", "path": "11-Tooling-Architecture-AI/01-Tooling-and-Build/tooling-and-build.md" },
+        { "label": "AI-Agent IDEs — Developing with AI Assistants", "path": "11-Tooling-Architecture-AI/02-AI-Agent-IDEs/ai-agent-ides.md" },
+        { "label": "Architecture & Testing", "path": "11-Tooling-Architecture-AI/03-Architecture-and-Testing/architecture-and-testing.md" }
+      ]
+    },
+    {
+      "title": "12 · Engineering Standards & Reusability",
+      "lessons": [
+        { "label": "Coding Standards & Style Guides", "path": "12-Engineering-Standards/01-Code-Standardization/01-coding-standards-and-style-guides.md" },
+        { "label": "Linting & Formatting (ESLint & Prettier)", "path": "12-Engineering-Standards/01-Code-Standardization/02-linting-and-formatting.md" },
+        { "label": "Naming Conventions & Project Structure", "path": "12-Engineering-Standards/01-Code-Standardization/03-naming-and-project-structure.md" },
+        { "label": "Automated Enforcement (Git Hooks & CI)", "path": "12-Engineering-Standards/01-Code-Standardization/04-automated-enforcement.md" },
+        { "label": "DRY & Reusability Principles", "path": "12-Engineering-Standards/02-Code-Reusability/01-dry-and-reusability-principles.md" },
+        { "label": "Reusable Components & Composition", "path": "12-Engineering-Standards/02-Code-Reusability/02-reusable-components-and-composition.md" },
+        { "label": "Reusing Logic — Hooks, Composables & Utilities", "path": "12-Engineering-Standards/02-Code-Reusability/03-reusing-logic-hooks-and-utilities.md" },
+        { "label": "Shared Libraries, Packages & Monorepos", "path": "12-Engineering-Standards/02-Code-Reusability/04-shared-libraries-and-monorepos.md" },
+        { "label": "Custom Tags — Custom Elements", "path": "12-Engineering-Standards/03-Custom-Tags-and-Component-API/01-custom-elements.md" },
+        { "label": "Shadow DOM, Templates & Slots", "path": "12-Engineering-Standards/03-Custom-Tags-and-Component-API/02-shadow-dom-templates-slots.md" },
+        { "label": "Designing Component APIs", "path": "12-Engineering-Standards/03-Custom-Tags-and-Component-API/03-designing-component-apis.md" },
+        { "label": "Component Documentation & Governance", "path": "12-Engineering-Standards/03-Custom-Tags-and-Component-API/04-documentation-and-governance.md" }
+      ]
+    },
+    {
+      "title": "13 · Cheat Sheets & Final Test",
+      "lessons": [
+        { "label": "JavaScript Cheat Sheet", "path": "13-End/01-Cheat-Sheets/javascript-cheatsheet.md" },
+        { "label": "TypeScript Cheat Sheet", "path": "13-End/01-Cheat-Sheets/typescript-cheatsheet.md" },
+        { "label": "React Cheat Sheet", "path": "13-End/01-Cheat-Sheets/react-cheatsheet.md" },
+        { "label": "Angular Cheat Sheet", "path": "13-End/01-Cheat-Sheets/angular-cheatsheet.md" },
+        { "label": "Final Test — Interview Questions", "path": "13-End/02-Final-Test/interview-questions.md" }
+      ]
+    }
+  ]
+}
